@@ -15,6 +15,9 @@ $oum_includes = array(
 	'inc/menus.php',
 	'inc/assets.php',
 	'inc/customizer.php',
+	'inc/theme-options.php',
+	'inc/section-renderer.php',
+	'inc/section-builder.php',
 );
 
 foreach ( $oum_includes as $oum_file ) {
