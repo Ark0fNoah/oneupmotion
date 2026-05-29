@@ -50,8 +50,10 @@ class Assets {
 		}
 
 		$post = get_post();
+		$has_shortcode = $post && has_shortcode( $post->post_content, 'oneup_qr_generator' );
+		$uses_tools_template = is_page_template( 'page-tools.php' );
 
-		if ( ! $post || ! has_shortcode( $post->post_content, 'oneup_qr_generator' ) ) {
+		if ( ! $has_shortcode && ! $uses_tools_template ) {
 			return;
 		}
 
