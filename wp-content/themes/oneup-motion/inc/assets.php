@@ -1,0 +1,31 @@
+<?php
+/**
+ * Theme assets.
+ *
+ * @package OneUpMotion
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+//───────────────────────────────────────
+// Front-end assets
+//───────────────────────────────────────
+function oum_enqueue_assets() {
+	wp_enqueue_style(
+		'oum-main',
+		get_template_directory_uri() . '/assets/css/main.css',
+		array(),
+		oum_asset_version( 'assets/css/main.css' )
+	);
+
+	wp_enqueue_script(
+		'oum-main',
+		get_template_directory_uri() . '/assets/js/main.js',
+		array(),
+		oum_asset_version( 'assets/js/main.js' ),
+		true
+	);
+}
+add_action( 'wp_enqueue_scripts', 'oum_enqueue_assets' );
