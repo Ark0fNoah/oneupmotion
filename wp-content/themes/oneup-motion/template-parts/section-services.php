@@ -15,15 +15,24 @@ $oum_services = array(
 <section class="services section section--light" id="services" aria-labelledby="services-title">
 	<div class="section__inner">
 		<div class="section__header">
-			<p class="eyebrow"><?php echo esc_html__( 'Services', 'oneup-motion' ); ?></p>
-			<h2 id="services-title"><?php echo esc_html__( 'Design and digital work with momentum.', 'oneup-motion' ); ?></h2>
+			<p class="eyebrow"><?php echo esc_html__( 'What we do', 'oneup-motion' ); ?></p>
+			<h2 id="services-title"><?php echo wp_kses_post( __( 'Design and digital work with <span>momentum</span>.', 'oneup-motion' ) ); ?></h2>
 		</div>
+
 		<div class="service-grid">
-			<?php foreach ( $oum_services as $oum_index => $oum_service ) : ?>
+			<?php
+			$oum_descriptions = array(
+				__( 'Modern websites that look sharp and perform even better.', 'oneup-motion' ),
+				__( 'Visual identities that connect, stand out and stick.', 'oneup-motion' ),
+				__( 'Scroll-stopping content that tells your story with impact.', 'oneup-motion' ),
+				__( 'Custom web tools built to solve real problems.', 'oneup-motion' ),
+			);
+			foreach ( $oum_services as $oum_index => $oum_service ) :
+				?>
 				<article class="service-card">
-					<span class="service-card__number"><?php echo esc_html( str_pad( (string) ( $oum_index + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
+					<span class="service-card__icon" aria-hidden="true"></span>
 					<h3><?php echo esc_html( $oum_service ); ?></h3>
-					<p><?php echo esc_html__( 'Focused creative support shaped for modern teams, launches and digital products.', 'oneup-motion' ); ?></p>
+					<p><?php echo esc_html( $oum_descriptions[ $oum_index ] ); ?></p>
 				</article>
 			<?php endforeach; ?>
 		</div>
