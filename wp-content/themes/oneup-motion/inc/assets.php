@@ -20,6 +20,13 @@ function oum_enqueue_assets() {
 		oum_asset_version( 'assets/css/main.css' )
 	);
 
+	wp_enqueue_style(
+		'oum-sections',
+		get_template_directory_uri() . '/assets/css/sections.css',
+		array( 'oum-main' ),
+		oum_asset_version( 'assets/css/sections.css' )
+	);
+
 	wp_enqueue_script(
 		'oum-main',
 		get_template_directory_uri() . '/assets/js/main.js',
