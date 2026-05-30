@@ -88,11 +88,27 @@ function oum_theme_option_defaults() {
 }
 
 //───────────────────────────────────────
+// Theme defaults alias
+//───────────────────────────────────────
+function oum_get_theme_defaults() {
+	return oum_theme_option_defaults();
+}
+
+//───────────────────────────────────────
+// Theme options getter
+//───────────────────────────────────────
+function oum_get_theme_options() {
+	$saved = get_option( 'oum_theme_options', array() );
+
+	return wp_parse_args( is_array( $saved ) ? $saved : array(), oum_get_theme_defaults() );
+}
+
+//───────────────────────────────────────
 // Option getter
 //───────────────────────────────────────
 function oum_get_theme_option( $key, $fallback = null ) {
-	$defaults = oum_theme_option_defaults();
-	$options  = get_option( 'oum_theme_options', array() );
+	$defaults = oum_get_theme_defaults();
+	$options  = oum_get_theme_options();
 	$value    = isset( $options[ $key ] ) ? $options[ $key ] : ( $defaults[ $key ] ?? $fallback );
 
 	return null === $value ? $fallback : $value;
@@ -115,11 +131,12 @@ function oum_font_choices() {
 // Sanitize options
 //───────────────────────────────────────
 function oum_sanitize_theme_options( $input ) {
-	$defaults = oum_theme_option_defaults();
-	$output   = array();
+	$defaults = oum_get_theme_defaults();
+	$output   = oum_get_theme_options();
 	$input    = is_array( $input ) ? $input : array();
 
-	foreach ( array( 'main_logo_id', 'alt_logo_id', 'footer_logo_id' ) as $key ) {
+	$ids = array( 'main_logo_id', 'alt_logo_id', 'footer_logo_id' );
+	foreach ( $ids as $key ) {
 		$output[ $key ] = isset( $input[ $key ] ) ? absint( $input[ $key ] ) : 0;
 	}
 
@@ -139,12 +156,69 @@ function oum_sanitize_theme_options( $input ) {
 		$output[ $key ] = (string) min( max( $value, $range[0] ), $range[1] );
 	}
 
-	foreach ( array( 'header_cta_url', 'footer_instagram', 'footer_x', 'footer_youtube', 'footer_linkedin' ) as $key ) {
+	$url_keys = array( 'header_cta_url', 'footer_instagram', 'footer_x', 'footer_youtube', 'footer_linkedin' );
+	foreach ( $url_keys as $key ) {
 		$output[ $key ] = isset( $input[ $key ] ) ? esc_url_raw( $input[ $key ] ) : '';
 	}
 
-	foreach ( array( 'bg', 'bg_soft', 'navy', 'card', 'card_border', 'text', 'muted', 'soft_muted', 'mint', 'mint_dark', 'button_bg', 'button_text', 'header_bg', 'footer_bg' ) as $key ) {
+	$css_keys = array( 'bg', 'bg_soft', 'navy', 'card', 'card_border', 'text', 'muted', 'soft_muted', 'mint', 'mint_dark', 'button_bg', 'button_text', 'header_bg', 'footer_bg' );
+	foreach ( $css_keys as $key ) {
 		$output[ $key ] = isset( $input[ $key ] ) ? oum_sanitize_css_value( $input[ $key ], $defaults[ $key ] ) : $defaults[ $key ];
+	}
+
+	$selects = array(
+		'heading_font'       => array_keys( oum_font_choices() ),
+		'body_font'          => array_keys( oum_font_choices() ),
+		'button_font'        => array_keys( oum_font_choices() ),
+		'heading_style'      => array( 'normal', 'rounded', 'compact', 'elegant' ),
+		'button_transform'   => array( 'none', 'uppercase' ),
+		'button_padding'     => array( 'small', 'medium', 'large' ),
+		'button_style'       => array( 'filled', 'outline', 'ghost', 'gradient' ),
+		'container_width'    => array( 'narrow', 'default', 'wide' ),
+		'section_spacing'    => array( 'compact', 'default', 'spacious' ),
+		'card_radius'        => array( 'sharp', 'soft', 'rounded' ),
+		'card_style'         => array( 'flat', 'glass', 'outlined', 'glow' ),
+	);
+	foreach ( $selects as $key => $allowed ) {
+		$value          = isset( $input[ $key ] ) ? sanitize_key( $input[ $key ] ) : $defaults[ $key ];
+		$output[ $key ] = in_array( $value, $allowed, true ) ? $value : $defaults[ $key ];
+	}
+
+	$checks = array( 'button_shadow', 'button_hover_lift', 'button_arrow', 'sticky_header', 'transparent_header', 'show_header_cta', 'show_footer_nav', 'show_footer_tools', 'show_footer_resources', 'show_footer_legal', 'use_sections_for_pages', 'hide_page_content_editor', 'enable_post_sections', 'replace_post_editor_with_sections' );
+	foreach ( $checks as $key ) {
+		$output[ $key ] = ! empty( $input[ $key ] ) ? '1' : '0';
+	}
+
+	return $output;
+}
+
+//───────────────────────────────────────
+// Sanitize one option
+//───────────────────────────────────────
+function oum_sanitize_theme_option( $key, $value ) {
+	$defaults = oum_get_theme_defaults();
+
+	if ( in_array( $key, array( 'main_logo_id', 'alt_logo_id', 'footer_logo_id' ), true ) ) {
+		return absint( $value );
+	}
+
+	$logo_sizes = array(
+		'header_logo_max_width'  => array( 60, 320 ),
+		'header_logo_max_height' => array( 24, 120 ),
+		'footer_logo_max_width'  => array( 60, 320 ),
+		'footer_logo_max_height' => array( 24, 120 ),
+	);
+	if ( isset( $logo_sizes[ $key ] ) ) {
+		$range = $logo_sizes[ $key ];
+		return (string) min( max( absint( $value ), $range[0] ), $range[1] );
+	}
+
+	if ( in_array( $key, array( 'header_cta_url', 'footer_instagram', 'footer_x', 'footer_youtube', 'footer_linkedin' ), true ) ) {
+		return esc_url_raw( $value );
+	}
+
+	if ( in_array( $key, array( 'bg', 'bg_soft', 'navy', 'card', 'card_border', 'text', 'muted', 'soft_muted', 'mint', 'mint_dark', 'button_bg', 'button_text', 'header_bg', 'footer_bg' ), true ) ) {
+		return oum_sanitize_css_value( $value, $defaults[ $key ] ?? '' );
 	}
 
 	$selects = array(
@@ -160,16 +234,45 @@ function oum_sanitize_theme_options( $input ) {
 		'card_radius'      => array( 'sharp', 'soft', 'rounded' ),
 		'card_style'       => array( 'flat', 'glass', 'outlined', 'glow' ),
 	);
-	foreach ( $selects as $key => $allowed ) {
-		$value          = isset( $input[ $key ] ) ? sanitize_key( $input[ $key ] ) : $defaults[ $key ];
-		$output[ $key ] = in_array( $value, $allowed, true ) ? $value : $defaults[ $key ];
+	if ( isset( $selects[ $key ] ) ) {
+		$value = sanitize_key( $value );
+		return in_array( $value, $selects[ $key ], true ) ? $value : ( $defaults[ $key ] ?? '' );
 	}
 
-	foreach ( array( 'button_shadow', 'button_hover_lift', 'button_arrow', 'sticky_header', 'transparent_header', 'show_header_cta', 'show_footer_nav', 'show_footer_tools', 'show_footer_resources', 'show_footer_legal', 'use_sections_for_pages', 'hide_page_content_editor', 'enable_post_sections', 'replace_post_editor_with_sections' ) as $key ) {
-		$output[ $key ] = ! empty( $input[ $key ] ) ? '1' : '0';
+	if ( in_array( $key, oum_checkbox_option_keys(), true ) ) {
+		return ! empty( $value ) ? '1' : '0';
 	}
 
-	return $output;
+	return sanitize_text_field( $value );
+}
+
+//───────────────────────────────────────
+// Checkbox option keys
+//───────────────────────────────────────
+function oum_checkbox_option_keys() {
+	return array( 'button_shadow', 'button_hover_lift', 'button_arrow', 'sticky_header', 'transparent_header', 'show_header_cta', 'show_footer_nav', 'show_footer_tools', 'show_footer_resources', 'show_footer_legal', 'use_sections_for_pages', 'hide_page_content_editor', 'enable_post_sections', 'replace_post_editor_with_sections' );
+}
+
+//───────────────────────────────────────
+// Update merged theme options
+//───────────────────────────────────────
+function oum_update_theme_options( $new_values, $submitted_keys = array() ) {
+	$options        = oum_get_theme_options();
+	$submitted_keys = array_map( 'sanitize_key', (array) $submitted_keys );
+	$new_values     = is_array( $new_values ) ? $new_values : array();
+
+	foreach ( $submitted_keys as $key ) {
+		if ( ! array_key_exists( $key, oum_get_theme_defaults() ) ) {
+			continue;
+		}
+
+		$value           = array_key_exists( $key, $new_values ) ? $new_values[ $key ] : '';
+		$options[ $key ] = oum_sanitize_theme_option( $key, $value );
+	}
+
+	update_option( 'oum_theme_options', $options );
+
+	return $options;
 }
 
 //───────────────────────────────────────
@@ -189,7 +292,13 @@ function oum_sanitize_css_value( $value, $fallback ) {
 // Admin menu
 //───────────────────────────────────────
 function oum_register_theme_options_page() {
-	add_theme_page( __( 'OneUp Motion', 'oneup-motion' ), __( 'OneUp Motion', 'oneup-motion' ), 'edit_theme_options', 'oum-theme-options', 'oum_render_theme_options_page' );
+	add_theme_page(
+		__( 'OneUp Motion', 'oneup-motion' ),
+		__( 'OneUp Motion', 'oneup-motion' ),
+		'edit_theme_options',
+		'oum-theme-options',
+		'oum_render_theme_options_page'
+	);
 }
 add_action( 'admin_menu', 'oum_register_theme_options_page' );
 
@@ -223,21 +332,26 @@ function oum_render_theme_options_page() {
 		return;
 	}
 
-	$options = wp_parse_args( get_option( 'oum_theme_options', array() ), oum_theme_option_defaults() );
+	$options = oum_get_theme_options();
 	$tabs    = oum_theme_options_tabs();
 	$active  = isset( $_GET['tab'] ) ? sanitize_key( wp_unslash( $_GET['tab'] ) ) : 'branding';
 	$active  = isset( $tabs[ $active ] ) ? $active : 'branding';
 	?>
 	<div class="wrap oum-admin-page">
 		<h1><?php echo esc_html__( 'OneUp Motion Theme Settings', 'oneup-motion' ); ?></h1>
+		<?php if ( isset( $_GET['settings-updated'] ) && '1' === sanitize_text_field( wp_unslash( $_GET['settings-updated'] ) ) ) : ?>
+			<div class="notice notice-success is-dismissible"><p><?php echo esc_html__( 'Settings saved.', 'oneup-motion' ); ?></p></div>
+		<?php endif; ?>
 		<p><?php echo esc_html__( 'Manage brand, colors, typography, layout, header, footer and section-builder settings.', 'oneup-motion' ); ?></p>
 		<nav class="nav-tab-wrapper" aria-label="<?php echo esc_attr__( 'OneUp Motion settings tabs', 'oneup-motion' ); ?>">
 			<?php foreach ( $tabs as $tab => $label ) : ?>
 				<a class="nav-tab <?php echo $active === $tab ? 'nav-tab-active' : ''; ?>" href="<?php echo esc_url( add_query_arg( array( 'page' => 'oum-theme-options', 'tab' => $tab ), admin_url( 'themes.php' ) ) ); ?>"><?php echo esc_html( $label ); ?></a>
 			<?php endforeach; ?>
 		</nav>
-		<form method="post" action="<?php echo esc_url( add_query_arg( 'tab', $active, admin_url( 'options.php' ) ) ); ?>">
-			<?php settings_fields( 'oum_theme_options_group' ); ?>
+		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+			<?php wp_nonce_field( 'oum_save_theme_options', 'oum_theme_options_nonce' ); ?>
+			<input type="hidden" name="action" value="oum_save_theme_options">
+			<input type="hidden" name="oum_active_tab" value="<?php echo esc_attr( $active ); ?>">
 			<div class="oum-admin-grid oum-admin-grid--single">
 				<?php oum_render_theme_options_tab( $active, $options ); ?>
 			</div>
@@ -246,6 +360,38 @@ function oum_render_theme_options_page() {
 	</div>
 	<?php
 }
+
+//───────────────────────────────────────
+// Save theme options
+//───────────────────────────────────────
+function oum_handle_theme_options_save() {
+	if ( ! current_user_can( 'edit_theme_options' ) ) {
+		wp_die( esc_html__( 'You do not have permission to edit theme options.', 'oneup-motion' ) );
+	}
+
+	if ( ! isset( $_POST['oum_theme_options_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['oum_theme_options_nonce'] ) ), 'oum_save_theme_options' ) ) {
+		wp_die( esc_html__( 'Security check failed.', 'oneup-motion' ) );
+	}
+
+	$values = isset( $_POST['oum_theme_options'] ) && is_array( $_POST['oum_theme_options'] ) ? wp_unslash( $_POST['oum_theme_options'] ) : array();
+	$keys   = isset( $_POST['oum_submitted_keys'] ) && is_array( $_POST['oum_submitted_keys'] ) ? wp_unslash( $_POST['oum_submitted_keys'] ) : array();
+	$tab    = isset( $_POST['oum_active_tab'] ) ? sanitize_key( wp_unslash( $_POST['oum_active_tab'] ) ) : 'branding';
+
+	oum_update_theme_options( $values, $keys );
+
+	wp_safe_redirect(
+		add_query_arg(
+			array(
+				'page'             => 'oum-theme-options',
+				'tab'              => $tab,
+				'settings-updated' => '1',
+			),
+			admin_url( 'themes.php' )
+		)
+	);
+	exit;
+}
+add_action( 'admin_post_oum_save_theme_options', 'oum_handle_theme_options_save' );
 
 //───────────────────────────────────────
 // Settings tabs
@@ -285,12 +431,17 @@ function oum_option_name( $key ) {
 	return 'oum_theme_options[' . esc_attr( $key ) . ']';
 }
 
+function oum_register_submitted_option_key( $key ) {
+	echo '<input type="hidden" name="oum_submitted_keys[]" value="' . esc_attr( $key ) . '">';
+}
+
 function oum_text_field( $options, $key, $label, $type = 'text' ) {
 	?>
 	<label>
 		<span><?php echo esc_html( $label ); ?></span>
 		<input type="<?php echo esc_attr( $type ); ?>" name="<?php echo esc_attr( oum_option_name( $key ) ); ?>" value="<?php echo esc_attr( $options[ $key ] ?? '' ); ?>">
 	</label>
+	<?php oum_register_submitted_option_key( $key ); ?>
 	<?php
 }
 
@@ -304,6 +455,7 @@ function oum_select_field( $options, $key, $label, $choices ) {
 			<?php endforeach; ?>
 		</select>
 	</label>
+	<?php oum_register_submitted_option_key( $key ); ?>
 	<?php
 }
 
@@ -313,6 +465,7 @@ function oum_checkbox_field( $options, $key, $label ) {
 		<input type="checkbox" name="<?php echo esc_attr( oum_option_name( $key ) ); ?>" value="1" <?php checked( $options[ $key ] ?? '', '1' ); ?>>
 		<span><?php echo esc_html( $label ); ?></span>
 	</label>
+	<?php oum_register_submitted_option_key( $key ); ?>
 	<?php
 }
 
@@ -326,6 +479,7 @@ function oum_media_field( $options, $key, $label ) {
 		<button type="button" class="button-link" data-oum-media-clear><?php echo esc_html__( 'Remove', 'oneup-motion' ); ?></button>
 		<span class="oum-media-preview" data-oum-media-preview><?php echo $value ? wp_get_attachment_image( $value, 'thumbnail' ) : ''; ?></span>
 	</label>
+	<?php oum_register_submitted_option_key( $key ); ?>
 	<?php
 }
 
