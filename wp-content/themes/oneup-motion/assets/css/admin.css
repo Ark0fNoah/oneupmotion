@@ -186,6 +186,14 @@
 	padding: 12px;
 }
 
+.oum-repeater__controls {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-bottom: 10px;
+}
+
 @media (max-width: 782px) {
 	.oum-sections-toolbar,
 	.oum-section-panel__header,
