@@ -24,6 +24,11 @@ function oum_section_types() {
 		'faq'           => __( 'FAQ Section', 'oneup-motion' ),
 		'contact'       => __( 'Contact Section', 'oneup-motion' ),
 		'qr_generator'  => __( 'QR Generator', 'oneup-motion' ),
+		'logo_strip'    => __( 'Logo Strip / Trust Strip', 'oneup-motion' ),
+		'preview_boxes' => __( 'Preview Boxes', 'oneup-motion' ),
+		'feature_grid'  => __( 'Services / Feature Grid', 'oneup-motion' ),
+		'story'         => __( 'Story / About Section', 'oneup-motion' ),
+		'shortcode'     => __( 'Custom Shortcode', 'oneup-motion' ),
 	);
 }
 
@@ -83,6 +88,41 @@ function oum_render_sections( $post_id = null ) {
 //───────────────────────────────────────
 function oum_section_field( $section, $key, $fallback = '' ) {
 	return isset( $section[ $key ] ) && '' !== $section[ $key ] ? $section[ $key ] : $fallback;
+}
+
+//───────────────────────────────────────
+// Section class helper
+//───────────────────────────────────────
+function oum_section_classes( $section, $base = 'oum-section' ) {
+	$classes = array(
+		$base,
+		'section',
+		'oum-bg-' . sanitize_html_class( oum_section_field( $section, 'background_style', 'default' ) ),
+		'oum-width-' . sanitize_html_class( oum_section_field( $section, 'layout_width', 'default' ) ),
+		'oum-spacing-' . sanitize_html_class( oum_section_field( $section, 'section_spacing', 'default' ) ),
+		'oum-align-' . sanitize_html_class( oum_section_field( $section, 'text_alignment', 'left' ) ),
+	);
+
+	$custom = oum_section_field( $section, 'custom_class', '' );
+	if ( $custom ) {
+		foreach ( preg_split( '/\s+/', $custom ) as $class ) {
+			$class = sanitize_html_class( $class );
+			if ( $class ) {
+				$classes[] = $class;
+			}
+		}
+	}
+
+	return implode( ' ', array_unique( array_filter( $classes ) ) );
+}
+
+//───────────────────────────────────────
+// Section anchor helper
+//───────────────────────────────────────
+function oum_section_anchor_attr( $section ) {
+	$anchor = sanitize_title( oum_section_field( $section, 'section_anchor', '' ) );
+
+	return $anchor ? ' id="' . esc_attr( $anchor ) . '"' : '';
 }
 
 //───────────────────────────────────────
