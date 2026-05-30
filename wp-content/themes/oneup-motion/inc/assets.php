@@ -27,6 +27,13 @@ function oum_enqueue_assets() {
 		oum_asset_version( 'assets/css/sections.css' )
 	);
 
+	wp_enqueue_style(
+		'oum-section-addons',
+		get_template_directory_uri() . '/assets/css/section-addons.css',
+		array( 'oum-sections' ),
+		oum_asset_version( 'assets/css/section-addons.css' )
+	);
+
 	wp_enqueue_script(
 		'oum-main',
 		get_template_directory_uri() . '/assets/js/main.js',
