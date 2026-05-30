@@ -1,0 +1,1706 @@
+:root{
+  --oneup-admin-bg:#03101f;
+  --oneup-admin-bg-soft:#071a2e;
+  --oneup-admin-navy:#001f3d;
+  --oneup-admin-card:rgba(255,255,255,.055);
+  --oneup-admin-card-border:rgba(255,255,255,.12);
+  --oneup-admin-text:#fff;
+  --oneup-admin-muted:rgba(255,255,255,.72);
+  --oneup-admin-soft-muted:rgba(255,255,255,.52);
+  --oneup-admin-mint:#20f0c0;
+  --oneup-admin-mint-dark:#08caa0;
+  --oneup-admin-radius:22px;
+  --oneup-admin-radius-sm:14px;
+  --oneup-admin-shadow:0 24px 80px rgba(0,0,0,.35);
+}
+
+#adminmenu,#adminmenu .wp-submenu,#adminmenuback,#adminmenuwrap,#wpadminbar{background:var(--oneup-admin-bg)!important}
+#adminmenu a,#wpadminbar a{color:rgba(255,255,255,.72)!important}
+#adminmenu a:hover,#adminmenu li.menu-top:hover,#adminmenu li.opensub>a.menu-top,#adminmenu li>a.menu-top:focus,#wpadminbar .ab-top-menu>li.hover>.ab-item,#wpadminbar.nojq .quicklinks .ab-top-menu>li>.ab-item:focus,#wpadminbar:not(.mobile) .ab-top-menu>li:hover>.ab-item{background:rgba(255,255,255,.06)!important;color:#fff!important}
+#adminmenu .wp-has-current-submenu .wp-submenu,#adminmenu .wp-has-current-submenu .wp-submenu.sub-open,#adminmenu .wp-has-current-submenu.opensub .wp-submenu,#adminmenu a.wp-has-current-submenu:focus+.wp-submenu{background:#071a2e!important}
+#adminmenu .wp-has-current-submenu>a.wp-has-current-submenu,#adminmenu .current a.menu-top,#adminmenu .wp-menu-arrow,#adminmenu .wp-menu-arrow div,#adminmenu li.current a.menu-top{background:linear-gradient(90deg,rgba(32,240,192,.22),rgba(255,255,255,.04))!important;color:#fff!important}
+#adminmenu .wp-has-current-submenu>a:after,#adminmenu>li.current>a.current:after{border-right-color:#f0f6fc!important}
+#adminmenu div.wp-menu-image:before,#wpadminbar .ab-icon:before,#wpadminbar .ab-item:before{color:var(--oneup-admin-mint)!important}
+
+body.wp-admin{background:#f0f6fc}
+.wrap h1{font-weight:900;letter-spacing:-.035em}
+.button-primary,.wp-core-ui .button-primary{background:var(--oneup-admin-mint)!important;border-color:var(--oneup-admin-mint)!important;border-radius:999px!important;box-shadow:0 12px 30px rgba(32,240,192,.22)!important;color:#02131f!important;font-weight:800;text-shadow:none!important}
+.wp-core-ui .button,.wp-core-ui .button-secondary{border-radius:999px;font-weight:700}
+.notice{border-radius:12px;border-left-color:var(--oneup-admin-mint)}
+.postbox{border-radius:16px;border-color:#dbe7f1;box-shadow:0 12px 34px rgba(3,16,31,.06)}
+.postbox .hndle,.postbox .handlediv{color:#03101f}
+
+.oneup-admin-wrap{max-width:1180px}
+.oneup-admin-hero{background:radial-gradient(circle at 20% 0,rgba(32,240,192,.2),transparent 24rem),linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),var(--oneup-admin-bg);border:1px solid var(--oneup-admin-card-border);border-radius:28px;box-shadow:var(--oneup-admin-shadow);color:#fff;margin:22px 0;padding:36px;position:relative;overflow:hidden}
+.oneup-admin-hero:before{background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:48px 48px;content:"";inset:0;mask-image:linear-gradient(110deg,#000,transparent 75%);position:absolute;pointer-events:none}
+.oneup-admin-hero>*{position:relative;z-index:1}
+.oneup-admin-hero h1{color:#fff;font-size:clamp(2.2rem,5vw,4.8rem);line-height:.95;margin:0 0 10px}
+.oneup-admin-hero p{color:var(--oneup-admin-muted);font-size:16px;margin:0;max-width:650px}
+.oneup-admin-eyebrow{color:var(--oneup-admin-mint)!important;font-size:12px!important;font-weight:950!important;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px!important}
+.oneup-admin-tabs{border-bottom:0;margin-bottom:0;padding-left:8px}
+.oneup-admin-tabs .nav-tab{background:#fff;border:1px solid #dbe7f1;border-radius:14px 14px 0 0;color:#03101f;font-weight:800;margin-left:0;margin-right:6px;padding:10px 18px}
+.oneup-admin-tabs .nav-tab-active{background:var(--oneup-admin-bg);border-color:var(--oneup-admin-bg);color:#fff}
+.oneup-admin-card{background:#fff;border:1px solid #dbe7f1;border-radius:0 22px 22px 22px;box-shadow:0 18px 50px rgba(3,16,31,.08);padding:28px}
+.oneup-admin-field{display:block;margin:0 0 22px;max-width:760px}
+.oneup-admin-field>span{color:#03101f;display:block;font-size:13px;font-weight:900;margin-bottom:8px}
+.oneup-admin-field input[type=text],.oneup-admin-field input[type=color],.oneup-admin-field textarea,.oneup-admin-field select{border:1px solid #d7e3ee;border-radius:12px;box-shadow:none;max-width:100%;padding:10px 12px;width:100%}
+.oneup-admin-field input[type=color]{height:44px;padding:4px;width:110px}
+.oneup-admin-field--checkbox{align-items:center;display:flex;gap:10px}.oneup-admin-field--checkbox span{margin:0}.oneup-admin-field--checkbox input{margin:0}
+.oneup-admin-media-preview{align-items:center;background:#f5f9fc;border:1px dashed #cbd9e5;border-radius:16px;display:flex;min-height:90px;max-width:280px;padding:14px}.oneup-admin-media-preview:empty:before{color:#6c7a89;content:"No image selected"}.oneup-admin-media-preview__image{max-height:90px;width:auto}.oneup-admin-media-actions{display:flex;gap:12px;margin-top:10px;align-items:center}
+.oneup-admin-save{font-size:14px;min-height:42px;padding:8px 20px!important}
+
+#dashboard-widgets .postbox[id^="oneup_admin_"]{background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),var(--oneup-admin-bg);border:1px solid var(--oneup-admin-card-border);border-radius:22px;box-shadow:var(--oneup-admin-shadow);color:#fff;overflow:hidden}
+#dashboard-widgets .postbox[id^="oneup_admin_"] .hndle,#dashboard-widgets .postbox[id^="oneup_admin_"] h2{color:#fff!important;font-weight:900}
+#dashboard-widgets .postbox[id^="oneup_admin_"] .inside{color:var(--oneup-admin-muted)}
+.oneup-dashboard-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.oneup-admin-link-list,.oneup-admin-status-list,.oneup-admin-roadmap{list-style:none;margin:0;padding:0}.oneup-admin-link-list li,.oneup-admin-roadmap li{border-bottom:1px solid rgba(255,255,255,.09);margin:0;padding:10px 0}.oneup-admin-link-list a{color:var(--oneup-admin-mint);font-weight:800}.oneup-admin-status-list li{align-items:center;border-bottom:1px solid rgba(255,255,255,.09);display:flex;justify-content:space-between;margin:0;padding:10px 0}.oneup-admin-status-list strong{color:#fff}.oneup-admin-status-list span{color:var(--oneup-admin-muted)}
+
+/* OneUp Sections styling if the theme builder is active. */
+.oum-sections-builder{background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025)),var(--oneup-admin-bg);border:1px solid var(--oneup-admin-card-border);border-radius:22px;box-shadow:var(--oneup-admin-shadow);color:#fff;padding:22px}.oum-sections-toolbar{align-items:center;display:flex;gap:12px;margin-bottom:18px}.oum-sections-toolbar select{border-radius:999px;min-height:42px}.oum-section-panel{background:rgba(255,255,255,.055);border:1px solid var(--oneup-admin-card-border);border-radius:18px;margin:0 0 14px;overflow:hidden}.oum-section-panel__header{align-items:center;display:flex;justify-content:space-between;padding:14px 16px}.oum-section-panel__header strong{color:#fff}.oum-section-panel__body{border-top:1px solid var(--oneup-admin-card-border);padding:16px}.oum-section-panel.is-collapsed .oum-section-panel__body{display:none}.oum-section-field{margin-bottom:14px}.oum-section-field label>span,.oum-repeater label>span{color:var(--oneup-admin-muted);display:block;font-weight:800;margin-bottom:6px}.oum-section-field input[type=text],.oum-section-field input[type=url],.oum-section-field textarea,.oum-section-field select,.oum-repeater textarea{background:#fff;border:1px solid transparent;border-radius:12px;box-shadow:none;width:100%}.oum-repeater__item{background:rgba(255,255,255,.05);border:1px solid var(--oneup-admin-card-border);border-radius:14px;margin:0 0 12px;padding:12px}
+
+@media (max-width:782px){.oneup-admin-card{border-radius:0 0 20px 20px;padding:18px}.oneup-admin-tabs .nav-tab{border-radius:12px;margin-bottom:6px}.oneup-admin-hero{padding:24px}.oum-sections-toolbar{align-items:stretch;flex-direction:column}}
+
+/*───────────────────────────────────────
+  OneUp Admin v1.1 - stronger full admin skin
+───────────────────────────────────────*/
+html.wp-toolbar,
+body.wp-admin {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(32,240,192,.16), transparent 34rem),
+    radial-gradient(circle at 92% 8%, rgba(8,202,160,.10), transparent 30rem),
+    var(--oneup-admin-bg) !important;
+  color: var(--oneup-admin-text);
+}
+
+body.wp-admin:before {
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  content: "";
+  inset: 0;
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 78%);
+  pointer-events: none;
+  position: fixed;
+  z-index: -1;
+}
+
+#wpwrap,
+#wpcontent,
+#wpbody,
+#wpbody-content {
+  background: transparent !important;
+}
+
+#wpcontent {
+  padding-left: 190px;
+}
+
+.folded #wpcontent {
+  padding-left: 54px;
+}
+
+#wpbody-content {
+  color: var(--oneup-admin-text);
+  padding-bottom: 56px;
+}
+
+#screen-meta,
+#screen-meta-links .show-settings,
+#contextual-help-link-wrap,
+#screen-options-link-wrap {
+  background: rgba(255,255,255,.055) !important;
+  border-color: var(--oneup-admin-card-border) !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+#screen-meta label,
+#screen-meta legend,
+#screen-meta p,
+#screen-meta a {
+  color: var(--oneup-admin-muted) !important;
+}
+
+/* Apply the website-style heading treatment to normal admin pages. */
+.wrap:not(.oneup-admin-wrap) > h1,
+.wrap:not(.oneup-admin-wrap) > .wp-heading-inline:first-child {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(32,240,192,.18), transparent 24rem),
+    linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02)),
+    var(--oneup-admin-bg);
+  border: 1px solid var(--oneup-admin-card-border);
+  border-radius: 28px;
+  box-shadow: var(--oneup-admin-shadow);
+  color: #fff !important;
+  display: block;
+  font-size: clamp(2.1rem, 4.2vw, 4.7rem) !important;
+  font-weight: 950 !important;
+  letter-spacing: -.055em !important;
+  line-height: .95 !important;
+  margin: 22px 0 24px !important;
+  max-width: 1180px;
+  overflow: hidden;
+  padding: 34px 36px !important;
+  position: relative;
+}
+
+.wrap:not(.oneup-admin-wrap) > h1:before,
+.wrap:not(.oneup-admin-wrap) > .wp-heading-inline:first-child:before {
+  background-image:
+    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  content: "";
+  inset: 0;
+  mask-image: linear-gradient(110deg, #000, transparent 72%);
+  pointer-events: none;
+  position: absolute;
+}
+
+.wrap:not(.oneup-admin-wrap) > h1:after,
+.wrap:not(.oneup-admin-wrap) > .wp-heading-inline:first-child:after {
+  color: var(--oneup-admin-mint);
+  content: "ONEUP MOTION";
+  display: block;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .18em;
+  line-height: 1;
+  margin-bottom: 16px;
+  order: -1;
+  text-transform: uppercase;
+}
+
+.wrap .page-title-action {
+  background: rgba(255,255,255,.055) !important;
+  border: 1px solid var(--oneup-admin-card-border) !important;
+  border-radius: 999px !important;
+  color: var(--oneup-admin-text) !important;
+  font-weight: 850;
+  margin-left: 0;
+  padding: 8px 16px !important;
+  position: relative;
+  top: -10px;
+}
+
+.wrap .page-title-action:hover,
+.wrap .page-title-action:focus {
+  background: rgba(255,255,255,.09) !important;
+  border-color: rgba(32,240,192,.45) !important;
+  color: var(--oneup-admin-mint) !important;
+}
+
+/* Replace the plain white admin canvas with OneUp dark glass surfaces. */
+.wrap,
+.wrap p,
+.wrap label,
+.wrap legend,
+.form-table th,
+.form-table td,
+#poststuff,
+#post-body-content,
+.edit-post-layout,
+.block-editor-page #wpbody-content {
+  color: var(--oneup-admin-muted);
+}
+
+.wrap h2,
+.wrap h3,
+.wrap h4,
+.wrap .postbox-header h2,
+.wrap .postbox .hndle,
+.wrap .form-table th,
+.wrap .subsubsub a.current,
+.wrap strong {
+  color: var(--oneup-admin-text) !important;
+}
+
+.wrap a,
+.subsubsub a,
+.row-actions a {
+  color: var(--oneup-admin-mint);
+}
+
+.postbox,
+.stuffbox,
+.widefat,
+.card,
+.health-check-accordion,
+.privacy-settings-accordion,
+.theme-browser .theme,
+.plugin-card,
+.plugins .active th,
+.plugins .active td,
+.plugins tr,
+.wp-list-table,
+#dashboard-widgets .postbox,
+#poststuff .postbox,
+.metabox-holder .postbox,
+.notice,
+.update-nag,
+#titlediv #title,
+#postdivrich,
+#post-status-info,
+#slugdiv,
+#submitdiv,
+#minor-publishing,
+#major-publishing-actions {
+  background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)), var(--oneup-admin-bg-soft) !important;
+  border-color: var(--oneup-admin-card-border) !important;
+  color: var(--oneup-admin-muted) !important;
+}
+
+.widefat thead th,
+.widefat tfoot th,
+.widefat thead td,
+.widefat tfoot td {
+  background: rgba(255,255,255,.055) !important;
+  border-color: var(--oneup-admin-card-border) !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+.widefat td,
+.widefat th,
+.plugins td,
+.plugins th,
+.form-table td,
+.form-table th {
+  border-color: rgba(255,255,255,.08) !important;
+}
+
+.alternate,
+.striped > tbody > :nth-child(odd),
+ul.striped > :nth-child(odd),
+.plugins .inactive,
+.plugins .inactive th,
+.plugins .inactive td {
+  background: rgba(255,255,255,.025) !important;
+}
+
+input[type=text],
+input[type=password],
+input[type=color],
+input[type=date],
+input[type=datetime-local],
+input[type=datetime],
+input[type=email],
+input[type=month],
+input[type=number],
+input[type=search],
+input[type=tel],
+input[type=time],
+input[type=url],
+input[type=week],
+select,
+textarea,
+.wp-core-ui select {
+  background: rgba(255,255,255,.07) !important;
+  border: 1px solid var(--oneup-admin-card-border) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--oneup-admin-soft-muted) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: rgba(32,240,192,.65) !important;
+  box-shadow: 0 0 0 3px rgba(32,240,192,.12) !important;
+  outline: none !important;
+}
+
+.wp-core-ui .button,
+.wp-core-ui .button-secondary,
+.wp-core-ui .button-link-delete,
+.wp-core-ui .button-link {
+  border-radius: 999px !important;
+  font-weight: 800 !important;
+}
+
+.wp-core-ui .button,
+.wp-core-ui .button-secondary {
+  background: rgba(255,255,255,.055) !important;
+  border-color: var(--oneup-admin-card-border) !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+.wp-core-ui .button:hover,
+.wp-core-ui .button-secondary:hover {
+  background: rgba(255,255,255,.09) !important;
+  border-color: rgba(32,240,192,.45) !important;
+  color: var(--oneup-admin-mint) !important;
+}
+
+.notice,
+.update-nag {
+  border-left-color: var(--oneup-admin-mint) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 18px 50px rgba(0,0,0,.18) !important;
+}
+
+.notice p,
+.update-nag,
+.notice-title {
+  color: var(--oneup-admin-text) !important;
+}
+
+/* Left menu: separate rounded dark buttons, matching the frontend card/button language. */
+#adminmenuback,
+#adminmenuwrap {
+  background: #020b15 !important;
+  border-right: 1px solid rgba(255,255,255,.08);
+}
+
+#adminmenuwrap {
+  padding: 10px 8px;
+}
+
+#adminmenu {
+  background: transparent !important;
+  margin: 0 !important;
+}
+
+#adminmenu li.menu-top {
+  margin: 5px 0 !important;
+}
+
+#adminmenu li.menu-top > a.menu-top,
+#collapse-button {
+  background: rgba(255,255,255,.045) !important;
+  border: 1px solid transparent !important;
+  border-radius: 16px !important;
+  color: var(--oneup-admin-muted) !important;
+  margin: 0 !important;
+  min-height: 42px !important;
+  overflow: hidden;
+  transition: background .16s ease, border-color .16s ease, color .16s ease, transform .16s ease;
+}
+
+#adminmenu li.menu-top > a.menu-top:hover,
+#adminmenu li.menu-top.opensub > a.menu-top,
+#adminmenu li.menu-top.wp-has-current-submenu > a.menu-top,
+#adminmenu li.current > a.menu-top,
+#collapse-button:hover {
+  background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.04)) !important;
+  border-color: rgba(32,240,192,.32) !important;
+  color: #fff !important;
+  transform: translateX(2px);
+}
+
+#adminmenu .wp-has-current-submenu > a.wp-has-current-submenu,
+#adminmenu .current a.menu-top,
+#adminmenu li.current a.menu-top {
+  box-shadow: 0 0 0 1px rgba(32,240,192,.24), 0 14px 32px rgba(32,240,192,.08) !important;
+}
+
+#adminmenu div.wp-menu-name {
+  font-weight: 800;
+  padding: 11px 10px 11px 36px !important;
+}
+
+#adminmenu div.wp-menu-image {
+  margin-left: 2px;
+  top: 5px;
+}
+
+#adminmenu .wp-submenu {
+  background: rgba(2,11,21,.98) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 24px 70px rgba(0,0,0,.35) !important;
+  overflow: hidden;
+  padding: 8px !important;
+}
+
+#adminmenu .wp-submenu a {
+  border-radius: 12px;
+  color: var(--oneup-admin-muted) !important;
+  margin: 2px 0;
+  padding: 8px 12px !important;
+}
+
+#adminmenu .wp-submenu a:hover,
+#adminmenu .wp-submenu li.current a {
+  background: rgba(32,240,192,.12) !important;
+  color: var(--oneup-admin-mint) !important;
+}
+
+#adminmenu .wp-has-current-submenu .wp-submenu {
+  margin: 6px 0 8px 0 !important;
+  position: static !important;
+}
+
+#adminmenu .wp-menu-arrow,
+#adminmenu .wp-menu-arrow div,
+#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu:after,
+#adminmenu > li.current > a.current:after {
+  display: none !important;
+}
+
+/* Admin top bar refinements. */
+#wpadminbar {
+  border-bottom: 1px solid rgba(255,255,255,.08) !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,.22) !important;
+}
+
+#wpadminbar .ab-item,
+#wpadminbar a.ab-item,
+#wpadminbar > #wp-toolbar span.ab-label,
+#wpadminbar > #wp-toolbar span.noticon {
+  color: var(--oneup-admin-muted) !important;
+  font-weight: 750;
+}
+
+#wpadminbar .ab-top-menu > li.hover > .ab-item,
+#wpadminbar .ab-top-menu > li:hover > .ab-item,
+#wpadminbar .ab-top-menu > li > .ab-item:focus {
+  background: rgba(255,255,255,.06) !important;
+  color: #fff !important;
+}
+
+#wpadminbar .menupop .ab-sub-wrapper {
+  background: #020b15 !important;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 24px 70px rgba(0,0,0,.35);
+  overflow: hidden;
+}
+
+/* Settings page should also lose the large white form surface. */
+.oneup-admin-card {
+  background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)), var(--oneup-admin-bg-soft) !important;
+  border-color: var(--oneup-admin-card-border) !important;
+  color: var(--oneup-admin-muted) !important;
+}
+
+.oneup-admin-tabs .nav-tab {
+  background: rgba(255,255,255,.055) !important;
+  border-color: var(--oneup-admin-card-border) !important;
+  color: var(--oneup-admin-muted) !important;
+}
+
+.oneup-admin-tabs .nav-tab-active {
+  background: var(--oneup-admin-bg-soft) !important;
+  border-color: rgba(32,240,192,.38) !important;
+  color: #fff !important;
+  box-shadow: 0 -8px 28px rgba(32,240,192,.08);
+}
+
+.oneup-admin-field > span {
+  color: var(--oneup-admin-text) !important;
+}
+
+.oneup-admin-media-preview {
+  background: rgba(255,255,255,.055) !important;
+  border-color: rgba(255,255,255,.16) !important;
+  color: var(--oneup-admin-muted) !important;
+}
+
+@media (max-width: 960px) {
+  #wpcontent { padding-left: 36px; }
+  .auto-fold #wpcontent { padding-left: 36px; }
+  .wrap:not(.oneup-admin-wrap) > h1,
+  .wrap:not(.oneup-admin-wrap) > .wp-heading-inline:first-child {
+    border-radius: 22px;
+    padding: 26px 22px !important;
+  }
+}
+
+@media (max-width: 782px) {
+  #wpcontent { padding-left: 10px; }
+  #adminmenuwrap { padding: 0; }
+}
+
+/*───────────────────────────────────────
+  OneUp Admin v1.2 - admin polish fixes
+───────────────────────────────────────*/
+
+/* Remove the visible side/outline border on rounded menu buttons while keeping a soft dark hover. */
+#adminmenu li.menu-top > a.menu-top,
+#collapse-button {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+#adminmenu li.menu-top > a.menu-top:hover,
+#adminmenu li.menu-top.opensub > a.menu-top,
+#adminmenu li.menu-top.wp-has-current-submenu > a.menu-top,
+#adminmenu li.current > a.menu-top,
+#collapse-button:hover {
+  background: linear-gradient(145deg, rgba(255,255,255,.095), rgba(255,255,255,.045)) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: #fff !important;
+  transform: none !important;
+}
+
+#adminmenu .wp-has-current-submenu > a.wp-has-current-submenu,
+#adminmenu .current a.menu-top,
+#adminmenu li.current a.menu-top {
+  background: linear-gradient(145deg, rgba(255,255,255,.105), rgba(255,255,255,.05)) !important;
+  border-color: transparent !important;
+  box-shadow: inset 0 0 0 1px rgba(32,240,192,.22) !important;
+}
+
+/* Keep WordPress menu arrows/side pointers gone in all states. */
+#adminmenu .wp-menu-arrow,
+#adminmenu .wp-menu-arrow div,
+#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu:after,
+#adminmenu > li.current > a.current:after,
+#adminmenu li.menu-top:hover .wp-menu-arrow,
+#adminmenu li.opensub .wp-menu-arrow {
+  display: none !important;
+  border: 0 !important;
+}
+
+/* OneUp Sections: remove remaining white system panels and use the dark site style. */
+.oum-sections-toolbar,
+.oum-sections-empty {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+.oum-sections-builder__intro {
+  background: rgba(255,255,255,.055) !important;
+  border: 1px solid var(--oneup-admin-card-border) !important;
+  border-radius: 18px !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+.oum-sections-builder__intro,
+.oum-sections-builder__intro p,
+.oum-sections-builder__intro strong,
+.oum-sections-empty,
+.oum-sections-empty p,
+.oum-sections-empty strong {
+  color: var(--oneup-admin-text) !important;
+}
+
+/* WordPress taxonomy/category tab panels still had white defaults. */
+ul.category-tabs li.tabs,
+ul.add-menu-item-tabs li.tabs,
+.wp-tab-active,
+.wp-tab-active a {
+  background: rgba(32,240,192,.12) !important;
+  border-color: rgba(32,240,192,.28) !important;
+  color: var(--oneup-admin-mint) !important;
+}
+
+ul.category-tabs li,
+ul.add-menu-item-tabs li,
+ul.category-tabs li a,
+ul.add-menu-item-tabs li a {
+  color: var(--oneup-admin-muted) !important;
+}
+
+ul.category-tabs li.tabs a,
+ul.add-menu-item-tabs li.tabs a,
+.wp-tab-active a {
+  color: var(--oneup-admin-mint) !important;
+}
+
+.categorydiv div.tabs-panel,
+.customlinkdiv div.tabs-panel,
+.posttypediv div.tabs-panel,
+.taxonomydiv div.tabs-panel,
+.wp-tab-panel {
+  background: rgba(255,255,255,.055) !important;
+  border: 1px solid var(--oneup-admin-card-border) !important;
+  border-radius: 0 16px 16px 16px !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+.categorydiv div.tabs-panel label,
+.customlinkdiv div.tabs-panel label,
+.posttypediv div.tabs-panel label,
+.taxonomydiv div.tabs-panel label,
+.wp-tab-panel label,
+.categorydiv div.tabs-panel li,
+.customlinkdiv div.tabs-panel li,
+.posttypediv div.tabs-panel li,
+.taxonomydiv div.tabs-panel li,
+.wp-tab-panel li {
+  color: var(--oneup-admin-muted) !important;
+}
+
+/* Make checkbox/radio lists readable inside dark tab panels. */
+.wp-tab-panel input[type="checkbox"],
+.wp-tab-panel input[type="radio"],
+.categorydiv div.tabs-panel input[type="checkbox"],
+.categorydiv div.tabs-panel input[type="radio"] {
+  accent-color: var(--oneup-admin-mint);
+}
+
+/* Extra cleanup for classic editor/status panels that can still force white interiors. */
+#category-all,
+#category-pop,
+#linkcategory-all,
+#postimagediv .inside,
+#tagsdiv-post_tag .inside,
+#submitpost,
+#misc-publishing-actions,
+#minor-publishing-actions,
+#major-publishing-actions {
+  background: transparent !important;
+  color: var(--oneup-admin-muted) !important;
+}
+
+
+/*───────────────────────────────────────
+  v1.3 refinement: smoother admin pattern + section builder dark panels
+───────────────────────────────────────*/
+
+body.wp-admin {
+  background:
+    radial-gradient(circle at 16% -8%, rgba(32, 240, 192, .13), transparent 34rem),
+    radial-gradient(circle at 84% 5%, rgba(8, 202, 160, .085), transparent 32rem),
+    radial-gradient(circle at 52% 34%, rgba(255, 255, 255, .025), transparent 42rem),
+    linear-gradient(135deg, #03101f 0%, #041629 45%, #03101f 100%) !important;
+}
+
+body.wp-admin:before {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, .018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .018) 1px, transparent 1px),
+    linear-gradient(rgba(32, 240, 192, .012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(32, 240, 192, .012) 1px, transparent 1px) !important;
+  background-position:
+    0 0,
+    0 0,
+    22px 18px,
+    22px 18px !important;
+  background-size:
+    112px 112px,
+    112px 112px,
+    224px 224px,
+    224px 224px !important;
+  opacity: .72;
+  mask-image: radial-gradient(circle at 42% 14%, #000 0%, rgba(0,0,0,.72) 36%, transparent 82%) !important;
+}
+
+.oum-section-panel {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.025)),
+    var(--oneup-admin-bg-soft) !important;
+  border: 1px solid rgba(255,255,255,.13) !important;
+  border-radius: 18px !important;
+  color: var(--oneup-admin-text) !important;
+  box-shadow: 0 18px 48px rgba(0,0,0,.18) !important;
+}
+
+.oum-section-panel__header {
+  background:
+    linear-gradient(135deg, rgba(32,240,192,.12), rgba(255,255,255,.035)) !important;
+  border-bottom: 1px solid rgba(255,255,255,.10) !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+.oum-section-panel__header strong,
+.oum-section-panel__header button,
+.oum-section-panel__header .button-link,
+.oum-section-panel__header .button-link-delete {
+  color: var(--oneup-admin-text) !important;
+}
+
+.oum-section-panel__header .button-link:hover,
+.oum-section-panel__header .button-link:focus {
+  color: var(--oneup-admin-mint) !important;
+}
+
+.oum-section-panel__header .button-link-delete {
+  color: #ff8c8c !important;
+}
+
+.oum-section-panel__body {
+  background: transparent !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+.oum-section-field input,
+.oum-section-field textarea,
+.oum-section-field select,
+.oum-repeater input,
+.oum-repeater textarea,
+.oum-repeater select {
+  background: rgba(255,255,255,.07) !important;
+  border-color: rgba(255,255,255,.14) !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+.oum-section-field input::placeholder,
+.oum-section-field textarea::placeholder,
+.oum-repeater input::placeholder,
+.oum-repeater textarea::placeholder {
+  color: var(--oneup-admin-soft-muted) !important;
+}
+
+
+/*───────────────────────────────────────
+  v1.4 refinement: softer centered background + delete link buttons
+───────────────────────────────────────*/
+
+html.wp-toolbar,
+body.wp-admin {
+  background:
+    radial-gradient(ellipse at 50% 42%, rgba(32, 240, 192, .16) 0%, rgba(32, 240, 192, .08) 24%, transparent 62%),
+    radial-gradient(ellipse at 72% 52%, rgba(8, 202, 160, .09) 0%, transparent 48%),
+    radial-gradient(ellipse at 22% 62%, rgba(255, 255, 255, .035) 0%, transparent 42%),
+    linear-gradient(135deg, #03101f 0%, #041629 48%, #03101f 100%) !important;
+  background-attachment: fixed !important;
+}
+
+body.wp-admin:before {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, .014) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .014) 1px, transparent 1px),
+    radial-gradient(circle at center, rgba(32, 240, 192, .075) 0 1px, transparent 1.5px) !important;
+  background-position:
+    center center,
+    center center,
+    center center !important;
+  background-size:
+    96px 96px,
+    96px 96px,
+    34px 34px !important;
+  opacity: .42 !important;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 48%, rgba(0,0,0,.82) 0%, rgba(0,0,0,.48) 45%, transparent 88%) !important;
+  mask-image: radial-gradient(ellipse at 50% 48%, rgba(0,0,0,.82) 0%, rgba(0,0,0,.48) 45%, transparent 88%) !important;
+}
+
+body.wp-admin:after {
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(32, 240, 192, .10), transparent 46rem),
+    radial-gradient(ellipse at 58% 58%, rgba(255, 255, 255, .025), transparent 56rem) !important;
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: fixed;
+  z-index: -1;
+}
+
+.button-link-delete,
+.wp-core-ui .button-link-delete,
+.oum-section-panel .button-link-delete,
+.oum-repeater .button-link-delete {
+  align-items: center !important;
+  background: rgba(255, 88, 88, .075) !important;
+  border: 1px solid rgba(255, 120, 120, .22) !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  color: #ff9a9a !important;
+  display: inline-flex !important;
+  font-size: 12px !important;
+  font-weight: 850 !important;
+  line-height: 1 !important;
+  min-height: 30px !important;
+  padding: 7px 12px !important;
+  text-decoration: none !important;
+  transition: background .18s ease, border-color .18s ease, color .18s ease, transform .18s ease !important;
+}
+
+.button-link-delete:hover,
+.button-link-delete:focus,
+.wp-core-ui .button-link-delete:hover,
+.wp-core-ui .button-link-delete:focus,
+.oum-section-panel .button-link-delete:hover,
+.oum-section-panel .button-link-delete:focus,
+.oum-repeater .button-link-delete:hover,
+.oum-repeater .button-link-delete:focus {
+  background: rgba(255, 88, 88, .14) !important;
+  border-color: rgba(255, 130, 130, .42) !important;
+  color: #ffc2c2 !important;
+  transform: translateY(-1px);
+}
+
+.oum-section-panel__header .button-link-delete {
+  margin-left: 6px !important;
+}
+
+
+/*───────────────────────────────────────
+  Theme browser + theme detail overlay
+───────────────────────────────────────*/
+
+.theme-browser .theme {
+  background: rgba(255, 255, 255, .055) !important;
+  border: 1px solid rgba(255, 255, 255, .12) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .22) !important;
+  overflow: hidden !important;
+}
+
+.theme-browser .theme:hover,
+.theme-browser .theme:focus {
+  border-color: rgba(32, 240, 192, .35) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .28) !important;
+}
+
+.theme-browser .theme .theme-name,
+.theme-browser .theme.active .theme-name {
+  background: rgba(3, 16, 31, .94) !important;
+  border-top: 1px solid rgba(255, 255, 255, .10) !important;
+  color: var(--oneup-admin-text) !important;
+  font-weight: 900 !important;
+  box-shadow: none !important;
+}
+
+.theme-browser .theme.active .theme-name {
+  color: var(--oneup-admin-mint) !important;
+}
+
+.theme-browser .theme .theme-actions,
+.theme-browser .theme.active .theme-actions {
+  background: rgba(7, 26, 46, .94) !important;
+  border-left: 1px solid rgba(255, 255, 255, .10) !important;
+}
+
+.theme-backdrop {
+  background: transparent !important;
+  display: none !important;
+}
+
+.theme-overlay {
+  background: rgba(3, 16, 31, .78) !important;
+  backdrop-filter: blur(18px) !important;
+}
+
+.theme-overlay .theme-wrap,
+.theme-overlay .theme-wrap.wp-clearfix,
+.theme-wrap.wp-clearfix {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)),
+    var(--oneup-admin-bg-soft) !important;
+  border: 1px solid rgba(255, 255, 255, .14) !important;
+  border-radius: 24px !important;
+  box-shadow: var(--oneup-admin-shadow) !important;
+  color: var(--oneup-admin-text) !important;
+  overflow: hidden !important;
+}
+
+.theme-overlay .theme-header {
+  background: rgba(3, 16, 31, .92) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, .12) !important;
+}
+
+.theme-overlay .theme-header .left,
+.theme-overlay .theme-header .right,
+.theme-overlay .theme-header .close {
+  background: rgba(255, 255, 255, .055) !important;
+  border-color: rgba(255, 255, 255, .12) !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+.theme-overlay .theme-header .left:hover,
+.theme-overlay .theme-header .right:hover,
+.theme-overlay .theme-header .close:hover,
+.theme-overlay .theme-header .left:focus,
+.theme-overlay .theme-header .right:focus,
+.theme-overlay .theme-header .close:focus {
+  background: rgba(32, 240, 192, .10) !important;
+  color: var(--oneup-admin-mint) !important;
+}
+
+.theme-overlay .theme-about {
+  background: transparent !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+.theme-overlay .theme-actions {
+  background: rgba(7, 26, 46, .92) !important;
+  border-top: 1px solid rgba(255, 255, 255, .12) !important;
+}
+
+.theme-overlay .theme-name,
+.theme-overlay .theme-version,
+.theme-overlay .theme-author,
+.theme-overlay .theme-description,
+.theme-overlay .theme-tags {
+  color: var(--oneup-admin-muted) !important;
+}
+
+.theme-overlay .theme-name {
+  color: var(--oneup-admin-text) !important;
+  font-weight: 950 !important;
+}
+
+.theme-description,
+.theme-author,
+.theme-tags {
+  color: var(--oneup-admin-muted) !important;
+}
+
+.theme-overlay .theme-author a,
+.theme-overlay .theme-tags a,
+.theme-author a,
+.theme-tags a {
+  color: var(--oneup-admin-mint) !important;
+}
+
+.theme-overlay .current-label {
+  background: rgba(32, 240, 192, .12) !important;
+  border: 1px solid rgba(32, 240, 192, .34) !important;
+  border-radius: 999px !important;
+  color: var(--oneup-admin-mint) !important;
+  font-weight: 900 !important;
+}
+
+.theme-overlay .screenshot {
+  background: rgba(255, 255, 255, .04) !important;
+  border-color: rgba(255, 255, 255, .12) !important;
+}
+
+
+/*───────────────────────────────────────
+  OneUp Admin v1.6: extra tool/admin tabs
+───────────────────────────────────────*/
+
+/* OneUp Tools QR screen/panel */
+.oneup-tools-qr,
+.oneup-tools-qr.wrap,
+.wrap .oneup-tools-qr,
+#wpbody-content .oneup-tools-qr {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)),
+    var(--oneup-admin-bg-soft) !important;
+  border: 1px solid var(--oneup-admin-card-border) !important;
+  border-radius: var(--oneup-admin-radius) !important;
+  box-shadow: var(--oneup-admin-shadow) !important;
+  color: var(--oneup-admin-text) !important;
+  padding: 28px !important;
+}
+
+.oneup-tools-qr *,
+.oneup-tools-qr label,
+.oneup-tools-qr p,
+.oneup-tools-qr h1,
+.oneup-tools-qr h2,
+.oneup-tools-qr h3,
+.oneup-tools-qr th,
+.oneup-tools-qr td {
+  color: inherit;
+}
+
+.oneup-tools-qr p,
+.oneup-tools-qr .description,
+.oneup-tools-qr .help,
+.oneup-tools-qr small {
+  color: var(--oneup-admin-muted) !important;
+}
+
+.oneup-tools-qr input[type="text"],
+.oneup-tools-qr input[type="url"],
+.oneup-tools-qr input[type="email"],
+.oneup-tools-qr input[type="number"],
+.oneup-tools-qr textarea,
+.oneup-tools-qr select {
+  background: rgba(255,255,255,.055) !important;
+  border: 1px solid var(--oneup-admin-card-border) !important;
+  border-radius: var(--oneup-admin-radius-sm) !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+/* Native WordPress nav tabs, including plugin screens. */
+.nav-tab-wrapper,
+.wrap .nav-tab-wrapper,
+h2.nav-tab-wrapper,
+h1.nav-tab-wrapper {
+  border-bottom: 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 18px !important;
+  padding: 0 !important;
+}
+
+.nav-tab,
+.wrap .nav-tab,
+.oneup-admin-tabs .nav-tab {
+  background: rgba(255,255,255,.055) !important;
+  border: 1px solid var(--oneup-admin-card-border) !important;
+  border-radius: 999px !important;
+  color: var(--oneup-admin-muted) !important;
+  font-weight: 900 !important;
+  margin: 0 !important;
+  padding: 10px 18px !important;
+  transition: background .16s ease, border-color .16s ease, color .16s ease, transform .16s ease, box-shadow .16s ease;
+}
+
+.nav-tab:hover,
+.nav-tab:focus,
+.wrap .nav-tab:hover,
+.wrap .nav-tab:focus,
+.oneup-admin-tabs .nav-tab:hover,
+.oneup-admin-tabs .nav-tab:focus {
+  background: rgba(255,255,255,.09) !important;
+  border-color: rgba(32,240,192,.40) !important;
+  color: var(--oneup-admin-text) !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.20) !important;
+  transform: translateY(-1px);
+}
+
+.nav-tab-active,
+.nav-tab-active:focus,
+.nav-tab-active:focus:active,
+.nav-tab-active:hover,
+.wrap .nav-tab-active,
+.oneup-admin-tabs .nav-tab-active {
+  background:
+    linear-gradient(145deg, rgba(32,240,192,.20), rgba(255,255,255,.055)),
+    rgba(255,255,255,.065) !important;
+  border-color: rgba(32,240,192,.58) !important;
+  color: var(--oneup-admin-mint) !important;
+  box-shadow: 0 16px 42px rgba(32,240,192,.12) !important;
+}
+
+.oneup-admin-card {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)),
+    var(--oneup-admin-bg-soft) !important;
+  border-color: var(--oneup-admin-card-border) !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+.oneup-admin-field > span {
+  color: var(--oneup-admin-text) !important;
+}
+
+.oneup-admin-media-preview {
+  background: rgba(255,255,255,.045) !important;
+  border-color: rgba(255,255,255,.16) !important;
+  color: var(--oneup-admin-muted) !important;
+}
+
+.oneup-admin-media-preview:empty:before {
+  color: var(--oneup-admin-muted) !important;
+}
+
+
+/*───────────────────────────────────────
+  OneUp Admin v1.7: repeater item dark styling
+───────────────────────────────────────*/
+
+.oum-repeater__item {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.022)),
+    rgba(7,26,46,.72) !important;
+  border: 1px solid var(--oneup-admin-card-border) !important;
+  border-radius: var(--oneup-admin-radius-sm) !important;
+  box-shadow: 0 14px 34px rgba(0,0,0,.18) !important;
+  color: var(--oneup-admin-text) !important;
+  margin: 12px 0 !important;
+  padding: 16px !important;
+}
+
+.oum-repeater__item label,
+.oum-repeater__item span,
+.oum-repeater__item p,
+.oum-repeater__item strong {
+  color: var(--oneup-admin-text) !important;
+}
+
+.oum-repeater__item textarea,
+.oum-repeater__item input[type="text"],
+.oum-repeater__item input[type="url"],
+.oum-repeater__item input[type="email"],
+.oum-repeater__item input[type="number"],
+.oum-repeater__item select {
+  background: rgba(255,255,255,.055) !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+  border-radius: var(--oneup-admin-radius-sm) !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+.oum-repeater__item textarea:focus,
+.oum-repeater__item input[type="text"]:focus,
+.oum-repeater__item input[type="url"]:focus,
+.oum-repeater__item input[type="email"]:focus,
+.oum-repeater__item input[type="number"]:focus,
+.oum-repeater__item select:focus {
+  border-color: rgba(32,240,192,.58) !important;
+  box-shadow: 0 0 0 1px rgba(32,240,192,.24), 0 0 28px rgba(32,240,192,.10) !important;
+  outline: none !important;
+}
+
+.oum-repeater__items {
+  color: var(--oneup-admin-text) !important;
+}
+
+
+/*───────────────────────────────────────
+  OneUp Admin v1.8: OneUp Tools panel dark styling
+───────────────────────────────────────*/
+
+.oneup-tools-panel,
+.wrap .oneup-tools-panel,
+#wpbody-content .oneup-tools-panel {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.024)),
+    rgba(7,26,46,.78) !important;
+  border: 1px solid var(--oneup-admin-card-border) !important;
+  border-radius: var(--oneup-admin-radius) !important;
+  box-shadow: var(--oneup-admin-shadow) !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+.oneup-tools-panel *,
+.oneup-tools-panel label,
+.oneup-tools-panel h1,
+.oneup-tools-panel h2,
+.oneup-tools-panel h3,
+.oneup-tools-panel h4,
+.oneup-tools-panel p,
+.oneup-tools-panel th,
+.oneup-tools-panel td {
+  color: inherit;
+}
+
+.oneup-tools-panel p,
+.oneup-tools-panel .description,
+.oneup-tools-panel .help,
+.oneup-tools-panel small,
+.oneup-tools-panel .form-table td p {
+  color: var(--oneup-admin-muted) !important;
+}
+
+.oneup-tools-panel .form-table,
+.oneup-tools-panel table,
+.oneup-tools-panel tbody,
+.oneup-tools-panel tr,
+.oneup-tools-panel td,
+.oneup-tools-panel th {
+  background: transparent !important;
+  border-color: rgba(255,255,255,.10) !important;
+}
+
+.oneup-tools-panel input[type="text"],
+.oneup-tools-panel input[type="url"],
+.oneup-tools-panel input[type="email"],
+.oneup-tools-panel input[type="number"],
+.oneup-tools-panel input[type="search"],
+.oneup-tools-panel textarea,
+.oneup-tools-panel select {
+  background: rgba(255,255,255,.055) !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+  border-radius: var(--oneup-admin-radius-sm) !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+.oneup-tools-panel input:focus,
+.oneup-tools-panel textarea:focus,
+.oneup-tools-panel select:focus {
+  border-color: rgba(32,240,192,.58) !important;
+  box-shadow: 0 0 0 1px rgba(32,240,192,.24), 0 0 28px rgba(32,240,192,.10) !important;
+  outline: none !important;
+}
+
+.oneup-tools-panel .button:not(.button-primary),
+.oneup-tools-panel .button-secondary {
+  background: rgba(255,255,255,.06) !important;
+  border-color: rgba(255,255,255,.16) !important;
+  border-radius: 999px !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+.oneup-tools-panel .button:not(.button-primary):hover,
+.oneup-tools-panel .button-secondary:hover {
+  background: rgba(255,255,255,.10) !important;
+  border-color: rgba(32,240,192,.36) !important;
+  color: var(--oneup-admin-text) !important;
+}
+
+
+
+/*───────────────────────────────────────
+  OneUp Admin v1.9 - media library + customizer skin
+───────────────────────────────────────*/
+
+/* WordPress media/image selection modal */
+.media-modal,
+.media-frame,
+.media-frame-content,
+.media-frame-router,
+.media-frame-title,
+.media-frame-toolbar,
+.media-sidebar,
+.attachments-browser,
+.media-attachments-filter-heading {
+	background: var(--oneup-admin-bg) !important;
+	color: var(--oneup-admin-text) !important;
+}
+
+.media-modal {
+	border-radius: 24px !important;
+	box-shadow: 0 34px 120px rgba(0,0,0,.58) !important;
+	overflow: hidden !important;
+}
+
+.media-modal-backdrop {
+	background: rgba(1, 8, 16, .82) !important;
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+}
+
+.media-modal-content {
+	background:
+		radial-gradient(circle at 16% 0%, rgba(32,240,192,.12), transparent 30rem),
+		linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.015)),
+		var(--oneup-admin-bg) !important;
+	border: 1px solid var(--oneup-admin-card-border) !important;
+	color: var(--oneup-admin-text) !important;
+}
+
+.media-frame-title,
+.media-frame-toolbar,
+.media-sidebar,
+.media-frame-router,
+.media-frame-content {
+	border-color: var(--oneup-admin-card-border) !important;
+}
+
+.media-frame-title h1,
+.media-sidebar h2,
+.media-sidebar h3,
+.attachment-details h2,
+.attachment-details h3,
+.media-frame-content h2,
+.media-frame-content h3,
+.media-modal label,
+.media-modal legend,
+.media-modal .setting span,
+.media-modal .media-types-required-info {
+	color: var(--oneup-admin-text) !important;
+}
+
+.media-modal p,
+.media-modal .description,
+.media-modal .instructions,
+.media-modal .setting,
+.media-modal .details,
+.media-modal .uploaded,
+.media-modal .file-size,
+.media-modal .dimensions,
+.media-modal .compat-item,
+.media-modal .compat-field,
+.media-modal .media-progress-bar,
+.attachment-info .details {
+	color: var(--oneup-admin-muted) !important;
+}
+
+.media-router .media-menu-item,
+.media-menu .media-menu-item {
+	background: transparent !important;
+	border: 0 !important;
+	border-radius: 999px !important;
+	color: var(--oneup-admin-muted) !important;
+	font-weight: 850 !important;
+	margin: 8px 6px !important;
+	padding: 9px 14px !important;
+}
+
+.media-router .media-menu-item.active,
+.media-router .media-menu-item:hover,
+.media-menu .media-menu-item.active,
+.media-menu .media-menu-item:hover,
+.media-menu .media-menu-item:focus {
+	background: rgba(32,240,192,.12) !important;
+	box-shadow: none !important;
+	color: var(--oneup-admin-mint) !important;
+}
+
+.media-toolbar,
+.media-toolbar-primary,
+.media-toolbar-secondary,
+.attachments-browser .media-toolbar,
+.media-frame .search,
+.media-frame select.attachment-filters,
+.media-modal input[type=search],
+.media-modal input[type=text],
+.media-modal input[type=url],
+.media-modal textarea,
+.media-modal select {
+	background: transparent !important;
+	color: var(--oneup-admin-text) !important;
+}
+
+.media-modal input[type=search],
+.media-modal input[type=text],
+.media-modal input[type=url],
+.media-modal textarea,
+.media-modal select,
+.media-frame select.attachment-filters {
+	background: rgba(255,255,255,.07) !important;
+	border: 1px solid var(--oneup-admin-card-border) !important;
+	border-radius: 14px !important;
+	box-shadow: none !important;
+	color: var(--oneup-admin-text) !important;
+	min-height: 38px !important;
+}
+
+.media-modal input::placeholder,
+.media-modal textarea::placeholder {
+	color: var(--oneup-admin-soft-muted) !important;
+}
+
+.attachments {
+	background: transparent !important;
+}
+
+.attachment {
+	color: var(--oneup-admin-text) !important;
+}
+
+.attachment .attachment-preview,
+.attachment-preview {
+	background: rgba(255,255,255,.045) !important;
+	border-radius: 16px !important;
+	box-shadow: inset 0 0 0 1px var(--oneup-admin-card-border) !important;
+}
+
+.attachment .thumbnail {
+	border-radius: 14px !important;
+	overflow: hidden !important;
+}
+
+.attachment.details,
+.attachment.selected,
+.attachment:focus {
+	box-shadow: 0 0 0 3px rgba(32,240,192,.22) !important;
+}
+
+.attachment.details .check,
+.attachment.selected .check,
+.media-frame.mode-grid .attachment.selected .check {
+	background: var(--oneup-admin-mint) !important;
+	border-color: var(--oneup-admin-mint) !important;
+	box-shadow: 0 0 0 2px var(--oneup-admin-bg) !important;
+	color: #02131f !important;
+}
+
+.attachment-info {
+	background: rgba(255,255,255,.035) !important;
+	border-color: var(--oneup-admin-card-border) !important;
+	color: var(--oneup-admin-muted) !important;
+}
+
+.attachment-info .thumbnail {
+	background: rgba(255,255,255,.06) !important;
+	border-radius: 14px !important;
+}
+
+.media-sidebar .setting input,
+.media-sidebar .setting textarea {
+	background: rgba(255,255,255,.07) !important;
+	border-color: var(--oneup-admin-card-border) !important;
+	color: var(--oneup-admin-text) !important;
+}
+
+.media-modal .delete-attachment,
+.media-modal .trash-attachment,
+.media-modal .edit-attachment {
+	color: var(--oneup-admin-mint) !important;
+}
+
+.media-modal .media-button,
+.media-modal .button-primary,
+.media-frame-toolbar .button-primary {
+	background: var(--oneup-admin-mint) !important;
+	border-color: var(--oneup-admin-mint) !important;
+	border-radius: 999px !important;
+	color: #02131f !important;
+	font-weight: 900 !important;
+}
+
+.media-modal .button,
+.media-modal .button-secondary {
+	background: rgba(255,255,255,.055) !important;
+	border-color: var(--oneup-admin-card-border) !important;
+	border-radius: 999px !important;
+	color: var(--oneup-admin-text) !important;
+	font-weight: 850 !important;
+}
+
+.media-modal .button:hover,
+.media-modal .button-secondary:hover {
+	border-color: rgba(32,240,192,.45) !important;
+	color: var(--oneup-admin-mint) !important;
+}
+
+.media-modal-close {
+	background: rgba(255,255,255,.055) !important;
+	border-left: 1px solid var(--oneup-admin-card-border) !important;
+	color: var(--oneup-admin-text) !important;
+}
+
+.media-modal-close:hover,
+.media-modal-close:focus {
+	color: var(--oneup-admin-mint) !important;
+}
+
+/* Upload dropzone / default image selection screen */
+.uploader-inline,
+.uploader-inline-content,
+.upload-ui,
+.drag-drop #drag-drop-area,
+.media-frame .uploader-inline {
+	background: linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02)) !important;
+	border-color: var(--oneup-admin-card-border) !important;
+	border-radius: 22px !important;
+	color: var(--oneup-admin-muted) !important;
+}
+
+.uploader-inline h2,
+.upload-ui h2,
+.drag-drop-inside p.drag-drop-info {
+	color: var(--oneup-admin-text) !important;
+}
+
+.drag-drop-inside p,
+.max-upload-size {
+	color: var(--oneup-admin-muted) !important;
+}
+
+/* Image cropper/selection internals */
+.imgedit-wrap,
+.imgedit-panel-content,
+.imgedit-settings,
+.image-editor,
+.crop-content,
+.media-frame-content .image-editor {
+	background: var(--oneup-admin-bg-soft) !important;
+	border-color: var(--oneup-admin-card-border) !important;
+	color: var(--oneup-admin-text) !important;
+}
+
+.imgedit-settings .imgedit-group,
+.imgedit-panel-content .imgedit-group {
+	background: rgba(255,255,255,.035) !important;
+	border-color: var(--oneup-admin-card-border) !important;
+	border-radius: 16px !important;
+	color: var(--oneup-admin-muted) !important;
+}
+
+/* Customizer */
+.wp-customizer,
+.wp-customizer body,
+.wp-customizer #customize-controls,
+.wp-customizer #customize-header-actions,
+.wp-customizer #customize-theme-controls,
+.wp-customizer #customize-info,
+.wp-customizer .customize-section-title,
+.wp-customizer .customize-panel-back,
+.wp-customizer .customize-section-back,
+.wp-customizer .customize-control,
+.wp-customizer .customize-control-content,
+.wp-customizer .accordion-section-content,
+.wp-customizer .accordion-section-title,
+.wp-customizer .customize-pane-child {
+	background: var(--oneup-admin-bg) !important;
+	color: var(--oneup-admin-text) !important;
+	border-color: var(--oneup-admin-card-border) !important;
+}
+
+.wp-customizer #customize-controls {
+	background:
+		radial-gradient(circle at 18% 0%, rgba(32,240,192,.12), transparent 24rem),
+		var(--oneup-admin-bg) !important;
+}
+
+.wp-customizer #customize-header-actions {
+	box-shadow: 0 14px 38px rgba(0,0,0,.22) !important;
+}
+
+.wp-customizer #customize-info,
+.wp-customizer .customize-section-title {
+	background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)), var(--oneup-admin-bg-soft) !important;
+}
+
+.wp-customizer .accordion-section-title {
+	background: rgba(255,255,255,.045) !important;
+	border-bottom: 1px solid var(--oneup-admin-card-border) !important;
+	color: var(--oneup-admin-text) !important;
+	font-weight: 850 !important;
+}
+
+.wp-customizer .accordion-section-title:hover,
+.wp-customizer .accordion-section-title:focus,
+.wp-customizer .control-section.open .accordion-section-title,
+.wp-customizer .control-section:hover > .accordion-section-title {
+	background: rgba(32,240,192,.11) !important;
+	color: var(--oneup-admin-mint) !important;
+}
+
+.wp-customizer .accordion-section-title:after,
+.wp-customizer .customize-section-back:before,
+.wp-customizer .customize-panel-back:before {
+	color: var(--oneup-admin-mint) !important;
+}
+
+.wp-customizer .customize-control-title,
+.wp-customizer .customize-control label,
+.wp-customizer .customize-control .customize-control-title,
+.wp-customizer .customize-control-kirki-generic .customize-control-title {
+	color: var(--oneup-admin-text) !important;
+	font-weight: 850 !important;
+}
+
+.wp-customizer .description,
+.wp-customizer .customize-control-description,
+.wp-customizer .customize-control-notifications-container,
+.wp-customizer .customize-control .attachment-media-view .placeholder {
+	color: var(--oneup-admin-muted) !important;
+}
+
+.wp-customizer input[type=text],
+.wp-customizer input[type=url],
+.wp-customizer input[type=email],
+.wp-customizer input[type=number],
+.wp-customizer input[type=search],
+.wp-customizer input[type=password],
+.wp-customizer textarea,
+.wp-customizer select {
+	background: rgba(255,255,255,.07) !important;
+	border: 1px solid var(--oneup-admin-card-border) !important;
+	border-radius: 14px !important;
+	box-shadow: none !important;
+	color: var(--oneup-admin-text) !important;
+}
+
+.wp-customizer .customize-control-radio .customize-inside-control-row,
+.wp-customizer .customize-control-checkbox .customize-inside-control-row {
+	background: rgba(255,255,255,.035) !important;
+	border: 1px solid var(--oneup-admin-card-border) !important;
+	border-radius: 14px !important;
+	margin: 8px 0 !important;
+	padding: 9px 10px !important;
+}
+
+.wp-customizer .wp-picker-container .wp-color-result.button,
+.wp-customizer .attachment-media-view,
+.wp-customizer .placeholder,
+.wp-customizer .thumbnail,
+.wp-customizer .customize-control-header .uploaded,
+.wp-customizer .customize-control-upload .current,
+.wp-customizer .customize-control-image .current,
+.wp-customizer .customize-control-media .current,
+.wp-customizer .customize-control-site_icon .current {
+	background: rgba(255,255,255,.055) !important;
+	border-color: var(--oneup-admin-card-border) !important;
+	border-radius: 16px !important;
+	color: var(--oneup-admin-muted) !important;
+}
+
+.wp-customizer .customize-control .attachment-thumb {
+	border-radius: 14px !important;
+}
+
+.wp-customizer .button,
+.wp-customizer .button-secondary {
+	background: rgba(255,255,255,.055) !important;
+	border-color: var(--oneup-admin-card-border) !important;
+	border-radius: 999px !important;
+	color: var(--oneup-admin-text) !important;
+	font-weight: 850 !important;
+}
+
+.wp-customizer .button-primary,
+.wp-customizer #save {
+	background: var(--oneup-admin-mint) !important;
+	border-color: var(--oneup-admin-mint) !important;
+	border-radius: 999px !important;
+	color: #02131f !important;
+	font-weight: 900 !important;
+}
+
+.wp-customizer .button:hover,
+.wp-customizer .button-secondary:hover {
+	border-color: rgba(32,240,192,.45) !important;
+	color: var(--oneup-admin-mint) !important;
+}
+
+.wp-customizer .notice,
+.wp-customizer .notice-success,
+.wp-customizer .notice-error,
+.wp-customizer .notice-warning,
+.wp-customizer .notice-info {
+	background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)), var(--oneup-admin-bg-soft) !important;
+	border-color: var(--oneup-admin-card-border) !important;
+	border-left-color: var(--oneup-admin-mint) !important;
+	border-radius: 14px !important;
+	color: var(--oneup-admin-text) !important;
+}
+
+/* Customizer preview stays untouched; only the controls panel is skinned. */
+.wp-customizer #customize-preview,
+.wp-customizer #customize-preview iframe {
+	background: #fff !important;
+}
+
+
+/*───────────────────────────────────────
+  OneUp Admin v2.2 - hard overrides for stubborn white panels
+───────────────────────────────────────*/
+
+html body.wp-admin .wp-filter,
+html body.wp-admin .plugin-card-bottom,
+html body.wp-admin .oum-admin-panel,
+html body.wp-admin .oum-section-panel {
+	background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.022)), #071a2e !important;
+	background-color: #071a2e !important;
+	border-color: rgba(255,255,255,.12) !important;
+	color: #ffffff !important;
+}
+
+html body.wp-admin .wp-filter {
+	border: 1px solid rgba(255,255,255,.12) !important;
+	border-radius: 20px !important;
+	box-shadow: 0 18px 60px rgba(0,0,0,.22) !important;
+	overflow: hidden !important;
+}
+
+html body.wp-admin .plugin-card-bottom {
+	border-top: 1px solid rgba(255,255,255,.12) !important;
+}
+
+html body.wp-admin .wp-filter *,
+html body.wp-admin .plugin-card-bottom *,
+html body.wp-admin .oum-admin-panel *,
+html body.wp-admin .oum-section-panel * {
+	border-color: rgba(255,255,255,.12) !important;
+}
+
+html body.wp-admin .wp-filter .filter-links,
+html body.wp-admin .wp-filter .search-form,
+html body.wp-admin .wp-filter .view-switch,
+html body.wp-admin .wp-filter .favorites-form,
+html body.wp-admin .wp-filter .filter-drawer,
+html body.wp-admin .wp-filter .filter-group,
+html body.wp-admin .plugin-card-bottom * {
+	background-color: transparent !important;
+}
+
+html body.wp-admin .wp-filter a,
+html body.wp-admin .wp-filter label,
+html body.wp-admin .wp-filter span,
+html body.wp-admin .plugin-card-bottom,
+html body.wp-admin .plugin-card-bottom a,
+html body.wp-admin .plugin-card-bottom span,
+html body.wp-admin .oum-admin-panel,
+html body.wp-admin .oum-admin-panel label,
+html body.wp-admin .oum-admin-panel span,
+html body.wp-admin .oum-admin-panel h1,
+html body.wp-admin .oum-admin-panel h2,
+html body.wp-admin .oum-admin-panel h3,
+html body.wp-admin .oum-section-panel,
+html body.wp-admin .oum-section-panel label,
+html body.wp-admin .oum-section-panel span,
+html body.wp-admin .oum-section-panel h1,
+html body.wp-admin .oum-section-panel h2,
+html body.wp-admin .oum-section-panel h3 {
+	color: #ffffff !important;
+}

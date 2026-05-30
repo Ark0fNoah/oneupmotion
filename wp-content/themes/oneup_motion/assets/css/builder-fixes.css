@@ -1,0 +1,146 @@
+.oum-width-default .section__inner {
+	max-width: 1200px;
+}
+
+.oum-width-narrow .section__inner {
+	max-width: 980px;
+}
+
+.tool-card__icon img,
+.service-card__icon img,
+.about-story__point-icon img {
+	display: block;
+	height: 100%;
+	object-fit: contain;
+	width: 100%;
+}
+
+.service-card__icon--image::after {
+	content: none;
+}
+
+.about-story__point-icon {
+	align-items: center;
+	border: 1px solid rgba(32, 240, 192, 0.36);
+	border-radius: 12px;
+	display: inline-flex;
+	height: 34px;
+	justify-content: center;
+	margin-right: 0.7rem;
+	vertical-align: middle;
+	width: 34px;
+}
+
+.oum-preview-grid--auto,
+.oum-card-grid--auto {
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+}
+
+.oum-custom-code__card {
+	background: var(--oum-card);
+	border: 1px solid var(--oum-card-border);
+	border-radius: var(--oum-radius);
+	box-shadow: var(--oum-shadow);
+	padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.oum-custom-code .section__inner {
+	display: grid;
+	gap: 1rem;
+}
+
+
+/*───────────────────────────────────────
+  Builder width and link picker fixes
+───────────────────────────────────────*/
+
+/*
+ * Editable OneUp Sections should use the same default content width as
+ * the designed homepage. Older sections may have saved "narrow" because it
+ * used to be the first select option; treat that legacy value as homepage
+ * width so pages do not suddenly look squeezed.
+ */
+.oum-section .section__inner,
+.oum-section .tools-preview__inner,
+.oum-section .about__inner,
+.oum-section .about-story__inner,
+.oum-section .cta__inner,
+.oum-section .trust-strip__inner,
+.oum-width-default .section__inner,
+.oum-width-narrow .section__inner {
+	max-width: 1200px;
+}
+
+.oum-width-wide .section__inner {
+	max-width: 1360px;
+}
+
+.oum-width-full .section__inner {
+	max-width: none;
+}
+
+/* Keep text sections aligned with the homepage container instead of forcing
+ * the full section itself into a narrow column. The text block can still
+ * stay readable through the text max-width rules.
+ */
+.oum-section-text__inner {
+	max-width: 1200px;
+}
+
+/* URL picker controls beside section URL fields. */
+.oum-link-picker {
+	align-items: center;
+	display: inline-flex;
+	gap: 0.55rem;
+	margin-left: 0.55rem;
+	vertical-align: middle;
+}
+
+.oum-link-picker select {
+	max-width: min(420px, 100%);
+}
+
+@media (max-width: 720px) {
+	.oum-link-picker {
+		align-items: stretch;
+		display: flex;
+		margin-left: 0;
+		margin-top: 0.55rem;
+	}
+
+	.oum-link-picker select {
+		width: 100%;
+	}
+}
+
+/* Link picker popup and dropdown arrow improvements. */
+.oum-sections-builder select,
+.oum-section-field select,
+.oum-repeater__item select,
+.oum-repeater-field select,
+.oum-sections-toolbar select {
+	-webkit-appearance: none !important;
+	appearance: none !important;
+	background-image:
+		linear-gradient(45deg, transparent 50%, var(--oum-mint) 50%),
+		linear-gradient(135deg, var(--oum-mint) 50%, transparent 50%) !important;
+	background-position:
+		calc(100% - 18px) 50%,
+		calc(100% - 11px) 50% !important;
+	background-repeat: no-repeat !important;
+	background-size: 7px 7px, 7px 7px !important;
+	padding-right: 42px !important;
+}
+
+.oum-link-modal[hidden] { display: none !important; }
+.oum-link-modal { align-items: center; bottom: 0; display: flex; justify-content: center; left: 0; padding: 24px; position: fixed; right: 0; top: 0; z-index: 100000; }
+.oum-link-modal__backdrop { background: rgba(1, 8, 18, .78); backdrop-filter: blur(8px); inset: 0; position: absolute; }
+.oum-link-modal__dialog { background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)), var(--oum-bg-soft); border: 1px solid var(--oum-card-border); border-radius: var(--oum-radius); box-shadow: var(--oum-shadow); color: var(--oum-text); max-height: min(720px, 86vh); max-width: 680px; overflow: hidden; position: relative; width: min(100%, 680px); }
+.oum-link-modal__header { align-items: center; border-bottom: 1px solid var(--oum-card-border); display: flex; justify-content: space-between; padding: 18px 20px; }
+.oum-link-modal__header strong { color: var(--oum-text); font-size: 18px; font-weight: 900; }
+.oum-link-modal__search { background: rgba(255,255,255,.055) !important; border: 1px solid rgba(255,255,255,.16) !important; border-radius: var(--oum-radius-sm) !important; box-sizing: border-box; color: var(--oum-text) !important; margin: 18px 20px 12px !important; max-width: calc(100% - 40px) !important; padding: 12px 14px !important; width: calc(100% - 40px) !important; }
+.oum-link-modal__list { display: grid; gap: 8px; max-height: 480px; overflow: auto; padding: 0 20px 20px; }
+.oum-link-modal__item { background: rgba(255,255,255,.055); border: 1px solid var(--oum-card-border); border-radius: var(--oum-radius-sm); color: var(--oum-text); cursor: pointer; display: grid; gap: 3px; padding: 12px 14px; text-align: left; transition: background .16s ease, border-color .16s ease, transform .16s ease; }
+.oum-link-modal__item:hover, .oum-link-modal__item:focus { background: rgba(32,240,192,.12); border-color: rgba(32,240,192,.42); outline: none; transform: translateY(-1px); }
+.oum-link-modal__item span { color: var(--oum-text); font-weight: 800; }
+.oum-link-modal__item small { color: var(--oum-muted); }

@@ -1,0 +1,507 @@
+.oum-admin-page .oum-admin-grid {
+	display: grid;
+	gap: 16px;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	margin-top: 20px;
+}
+
+.oum-admin-page .nav-tab-wrapper {
+	margin-top: 18px;
+}
+
+.oum-admin-grid--single {
+	grid-template-columns: minmax(0, 920px);
+}
+
+.oum-admin-panel,
+.oum-section-panel {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	padding: 16px;
+}
+
+.oum-admin-panel h2 {
+	margin-top: 0;
+}
+
+.oum-admin-panel p {
+	color: #50575e;
+	max-width: 760px;
+}
+
+.oum-admin-panel label,
+.oum-section-field label,
+.oum-repeater__item label {
+	display: grid;
+	gap: 6px;
+	margin: 0 0 12px;
+}
+
+.oum-admin-panel input[type="text"],
+.oum-admin-panel input[type="url"],
+.oum-admin-panel input[type="email"],
+.oum-admin-panel input[type="number"],
+.oum-admin-panel select,
+.oum-section-field input[type="text"],
+.oum-section-field input[type="url"],
+.oum-section-field select,
+.oum-section-field textarea,
+.oum-repeater__item input[type="text"],
+.oum-repeater__item input[type="url"],
+.oum-repeater__item select,
+.oum-repeater__item textarea {
+	max-width: 100%;
+	width: 100%;
+}
+
+.oum-admin-panel select,
+.oum-section-field select,
+.oum-repeater__item select,
+.oum-sections-toolbar select,
+.oum-link-picker select {
+	appearance: none;
+	background-image:
+		linear-gradient(45deg, transparent 50%, #50575e 50%),
+		linear-gradient(135deg, #50575e 50%, transparent 50%);
+	background-position:
+		calc(100% - 16px) 55%,
+		calc(100% - 10px) 55%;
+	background-repeat: no-repeat;
+	background-size: 6px 6px, 6px 6px;
+	padding-right: 32px;
+}
+
+.oum-link-picker {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 6px;
+}
+
+.oum-link-picker select {
+	min-width: min(100%, 320px);
+}
+
+.oum-checkbox {
+	align-items: center;
+	display: flex !important;
+	grid-template-columns: auto 1fr;
+}
+
+.oum-media-preview {
+	display: block;
+	margin-top: 8px;
+}
+
+.oum-media-preview img {
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	height: auto;
+	max-width: 120px;
+}
+
+.oum-sections-toolbar {
+	align-items: center;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	display: flex;
+	gap: 8px;
+	justify-content: space-between;
+	margin-bottom: 14px;
+	padding: 14px;
+}
+
+.oum-sections-toolbar select {
+	max-width: 360px;
+	width: 100%;
+}
+
+.oum-sections-builder {
+	max-width: 1180px;
+}
+
+.oum-sections-builder__intro {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-left: 4px solid #2271b1;
+	border-radius: 8px;
+	margin-bottom: 14px;
+	padding: 16px 18px;
+}
+
+.oum-sections-builder__intro h2 {
+	font-size: 18px;
+	margin: 0 0 4px;
+}
+
+.oum-sections-builder__intro p,
+.oum-sections-empty {
+	color: #50575e;
+	margin: 0;
+}
+
+.oum-sections-empty {
+	background: #fff;
+	border: 1px dashed #8c8f94;
+	border-radius: 8px;
+	margin-bottom: 14px;
+	padding: 22px;
+	text-align: center;
+}
+
+.oum-section-panel {
+	margin-bottom: 12px;
+	padding: 0;
+}
+
+.oum-section-panel__header {
+	align-items: center;
+	background: #f6f7f7;
+	border-bottom: 1px solid #dcdcde;
+	display: flex;
+	gap: 16px;
+	justify-content: space-between;
+	padding: 12px 14px;
+}
+
+.oum-section-panel__title {
+	display: grid;
+	gap: 3px;
+	min-width: 180px;
+}
+
+.oum-section-panel__title strong {
+	font-size: 14px;
+}
+
+.oum-section-panel__title span {
+	color: #646970;
+	font-size: 12px;
+}
+
+.oum-section-panel__controls {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	justify-content: flex-end;
+}
+
+.oum-section-panel__body {
+	display: grid;
+	gap: 12px;
+	padding: 14px;
+}
+
+.oum-section-panel.is-collapsed .oum-section-panel__body {
+	display: none;
+}
+
+.oum-section-panel.is-collapsed .oum-section-panel__header {
+	border-bottom: 0;
+}
+
+.oum-repeater {
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	padding: 12px;
+}
+
+.oum-repeater__item {
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	padding: 12px;
+}
+
+.oum-repeater__controls {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-bottom: 10px;
+}
+
+@media (max-width: 782px) {
+	.oum-sections-toolbar,
+	.oum-section-panel__header,
+	.oum-section-panel__controls {
+		align-items: stretch;
+		flex-direction: column;
+	}
+
+	.oum-section-panel__controls .button,
+	.oum-section-panel__controls .button-link-delete,
+	.oum-sections-toolbar .button {
+		text-align: center;
+		width: 100%;
+	}
+}
+
+/*───────────────────────────────────────
+  Section builder v0.1.2 fixes
+───────────────────────────────────────*/
+.oum-sections-builder select,
+.oum-section-field select,
+.oum-repeater__item select,
+.oum-repeater-field select,
+.oum-sections-toolbar select {
+	-webkit-appearance: none !important;
+	appearance: none !important;
+	background-image:
+		linear-gradient(45deg, transparent 50%, #20f0c0 50%),
+		linear-gradient(135deg, #20f0c0 50%, transparent 50%) !important;
+	background-position:
+		calc(100% - 18px) 50%,
+		calc(100% - 11px) 50% !important;
+	background-repeat: no-repeat !important;
+	background-size: 7px 7px, 7px 7px !important;
+	padding-right: 42px !important;
+}
+
+.oum-link-modal[hidden] {
+	display: none !important;
+}
+
+.oum-link-modal {
+	align-items: center;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	left: 0;
+	padding: 24px;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 100000;
+}
+
+.oum-link-modal__backdrop {
+	background: rgba(1, 8, 18, .78);
+	backdrop-filter: blur(8px);
+	inset: 0;
+	position: absolute;
+}
+
+.oum-link-modal__dialog {
+	background:
+		linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)),
+		#071a2e;
+	border: 1px solid rgba(255,255,255,.14);
+	border-radius: 22px;
+	box-shadow: 0 24px 80px rgba(0,0,0,.45);
+	color: #fff;
+	max-height: min(720px, 86vh);
+	max-width: 680px;
+	overflow: hidden;
+	position: relative;
+	width: min(100%, 680px);
+}
+
+.oum-link-modal__header {
+	align-items: center;
+	border-bottom: 1px solid rgba(255,255,255,.12);
+	display: flex;
+	justify-content: space-between;
+	padding: 18px 20px;
+}
+
+.oum-link-modal__header strong {
+	color: #fff;
+	font-size: 18px;
+	font-weight: 900;
+}
+
+.oum-link-modal__search {
+	background: rgba(255,255,255,.055) !important;
+	border: 1px solid rgba(255,255,255,.16) !important;
+	border-radius: 14px !important;
+	box-sizing: border-box;
+	color: #fff !important;
+	margin: 18px 20px 12px !important;
+	max-width: calc(100% - 40px) !important;
+	padding: 12px 14px !important;
+	width: calc(100% - 40px) !important;
+}
+
+.oum-link-modal__list {
+	display: grid;
+	gap: 8px;
+	max-height: 480px;
+	overflow: auto;
+	padding: 0 20px 20px;
+}
+
+.oum-link-modal__item {
+	background: rgba(255,255,255,.055);
+	border: 1px solid rgba(255,255,255,.12);
+	border-radius: 14px;
+	color: #fff;
+	cursor: pointer;
+	display: grid;
+	gap: 3px;
+	padding: 12px 14px;
+	text-align: left;
+	transition: background .16s ease, border-color .16s ease, transform .16s ease;
+}
+
+.oum-link-modal__item:hover,
+.oum-link-modal__item:focus {
+	background: rgba(32,240,192,.12);
+	border-color: rgba(32,240,192,.42);
+	outline: none;
+	transform: translateY(-1px);
+}
+
+.oum-link-modal__item span {
+	color: #fff;
+	font-weight: 800;
+}
+
+.oum-link-modal__item small {
+	color: rgba(255,255,255,.62);
+}
+
+
+/* v0.1.3 SVG field support */
+.oum-code-field {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+	min-height: 150px;
+	white-space: pre;
+}
+
+.oum-section-field--svg .description {
+	display: block;
+	margin-top: 6px;
+}
+
+
+/* v0.1.4 compact section builder */
+.oum-section-fields-grid {
+	display: grid;
+	gap: 16px;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.oum-section-field {
+	margin: 0 !important;
+}
+
+.oum-section-field--textarea,
+.oum-section-field--svg,
+.oum-section-field--media,
+.oum-section-field--repeater,
+.oum-section-field[data-oum-field-key="text"],
+.oum-section-field[data-oum-field-key="heading"],
+.oum-section-field[data-oum-field-key="highlighted_word"],
+.oum-section-field[data-oum-field-key="boxes"],
+.oum-section-field[data-oum-field-key="items"],
+.oum-section-field[data-oum-field-key="cards"],
+.oum-section-field[data-oum-field-key="services"],
+.oum-section-field[data-oum-field-key="faqs"],
+.oum-section-field[data-oum-field-key="logos"],
+.oum-section-field[data-oum-field-key="value_points"] {
+	grid-column: 1 / -1;
+}
+
+.oum-section-field--checkbox label {
+	align-items: center;
+	display: flex;
+	gap: 10px;
+}
+
+.oum-section-field--checkbox label > span {
+	order: 2;
+}
+
+.oum-section-field--checkbox input {
+	order: 1;
+}
+
+.oum-section-advanced-toggle-wrap {
+	border-top: 1px solid rgba(255,255,255,.10);
+	margin-top: 18px;
+	padding-top: 14px;
+}
+
+.oum-section-advanced[hidden],
+.oum-section-field[hidden],
+.is-hidden-by-icon-type {
+	display: none !important;
+}
+
+.oum-section-advanced {
+	background: rgba(255,255,255,.025);
+	border: 1px solid rgba(255,255,255,.08);
+	border-radius: 16px;
+	margin-top: 14px;
+	padding: 16px;
+}
+
+.oum-section-advanced-toggle {
+	background: rgba(255,255,255,.055) !important;
+	border: 1px solid rgba(255,255,255,.15) !important;
+	border-radius: 999px !important;
+	color: rgba(255,255,255,.86) !important;
+	font-weight: 800 !important;
+}
+
+.oum-section-advanced-toggle:hover,
+.oum-section-advanced-toggle:focus {
+	border-color: rgba(32,240,192,.42) !important;
+	color: #fff !important;
+}
+
+.oum-repeater__item .oum-section-fields-grid {
+	margin-top: 12px;
+}
+
+.oum-section-field--select select,
+.oum-section-field select {
+	appearance: auto !important;
+	-webkit-appearance: menulist !important;
+}
+
+@media (max-width: 960px) {
+	.oum-section-fields-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+
+/* v0.1.5 force hidden conditional icon fields */
+.oum-repeater__item [hidden],
+.oum-repeater__item .is-hidden-by-icon-type,
+.oum-section-panel [hidden],
+.oum-section-panel .is-hidden-by-icon-type {
+	display: none !important;
+}
+
+
+/* v0.1.6 stronger conditional icon-field hiding */
+.oum-section-field.is-hidden-by-icon-type,
+.oum-repeater__item .oum-section-field.is-hidden-by-icon-type,
+.oum-section-panel .oum-section-field.is-hidden-by-icon-type,
+.oum-section-field[aria-hidden="true"],
+.oum-repeater__item .oum-section-field[aria-hidden="true"],
+.oum-section-panel .oum-section-field[aria-hidden="true"] {
+	display: none !important;
+	visibility: hidden !important;
+}
+
+
+/* v0.1.7 hard hide conditional icon fields */
+.oum-section-field.is-hidden-by-icon-type,
+.oum-section-field[aria-hidden="true"],
+.oum-section-field[style*="display: none"] {
+	display: none !important;
+	visibility: hidden !important;
+	height: 0 !important;
+	margin: 0 !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+}

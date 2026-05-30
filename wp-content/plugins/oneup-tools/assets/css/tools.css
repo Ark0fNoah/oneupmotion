@@ -1,0 +1,2097 @@
+.oneup-tool {
+	--oneup-tool-bg: #071a2e;
+	--oneup-tool-panel-bg: #03101f;
+	--oneup-tool-text: #ffffff;
+	--oneup-tool-accent: #20f0c0;
+	--oneup-tool-muted: rgba(255,255,255,0.72);
+	--oneup-tool-border: rgba(255, 255, 255, 0.12);
+	--oneup-tool-font-size: 16px;
+	--oneup-tool-input-bg: #071a2e;
+	--oneup-tool-input-text: #ffffff;
+	--oneup-tool-input-border: rgba(255, 255, 255, 0.12);
+	--oneup-tool-dropdown-bg: #071a2e;
+	--oneup-tool-dropdown-text: #ffffff;
+	--oneup-tool-button-text: #02131f;
+	--oneup-tool-radius: 22px;
+	--oneup-tool-control-radius: 14px;
+	background: var(--oneup-tool-bg);
+	border: 1px solid var(--oneup-tool-border);
+	border-radius: var(--oneup-tool-radius);
+	box-shadow: 0 22px 60px rgba(3, 26, 52, 0.12);
+	color: var(--oneup-tool-text);
+	display: grid;
+	font-size: var(--oneup-tool-font-size);
+	gap: 0.75rem;
+	grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+	margin: 1.25rem 0;
+	padding: clamp(1rem, 3vw, 1.35rem);
+}
+
+.oneup-tool__header {
+	grid-column: 1 / -1;
+}
+
+.oneup-tool__eyebrow {
+	color: var(--oneup-tool-muted);
+	font-size: 0.78rem;
+	font-weight: 900;
+	letter-spacing: 0.12em;
+	margin: 0 0 0.5rem;
+	text-transform: uppercase;
+}
+
+.oneup-tool h2 {
+	font-size: clamp(1.55rem, 3vw, 2.25rem);
+	margin: 0 0 0.65rem;
+}
+
+.oneup-tool p {
+	color: var(--oneup-tool-muted);
+	margin-bottom: 0;
+}
+
+.oneup-qr__form {
+	display: grid;
+	gap: 1rem;
+}
+
+.oneup-qr__form label,
+.oneup-utm__placeholder label {
+	display: grid;
+	gap: 0.45rem;
+}
+
+.oneup-qr__form span,
+.oneup-utm__placeholder span {
+	font-weight: 850;
+}
+
+.oneup-qr__form input,
+.oneup-utm__placeholder input {
+	background: var(--oneup-tool-input-bg);
+	border: 1px solid var(--oneup-tool-input-border);
+	border-radius: var(--oneup-tool-control-radius);
+	color: var(--oneup-tool-input-text);
+	font: inherit;
+	min-height: 42px;
+	padding: 0.62rem 0.78rem;
+}
+
+.oneup-utm__placeholder {
+	display: grid;
+	gap: 1rem;
+	grid-column: 1 / -1;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.oneup-qr__form select,
+.oneup-utm__placeholder select {
+	background-color: var(--oneup-tool-dropdown-bg);
+	border: 1px solid var(--oneup-tool-input-border);
+	border-radius: var(--oneup-tool-control-radius);
+	color: var(--oneup-tool-dropdown-text);
+	font: inherit;
+	min-height: 42px;
+	padding: 0.62rem 0.78rem;
+}
+
+.oneup-qr__form small {
+	color: var(--oneup-tool-muted);
+}
+
+.oneup-qr__colors {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.oneup-qr__colors input {
+	padding: 0.35rem;
+	width: 100%;
+}
+
+.oneup-tool__button {
+	background: var(--oneup-tool-accent);
+	border: 0;
+	border-radius: 999px;
+	color: var(--oneup-tool-button-text);
+	cursor: pointer;
+	font: inherit;
+	font-weight: 900;
+	min-height: 42px;
+	padding: 0.75rem 1.1rem;
+}
+
+.oneup-tool__button--secondary {
+	background: var(--oneup-tool-panel-bg);
+	border: 1px solid var(--oneup-tool-border);
+	color: var(--oneup-tool-text);
+	width: 100%;
+}
+
+.oneup-tool__button:disabled {
+	cursor: not-allowed;
+	opacity: 0.55;
+}
+
+.oneup-qr__preview-wrap {
+	align-items: center;
+	background: var(--oneup-tool-panel-bg);
+	border: 1px solid var(--oneup-tool-border);
+	border-radius: var(--oneup-tool-radius);
+	display: grid;
+	gap: 1rem;
+	justify-items: center;
+	padding: 0.9rem;
+}
+
+.oneup-qr__preview {
+	align-items: center;
+	aspect-ratio: 1;
+	background: #fff;
+	border: 10px solid #fff;
+	border-radius: var(--oneup-tool-control-radius);
+	display: flex;
+	font-weight: 900;
+	justify-content: center;
+	max-width: 210px;
+	min-height: 190px;
+	text-align: center;
+	width: 100%;
+}
+
+.oneup-qr__preview svg {
+	display: block;
+	height: auto;
+	width: 100%;
+}
+
+.oneup-qr__message {
+	font-size: 0.9rem;
+	margin: 0;
+	text-align: center;
+}
+
+.oneup-tools-panel {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	margin-top: 16px;
+	max-width: 980px;
+	padding: 18px;
+}
+
+.oneup-tools-grid {
+	display: grid;
+	gap: 14px;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.oneup-tools-grid label,
+.oneup-tools-media-field {
+	display: grid;
+	gap: 6px;
+}
+
+.oneup-tools-grid input,
+.oneup-tools-grid select {
+	max-width: 100%;
+	width: 100%;
+}
+
+.oneup-tools-media-preview {
+	display: block;
+	margin-top: 8px;
+}
+
+.oneup-tools-media-preview img {
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	height: auto;
+	max-width: 96px;
+}
+
+@media (max-width: 760px) {
+	.oneup-tool {
+		grid-template-columns: 1fr;
+	}
+
+	.oneup-qr__colors {
+		grid-template-columns: 1fr;
+	}
+}
+
+
+.oneup-qr__form input::placeholder,
+.oneup-utm__placeholder input::placeholder {
+	color: color-mix(in srgb, var(--oneup-tool-input-text) 55%, transparent);
+}
+
+.oneup-qr__form select option,
+.oneup-utm__placeholder select option {
+	background: var(--oneup-tool-dropdown-bg);
+	color: var(--oneup-tool-dropdown-text);
+}
+
+.oneup-qr__preview canvas,
+.oneup-qr__preview svg {
+	display: block;
+	height: auto;
+	max-width: 100%;
+	width: 100%;
+}
+
+.oneup-qr__preview.is-generated {
+	background: var(--oneup-tool-panel-bg);
+	border-color: var(--oneup-tool-border);
+	padding: 0.75rem;
+}
+
+.oneup-qr__preview.is-generated canvas,
+.oneup-qr__preview.is-generated svg {
+	border-radius: calc(var(--oneup-tool-control-radius) - 4px);
+	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.oneup-qr__message.is-error {
+	color: #ff9f9f;
+}
+
+.oneup-tools-panel h2:not(:first-child) {
+	border-top: 1px solid var(--oneup-tool-border);
+	margin-top: 2rem;
+	padding-top: 1.5rem;
+}
+
+.oneup-tools-grid input[type="color"] {
+	min-height: 44px;
+	padding: 0.2rem;
+}
+
+.oneup-tools-grid input,
+.oneup-tools-grid select {
+	background: var(--oneup-tool-input-bg);
+	border: 1px solid var(--oneup-tool-input-border);
+	border-radius: var(--oneup-tool-control-radius);
+	color: var(--oneup-tool-input-text);
+}
+
+
+.oneup-tools-settings .nav-tab-wrapper {
+	border-bottom: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin: 1rem 0;
+	padding: 0;
+}
+
+.oneup-tools-settings .nav-tab {
+	background: rgba(255,255,255,0.055);
+	border: 1px solid rgba(255,255,255,0.14);
+	border-radius: 999px;
+	color: var(--oneup-tool-muted, #b8c4d5);
+	font-weight: 850;
+	margin: 0;
+	padding: 0.65rem 1rem;
+}
+
+.oneup-tools-settings .nav-tab-active,
+.oneup-tools-settings .nav-tab:hover,
+.oneup-tools-settings .nav-tab:focus {
+	background: rgba(32,240,192,0.14);
+	border-color: rgba(32,240,192,0.5);
+	color: var(--oneup-tool-accent, #20f0c0);
+}
+
+.oneup-tools-panel[hidden] {
+	display: none !important;
+}
+
+
+/* v0.2.2 OneUp Motion default polish */
+.oneup-tool {
+	box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.oneup-qr__preview-wrap {
+	box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.oneup-qr__form input:focus,
+.oneup-qr__form select:focus,
+.oneup-utm__placeholder input:focus,
+.oneup-utm__placeholder select:focus {
+	border-color: rgba(32,240,192,0.58);
+	box-shadow: 0 0 0 1px rgba(32,240,192,0.22), 0 0 28px rgba(32,240,192,0.10);
+	outline: none;
+}
+
+.oneup-tool__button:hover,
+.oneup-tool__button:focus {
+	background: #43ffd2;
+	transform: translateY(-1px);
+}
+
+
+/* v0.2.3 compact OneUp QR layout and frame styles */
+.oneup-tool__header {
+	margin-bottom: 0.15rem;
+}
+
+.oneup-tool__header p:last-child {
+	max-width: 760px;
+}
+
+.oneup-qr__form {
+	align-content: start;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.oneup-qr__form > label:first-child,
+.oneup-qr__colors,
+.oneup-qr__form .oneup-tool__button {
+	grid-column: 1 / -1;
+}
+
+.oneup-qr__form input[type="file"] {
+	min-height: auto;
+	padding: 0.55rem;
+}
+
+.oneup-qr__colors {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.oneup-qr__preview-wrap {
+	align-self: start;
+	position: sticky;
+	top: 1rem;
+}
+
+.oneup-qr__preview {
+	position: relative;
+	transition: border-radius .2s ease, padding .2s ease, box-shadow .2s ease;
+}
+
+.oneup-qr__preview--frame-none.is-generated {
+	padding: 0.6rem;
+}
+
+.oneup-qr__preview--frame-rounded-card.is-generated {
+	background: #ffffff;
+	border: 12px solid #ffffff;
+	box-shadow: 0 24px 55px rgba(0,0,0,.22);
+	padding: 0.75rem;
+}
+
+.oneup-qr__preview--frame-label.is-generated {
+	background: #ffffff;
+	border: 14px solid #ffffff;
+	border-bottom-width: 34px;
+	border-radius: 18px;
+	box-shadow: 0 24px 55px rgba(0,0,0,.22);
+	padding: 0.65rem;
+}
+
+.oneup-qr__preview--frame-label.is-generated::after {
+	bottom: 9px;
+	color: #001f3d;
+	content: "SCAN ME";
+	font-size: 0.68rem;
+	font-weight: 950;
+	left: 0;
+	letter-spacing: .1em;
+	position: absolute;
+	right: 0;
+	text-align: center;
+}
+
+.oneup-qr__preview--frame-ticket.is-generated {
+	background: #ffffff;
+	border: 14px solid #ffffff;
+	border-radius: 4px;
+	box-shadow: 0 24px 55px rgba(0,0,0,.22);
+	padding: 0.7rem;
+}
+
+.oneup-qr__preview--frame-ticket.is-generated::before,
+.oneup-qr__preview--frame-ticket.is-generated::after {
+	background: var(--oneup-tool-panel-bg);
+	border-radius: 999px;
+	content: "";
+	height: 24px;
+	position: absolute;
+	top: calc(50% - 12px);
+	width: 24px;
+}
+
+.oneup-qr__preview--frame-ticket.is-generated::before {
+	left: -24px;
+}
+
+.oneup-qr__preview--frame-ticket.is-generated::after {
+	right: -24px;
+}
+
+.oneup-qr__preview--frame-badge.is-generated {
+	background: #ffffff;
+	border: 14px solid #ffffff;
+	border-radius: 28px;
+	box-shadow: 0 24px 55px rgba(0,0,0,.22);
+	padding: 0.65rem;
+}
+
+.oneup-qr__preview--frame-phone.is-generated {
+	background: #ffffff;
+	border: 18px solid #061426;
+	border-radius: 28px;
+	box-shadow: 0 24px 55px rgba(0,0,0,.3);
+	padding: 0.6rem;
+}
+
+.oneup-qr__preview--frame-phone.is-generated::before {
+	background: rgba(255,255,255,.35);
+	border-radius: 999px;
+	content: "";
+	height: 4px;
+	left: 50%;
+	position: absolute;
+	top: -10px;
+	transform: translateX(-50%);
+	width: 42px;
+}
+
+.oneup-tools-settings {
+	--oneup-tool-bg: #071a2e;
+	--oneup-tool-panel-bg: #071a2e;
+	--oneup-tool-text: #ffffff;
+	--oneup-tool-muted: rgba(255,255,255,0.72);
+	--oneup-tool-accent: #20f0c0;
+	--oneup-tool-border: rgba(255,255,255,0.12);
+	--oneup-tool-input-bg: #071a2e;
+	--oneup-tool-input-text: #ffffff;
+	--oneup-tool-input-border: rgba(255,255,255,0.12);
+	--oneup-tool-control-radius: 14px;
+}
+
+.oneup-tools-panel {
+	background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025)), var(--oneup-tool-panel-bg);
+	border-color: var(--oneup-tool-border);
+	border-radius: 22px;
+	color: var(--oneup-tool-text);
+}
+
+.oneup-tools-panel p,
+.oneup-tools-panel .description {
+	color: var(--oneup-tool-muted);
+}
+
+@media (max-width: 920px) {
+	.oneup-tool {
+		grid-template-columns: 1fr;
+	}
+
+	.oneup-qr__preview-wrap {
+		position: static;
+	}
+}
+
+@media (max-width: 640px) {
+	.oneup-qr__form {
+		grid-template-columns: 1fr;
+	}
+}
+
+
+/* v0.2.4 compact generator, visible text, active design panels and frame previews */
+.oneup-tool,
+.oneup-tool * {
+	box-sizing: border-box;
+}
+
+.oneup-tool {
+	background: var(--oneup-tool-bg) !important;
+	color: var(--oneup-tool-text) !important;
+	grid-template-columns: minmax(0, 1fr) minmax(210px, 280px) !important;
+	padding: clamp(1rem, 2.4vw, 1.25rem) !important;
+}
+
+.oneup-tool h2,
+.oneup-tool h3,
+.oneup-tool label,
+.oneup-tool label span,
+.oneup-tool .oneup-qr__tabs button {
+	color: var(--oneup-tool-text) !important;
+}
+
+.oneup-tool p,
+.oneup-tool small {
+	color: var(--oneup-tool-muted) !important;
+}
+
+.oneup-qr__form {
+	gap: 0.75rem !important;
+	grid-template-columns: 1fr !important;
+}
+
+.oneup-qr__step,
+.oneup-qr__preview-wrap {
+	background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025)), var(--oneup-tool-panel-bg) !important;
+	border: 1px solid var(--oneup-tool-border) !important;
+	border-radius: var(--oneup-tool-radius) !important;
+	padding: 0.9rem !important;
+}
+
+.oneup-qr__step h3,
+.oneup-qr__preview-wrap h3 {
+	align-items: center;
+	display: flex;
+	font-size: 1rem;
+	gap: 0.55rem;
+	margin: 0 0 0.75rem;
+}
+
+.oneup-qr__step h3 span,
+.oneup-qr__preview-wrap h3 span {
+	align-items: center;
+	background: var(--oneup-tool-accent);
+	border-radius: 0.45rem;
+	color: var(--oneup-tool-button-text);
+	display: inline-flex;
+	font-size: 0.85rem;
+	height: 1.65rem;
+	justify-content: center;
+	width: 1.65rem;
+}
+
+.oneup-qr__tabs {
+	display: flex;
+	gap: 0.4rem;
+	margin-bottom: 0.75rem;
+	overflow-x: auto;
+	padding-bottom: 0.15rem;
+}
+
+.oneup-qr__tabs button {
+	background: transparent;
+	border: 0;
+	border-radius: 999px;
+	cursor: pointer;
+	font: inherit;
+	font-weight: 900;
+	padding: 0.55rem 0.8rem;
+	white-space: nowrap;
+}
+
+.oneup-qr__tabs button.is-active {
+	background: rgba(32, 240, 192, .14);
+	color: var(--oneup-tool-accent) !important;
+}
+
+.oneup-qr__design-panel[hidden] {
+	display: none !important;
+}
+
+.oneup-qr__design-panel {
+	display: grid;
+	gap: 0.75rem;
+}
+
+.oneup-qr__mini-grid {
+	display: grid;
+	gap: 0.75rem;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.oneup-qr__option-grid {
+	display: grid;
+	gap: 0.55rem;
+	grid-template-columns: repeat(auto-fit, minmax(76px, 1fr));
+}
+
+.oneup-qr__option-card {
+	background: rgba(255,255,255,.045);
+	border: 1px solid var(--oneup-tool-border);
+	border-radius: var(--oneup-tool-control-radius);
+	color: var(--oneup-tool-text);
+	cursor: pointer;
+	display: grid;
+	gap: 0.35rem;
+	justify-items: center;
+	min-height: 82px;
+	padding: 0.45rem;
+}
+
+.oneup-qr__option-card.is-active,
+.oneup-qr__option-card:hover {
+	border-color: var(--oneup-tool-accent);
+	box-shadow: 0 0 0 1px rgba(32,240,192,.2);
+}
+
+.oneup-qr__option-card em {
+	color: var(--oneup-tool-muted);
+	font-size: 0.72rem;
+	font-style: normal;
+	font-weight: 850;
+}
+
+.oneup-qr__frame-thumb {
+	align-items: center;
+	background: var(--oneup-qr-frame-color, #fff);
+	border-radius: 12px;
+	display: flex;
+	height: 44px;
+	justify-content: center;
+	position: relative;
+	width: 44px;
+}
+
+.oneup-qr__frame-thumb i {
+	background:
+		linear-gradient(90deg, #9aa1ad 20%, transparent 20% 40%, #9aa1ad 40% 60%, transparent 60% 80%, #9aa1ad 80%),
+		linear-gradient(#9aa1ad 20%, transparent 20% 40%, #9aa1ad 40% 60%, transparent 60% 80%, #9aa1ad 80%);
+	border-radius: 4px;
+	display: block;
+	height: 22px;
+	opacity: .78;
+	width: 22px;
+}
+
+.oneup-qr__frame-thumb--none {
+	background: rgba(255,255,255,.055);
+}
+
+.oneup-qr__frame-thumb--none::after {
+	background: var(--oneup-tool-accent);
+	content: "";
+	height: 2px;
+	position: absolute;
+	transform: rotate(-45deg);
+	width: 40px;
+}
+
+.oneup-qr__frame-thumb--label {
+	border-bottom: 12px solid var(--oneup-qr-frame-color, #fff);
+}
+
+.oneup-qr__frame-thumb--ticket {
+	border-radius: 4px;
+}
+
+.oneup-qr__frame-thumb--badge {
+	border-radius: 18px;
+}
+
+.oneup-qr__frame-thumb--phone {
+	background: #061426;
+	border: 5px solid #061426;
+}
+
+.oneup-qr__frame-thumb--phone i {
+	background-color: #fff;
+	outline: 5px solid #fff;
+}
+
+.oneup-qr__form input,
+.oneup-qr__form select,
+.oneup-utm__placeholder input,
+.oneup-utm__placeholder select {
+	background: var(--oneup-tool-input-bg) !important;
+	border-color: var(--oneup-tool-input-border) !important;
+	color: var(--oneup-tool-input-text) !important;
+	min-height: 40px !important;
+}
+
+.oneup-qr__form select,
+.oneup-utm__placeholder select {
+	background-color: var(--oneup-tool-dropdown-bg) !important;
+	color: var(--oneup-tool-dropdown-text) !important;
+}
+
+.oneup-qr__preview-wrap {
+	position: sticky;
+	top: 1rem;
+}
+
+.oneup-qr__preview {
+	max-width: 190px !important;
+	min-height: 170px !important;
+}
+
+.oneup-qr__preview--frame-label.is-generated {
+	border-bottom-width: 46px !important;
+	padding-bottom: 0.75rem !important;
+}
+
+.oneup-qr__preview--frame-label.is-generated::after {
+	background: transparent;
+	bottom: 13px !important;
+	color: #001f3d;
+	content: var(--oneup-qr-frame-text, "SCAN ME") !important;
+	line-height: 1;
+	z-index: 3;
+}
+
+.oneup-qr__preview--frame-rounded-card.is-generated,
+.oneup-qr__preview--frame-label.is-generated,
+.oneup-qr__preview--frame-ticket.is-generated,
+.oneup-qr__preview--frame-badge.is-generated {
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	border-color: var(--oneup-qr-frame-color, #fff) !important;
+}
+
+.oneup-tools-settings {
+	color: #fff;
+}
+
+.oneup-tools-panel {
+	background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025)), #071a2e !important;
+	border: 1px solid rgba(255,255,255,.12) !important;
+	color: #fff !important;
+}
+
+.oneup-tools-panel h2,
+.oneup-tools-panel label,
+.oneup-tools-panel span {
+	color: #fff !important;
+}
+
+@media (max-width: 920px) {
+	.oneup-tool {
+		grid-template-columns: 1fr !important;
+	}
+
+	.oneup-qr__preview-wrap {
+		position: static;
+	}
+}
+
+@media (max-width: 640px) {
+	.oneup-qr__mini-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+
+/* v0.2.5 color setting fixes, spacing, frame download support */
+.oneup-tool {
+	background: var(--oneup-tool-bg) !important;
+}
+
+.oneup-qr__step,
+.oneup-qr__preview-wrap {
+	background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025)), var(--oneup-tool-panel-bg) !important;
+}
+
+/* Give the generate button breathing room after the active design panel. */
+.oneup-qr__step--design .oneup-tool__button {
+	margin-top: 0.9rem !important;
+}
+
+/* Keep color inputs compact and native-looking, instead of huge text-like fields. */
+.oneup-qr__form input[type="color"],
+.oneup-tools-grid input[type="color"] {
+	appearance: auto !important;
+	-webkit-appearance: auto !important;
+	background: transparent !important;
+	border: 1px solid var(--oneup-tool-input-border) !important;
+	border-radius: 12px !important;
+	cursor: pointer;
+	height: 42px !important;
+	min-height: 42px !important;
+	padding: 4px !important;
+	width: 74px !important;
+}
+
+.oneup-qr__mini-grid label:has(input[type="color"]),
+.oneup-tools-grid label:has(input[type="color"]) {
+	align-items: start;
+}
+
+/* The label frame needs a real lower label area so text does not sit behind the QR. */
+.oneup-qr__preview--frame-label.is-generated {
+	border-bottom-width: 60px !important;
+	padding-bottom: 0.75rem !important;
+}
+
+.oneup-qr__preview--frame-label.is-generated::after {
+	bottom: 17px !important;
+	color: #001f3d !important;
+	font-size: 0.72rem !important;
+	line-height: 1 !important;
+	z-index: 8 !important;
+}
+
+/* More reliable generated QR sizing. */
+.oneup-qr__preview.is-generated canvas,
+.oneup-qr__preview.is-generated svg {
+	display: block !important;
+	height: auto !important;
+	margin: 0 auto !important;
+	max-width: 100% !important;
+	width: 100% !important;
+}
+
+/* Admin settings page should also use the saved colors instead of hardcoded white panels. */
+.oneup-tools-settings {
+	--oneup-tool-bg: #071a2e;
+	--oneup-tool-panel-bg: #03101f;
+	--oneup-tool-text: #ffffff;
+	--oneup-tool-muted: rgba(255,255,255,0.72);
+	--oneup-tool-accent: #20f0c0;
+	--oneup-tool-border: rgba(255,255,255,0.12);
+	--oneup-tool-input-bg: #071a2e;
+	--oneup-tool-input-text: #ffffff;
+	--oneup-tool-input-border: rgba(255,255,255,0.12);
+}
+
+.oneup-tools-panel {
+	background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025)), var(--oneup-tool-panel-bg) !important;
+}
+
+
+/* v0.2.6 label frame text spacing fix */
+.oneup-qr__preview--frame-label.is-generated {
+	align-items: flex-start !important;
+	border-bottom-width: 78px !important;
+	justify-content: flex-start !important;
+	padding: 0.75rem 0.75rem 0.95rem !important;
+}
+
+.oneup-qr__preview--frame-label.is-generated canvas,
+.oneup-qr__preview--frame-label.is-generated svg {
+	height: auto !important;
+	max-height: calc(100% - 62px) !important;
+	object-fit: contain !important;
+	width: 100% !important;
+}
+
+.oneup-qr__preview--frame-label.is-generated::after {
+	align-items: center;
+	background: var(--oneup-qr-frame-color, #fff);
+	border-radius: 0 0 calc(var(--oneup-tool-control-radius) - 2px) calc(var(--oneup-tool-control-radius) - 2px);
+	bottom: 0 !important;
+	color: #001f3d !important;
+	content: var(--oneup-qr-frame-text, "SCAN ME") !important;
+	display: flex;
+	font-size: 0.72rem !important;
+	font-weight: 950 !important;
+	height: 58px;
+	justify-content: center;
+	left: 0;
+	letter-spacing: .1em;
+	line-height: 1.1 !important;
+	padding: 0 0.75rem;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	z-index: 12 !important;
+}
+
+/* Match the downloaded label frame spacing with the live preview. */
+.oneup-qr__preview--frame-label {
+	overflow: hidden;
+}
+
+
+/* v0.2.7 preview label fix + extra frame options */
+
+/* Override earlier square preview rules for label/polaroid so QR and text do not overlap in the live preview. */
+.oneup-qr__preview.oneup-qr__preview--frame-label.is-generated,
+.oneup-qr__preview.oneup-qr__preview--frame-polaroid.is-generated {
+	aspect-ratio: auto !important;
+	display: grid !important;
+	grid-template-rows: minmax(0, 1fr) 58px !important;
+	height: 248px !important;
+	max-height: none !important;
+	min-height: 248px !important;
+	overflow: hidden !important;
+	padding: 0.75rem !important;
+	position: relative;
+	width: 190px !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-label.is-generated canvas,
+.oneup-qr__preview.oneup-qr__preview--frame-label.is-generated svg,
+.oneup-qr__preview.oneup-qr__preview--frame-polaroid.is-generated canvas,
+.oneup-qr__preview.oneup-qr__preview--frame-polaroid.is-generated svg {
+	align-self: center !important;
+	height: 150px !important;
+	justify-self: center !important;
+	margin: 0 auto !important;
+	max-height: 150px !important;
+	max-width: 150px !important;
+	object-fit: contain !important;
+	width: 150px !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-label.is-generated::after,
+.oneup-qr__preview.oneup-qr__preview--frame-polaroid.is-generated::after {
+	align-items: center !important;
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	bottom: 0 !important;
+	color: #001f3d !important;
+	content: var(--oneup-qr-frame-text, "SCAN ME") !important;
+	display: flex !important;
+	font-size: 0.72rem !important;
+	font-weight: 950 !important;
+	height: 58px !important;
+	justify-content: center !important;
+	left: 0 !important;
+	letter-spacing: .1em !important;
+	line-height: 1.1 !important;
+	padding: 0 0.75rem !important;
+	position: absolute !important;
+	right: 0 !important;
+	text-align: center !important;
+	top: auto !important;
+	z-index: 20 !important;
+}
+
+.oneup-qr__preview--frame-polaroid.is-generated {
+	border-bottom-width: 78px !important;
+	border-radius: 6px !important;
+}
+
+.oneup-qr__preview--frame-double-border.is-generated {
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	border: 10px solid var(--oneup-qr-frame-color, #fff) !important;
+	box-shadow: inset 0 0 0 4px #001f3d, 0 24px 55px rgba(0,0,0,.22) !important;
+	padding: 1rem !important;
+}
+
+.oneup-qr__preview--frame-neon.is-generated {
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	border-color: var(--oneup-qr-frame-color, #fff) !important;
+	box-shadow: 0 0 0 1px rgba(255,255,255,.16), 0 0 34px color-mix(in srgb, var(--oneup-qr-frame-color, #fff) 65%, transparent) !important;
+}
+
+.oneup-qr__preview--frame-soft-shadow.is-generated {
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	border-color: var(--oneup-qr-frame-color, #fff) !important;
+	box-shadow: 0 28px 70px rgba(0,0,0,.32) !important;
+}
+
+.oneup-qr__preview--frame-circle-badge.is-generated {
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	border-color: var(--oneup-qr-frame-color, #fff) !important;
+	border-radius: 42px !important;
+	box-shadow: 0 24px 55px rgba(0,0,0,.22) !important;
+}
+
+/* Extra frame thumbnails */
+.oneup-qr__frame-thumb--polaroid {
+	border-bottom: 14px solid var(--oneup-qr-frame-color, #fff);
+	border-radius: 3px;
+}
+
+.oneup-qr__frame-thumb--double-border {
+	box-shadow: inset 0 0 0 3px #001f3d;
+}
+
+.oneup-qr__frame-thumb--neon {
+	box-shadow: 0 0 18px color-mix(in srgb, var(--oneup-qr-frame-color, #fff) 75%, transparent);
+}
+
+.oneup-qr__frame-thumb--soft-shadow {
+	box-shadow: 0 10px 22px rgba(0,0,0,.28);
+}
+
+.oneup-qr__frame-thumb--circle-badge {
+	border-radius: 18px;
+}
+
+
+/* v0.2.8 refined preview frames */
+
+/* Reduce bottom label area; keep QR from overlapping text. */
+.oneup-qr__preview.oneup-qr__preview--frame-label.is-generated {
+	grid-template-rows: 156px 44px !important;
+	height: 220px !important;
+	min-height: 220px !important;
+	width: 190px !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-label.is-generated canvas,
+.oneup-qr__preview.oneup-qr__preview--frame-label.is-generated svg {
+	height: 148px !important;
+	max-height: 148px !important;
+	max-width: 148px !important;
+	width: 148px !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-label.is-generated::after {
+	height: 44px !important;
+}
+
+/* Top label frame. */
+.oneup-qr__preview.oneup-qr__preview--frame-label-top.is-generated {
+	aspect-ratio: auto !important;
+	display: grid !important;
+	grid-template-rows: 44px 156px !important;
+	height: 220px !important;
+	min-height: 220px !important;
+	overflow: hidden !important;
+	padding: 0.75rem !important;
+	width: 190px !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-label-top.is-generated canvas,
+.oneup-qr__preview.oneup-qr__preview--frame-label-top.is-generated svg {
+	align-self: center !important;
+	grid-row: 2 !important;
+	height: 148px !important;
+	justify-self: center !important;
+	max-height: 148px !important;
+	max-width: 148px !important;
+	width: 148px !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-label-top.is-generated::before {
+	align-items: center;
+	background: var(--oneup-qr-frame-color, #fff);
+	color: #001f3d;
+	content: var(--oneup-qr-frame-text, "SCAN ME");
+	display: flex;
+	font-size: 0.72rem;
+	font-weight: 950;
+	height: 44px;
+	justify-content: center;
+	left: 0;
+	letter-spacing: .1em;
+	padding: 0 0.75rem;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	top: 0;
+	z-index: 20;
+}
+
+/* Button below frame. */
+.oneup-qr__preview.oneup-qr__preview--frame-button-bottom.is-generated,
+.oneup-qr__preview.oneup-qr__preview--frame-comment-box.is-generated {
+	aspect-ratio: auto !important;
+	display: grid !important;
+	grid-template-rows: 160px 48px !important;
+	height: 232px !important;
+	min-height: 232px !important;
+	overflow: visible !important;
+	padding: 0.75rem !important;
+	width: 190px !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-button-bottom.is-generated canvas,
+.oneup-qr__preview.oneup-qr__preview--frame-button-bottom.is-generated svg,
+.oneup-qr__preview.oneup-qr__preview--frame-comment-box.is-generated canvas,
+.oneup-qr__preview.oneup-qr__preview--frame-comment-box.is-generated svg {
+	align-self: center !important;
+	height: 148px !important;
+	justify-self: center !important;
+	max-height: 148px !important;
+	max-width: 148px !important;
+	width: 148px !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-button-bottom.is-generated::after {
+	align-items: center;
+	background: #001f3d;
+	border-radius: 999px;
+	bottom: 0.6rem;
+	color: #fff;
+	content: var(--oneup-qr-frame-text, "SCAN ME");
+	display: flex;
+	font-size: 0.68rem;
+	font-weight: 950;
+	height: 34px;
+	justify-content: center;
+	left: 1.2rem;
+	letter-spacing: .08em;
+	position: absolute;
+	right: 1.2rem;
+	z-index: 22;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-comment-box.is-generated::after {
+	align-items: center;
+	background: #001f3d;
+	border-radius: 12px;
+	bottom: 0.55rem;
+	color: #fff;
+	content: var(--oneup-qr-frame-text, "SCAN ME");
+	display: flex;
+	font-size: 0.66rem;
+	font-weight: 950;
+	height: 38px;
+	justify-content: center;
+	left: 1.15rem;
+	letter-spacing: .06em;
+	padding: 0 0.45rem;
+	position: absolute;
+	right: 1.15rem;
+	text-align: center;
+	z-index: 22;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-comment-box.is-generated::before {
+	border-bottom: 10px solid #001f3d;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	bottom: 43px;
+	content: "";
+	left: calc(50% - 10px);
+	position: absolute;
+	z-index: 22;
+}
+
+/* Polaroid: intentionally different from label, no text. */
+.oneup-qr__preview.oneup-qr__preview--frame-polaroid.is-generated {
+	aspect-ratio: auto !important;
+	display: flex !important;
+	height: 230px !important;
+	min-height: 230px !important;
+	padding: 0.85rem 0.85rem 2.35rem !important;
+	width: 190px !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-polaroid.is-generated::after {
+	content: "" !important;
+	display: none !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-polaroid.is-generated canvas,
+.oneup-qr__preview.oneup-qr__preview--frame-polaroid.is-generated svg {
+	height: 156px !important;
+	max-height: 156px !important;
+	max-width: 156px !important;
+	width: 156px !important;
+}
+
+/* Remove unsupported frame remnants visually if old saved values exist. */
+.oneup-qr__preview--frame-neon,
+.oneup-qr__preview--frame-soft-shadow,
+.oneup-qr__preview--frame-badge,
+.oneup-qr__preview--frame-circle-badge {
+	box-shadow: 0 24px 55px rgba(0,0,0,.22) !important;
+}
+
+/* New thumbnails. */
+.oneup-qr__frame-thumb--label-top::before {
+	background: #001f3d;
+	border-radius: 999px;
+	content: "";
+	height: 5px;
+	left: 10px;
+	position: absolute;
+	right: 10px;
+	top: 6px;
+}
+
+.oneup-qr__frame-thumb--button-bottom::after {
+	background: #001f3d;
+	border-radius: 999px;
+	bottom: 5px;
+	content: "";
+	height: 7px;
+	left: 9px;
+	position: absolute;
+	right: 9px;
+}
+
+.oneup-qr__frame-thumb--comment-box::after {
+	background: #001f3d;
+	border-radius: 4px;
+	bottom: 5px;
+	content: "";
+	height: 9px;
+	left: 8px;
+	position: absolute;
+	right: 8px;
+}
+
+.oneup-qr__frame-thumb--comment-box::before {
+	border-bottom: 5px solid #001f3d;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	bottom: 13px;
+	content: "";
+	left: calc(50% - 5px);
+	position: absolute;
+}
+
+
+/* v0.2.9 frame preview refinements */
+
+/* Bottom label: less empty space, same background/frame feel. */
+.oneup-qr__preview.oneup-qr__preview--frame-label.is-generated {
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	border-color: var(--oneup-qr-frame-color, #fff) !important;
+	display: grid !important;
+	grid-template-rows: 164px 36px !important;
+	height: 208px !important;
+	min-height: 208px !important;
+	padding: 0.65rem !important;
+	width: 190px !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-label.is-generated canvas,
+.oneup-qr__preview.oneup-qr__preview--frame-label.is-generated svg {
+	height: 152px !important;
+	max-height: 152px !important;
+	max-width: 152px !important;
+	width: 152px !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-label.is-generated::after {
+	height: 36px !important;
+}
+
+/* Top label: make it match the normal label frame with proper background/frame. */
+.oneup-qr__preview.oneup-qr__preview--frame-label-top.is-generated {
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	border-color: var(--oneup-qr-frame-color, #fff) !important;
+	display: grid !important;
+	grid-template-rows: 36px 164px !important;
+	height: 208px !important;
+	min-height: 208px !important;
+	padding: 0.65rem !important;
+	width: 190px !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-label-top.is-generated canvas,
+.oneup-qr__preview.oneup-qr__preview--frame-label-top.is-generated svg {
+	height: 152px !important;
+	max-height: 152px !important;
+	max-width: 152px !important;
+	width: 152px !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-label-top.is-generated::before {
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	height: 36px !important;
+}
+
+/* Button/comment previews: more breathing room and no white/full-card fill around the bottom element. */
+.oneup-qr__preview.oneup-qr__preview--frame-button-bottom.is-generated,
+.oneup-qr__preview.oneup-qr__preview--frame-comment-box.is-generated {
+	background: transparent !important;
+	border-color: transparent !important;
+	box-shadow: none !important;
+	display: grid !important;
+	grid-template-rows: 176px 56px !important;
+	height: 248px !important;
+	min-height: 248px !important;
+	padding: 0 !important;
+	width: 190px !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-button-bottom.is-generated canvas,
+.oneup-qr__preview.oneup-qr__preview--frame-button-bottom.is-generated svg,
+.oneup-qr__preview.oneup-qr__preview--frame-comment-box.is-generated canvas,
+.oneup-qr__preview.oneup-qr__preview--frame-comment-box.is-generated svg {
+	align-self: start !important;
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	border: 12px solid var(--oneup-qr-frame-color, #fff) !important;
+	border-radius: var(--oneup-tool-control-radius) !important;
+	height: 166px !important;
+	justify-self: center !important;
+	max-height: 166px !important;
+	max-width: 166px !important;
+	width: 166px !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-button-bottom.is-generated::after {
+	bottom: 0 !important;
+	height: 34px !important;
+	left: 1.1rem !important;
+	right: 1.1rem !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-comment-box.is-generated::after {
+	bottom: 0 !important;
+	height: 38px !important;
+	left: 1.05rem !important;
+	right: 1.05rem !important;
+}
+
+.oneup-qr__preview.oneup-qr__preview--frame-comment-box.is-generated::before {
+	bottom: 38px !important;
+}
+
+
+/* v0.3.0 final frame preview reset, auto-generate support */
+
+/* Keep all generated previews predictable. */
+.oneup-qr__preview.is-generated {
+	--oneup-qr-preview-width: 190px;
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+	height: auto !important;
+	max-width: var(--oneup-qr-preview-width) !important;
+	min-height: 0 !important;
+	overflow: visible !important;
+	padding: 0 !important;
+	width: var(--oneup-qr-preview-width) !important;
+}
+
+/* Basic framed QR area. */
+.oneup-qr__preview.is-generated canvas,
+.oneup-qr__preview.is-generated svg {
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	border: 12px solid var(--oneup-qr-frame-color, #fff) !important;
+	border-radius: var(--oneup-tool-control-radius) !important;
+	box-shadow: 0 18px 40px rgba(0,0,0,.18) !important;
+	display: block !important;
+	height: 166px !important;
+	margin: 0 auto !important;
+	max-height: 166px !important;
+	max-width: 166px !important;
+	object-fit: contain !important;
+	width: 166px !important;
+}
+
+/* Card-like frames wrap the QR in a full background. */
+.oneup-qr__preview--frame-rounded-card.is-generated,
+.oneup-qr__preview--frame-ticket.is-generated,
+.oneup-qr__preview--frame-phone.is-generated,
+.oneup-qr__preview--frame-double-border.is-generated {
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	border: 12px solid var(--oneup-qr-frame-color, #fff) !important;
+	border-radius: var(--oneup-tool-control-radius) !important;
+	box-shadow: 0 24px 55px rgba(0,0,0,.22) !important;
+	padding: 0.75rem !important;
+}
+
+.oneup-qr__preview--frame-rounded-card.is-generated canvas,
+.oneup-qr__preview--frame-ticket.is-generated canvas,
+.oneup-qr__preview--frame-phone.is-generated canvas,
+.oneup-qr__preview--frame-double-border.is-generated canvas,
+.oneup-qr__preview--frame-rounded-card.is-generated svg,
+.oneup-qr__preview--frame-ticket.is-generated svg,
+.oneup-qr__preview--frame-phone.is-generated svg,
+.oneup-qr__preview--frame-double-border.is-generated svg {
+	border: 0 !important;
+	height: 166px !important;
+	max-height: 166px !important;
+	max-width: 166px !important;
+	width: 166px !important;
+}
+
+/* Label bottom / top: same frame style, controlled label zone, no clipping. */
+.oneup-qr__preview--frame-label.is-generated,
+.oneup-qr__preview--frame-label-top.is-generated {
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	border: 12px solid var(--oneup-qr-frame-color, #fff) !important;
+	border-radius: 20px !important;
+	box-shadow: 0 24px 55px rgba(0,0,0,.22) !important;
+	display: flex !important;
+	flex-direction: column !important;
+	gap: 0 !important;
+	height: auto !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	width: 190px !important;
+}
+
+.oneup-qr__preview--frame-label-top.is-generated {
+	flex-direction: column-reverse !important;
+}
+
+.oneup-qr__preview--frame-label.is-generated canvas,
+.oneup-qr__preview--frame-label-top.is-generated canvas,
+.oneup-qr__preview--frame-label.is-generated svg,
+.oneup-qr__preview--frame-label-top.is-generated svg {
+	background: #fff !important;
+	border: 0 !important;
+	border-radius: 12px !important;
+	box-shadow: none !important;
+	height: 158px !important;
+	margin: 10px auto 0 !important;
+	max-height: 158px !important;
+	max-width: 158px !important;
+	width: 158px !important;
+}
+
+.oneup-qr__preview--frame-label-top.is-generated canvas,
+.oneup-qr__preview--frame-label-top.is-generated svg {
+	margin: 0 auto 10px !important;
+}
+
+.oneup-qr__preview--frame-label.is-generated::after,
+.oneup-qr__preview--frame-label-top.is-generated::before {
+	align-items: center !important;
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	color: var(--oneup-qr-frame-text-color, #001f3d) !important;
+	content: var(--oneup-qr-frame-text, "SCAN ME") !important;
+	display: flex !important;
+	font-size: 0.72rem !important;
+	font-weight: 950 !important;
+	height: 40px !important;
+	justify-content: center !important;
+	letter-spacing: .1em !important;
+	line-height: 1.1 !important;
+	padding: 0 0.65rem !important;
+	position: static !important;
+	text-align: center !important;
+	width: 100% !important;
+	z-index: 20 !important;
+}
+
+.oneup-qr__preview--frame-label-top.is-generated::after {
+	display: none !important;
+	content: none !important;
+}
+
+/* Polaroid: no text, bottom weighted frame. */
+.oneup-qr__preview--frame-polaroid.is-generated {
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	border: 12px solid var(--oneup-qr-frame-color, #fff) !important;
+	border-bottom-width: 38px !important;
+	border-radius: 6px !important;
+	box-shadow: 0 24px 55px rgba(0,0,0,.22) !important;
+	display: block !important;
+	padding: 0 !important;
+	width: 190px !important;
+}
+
+.oneup-qr__preview--frame-polaroid.is-generated canvas,
+.oneup-qr__preview--frame-polaroid.is-generated svg {
+	border: 0 !important;
+	border-radius: 3px !important;
+	box-shadow: none !important;
+	height: 166px !important;
+	max-height: 166px !important;
+	max-width: 166px !important;
+	width: 166px !important;
+}
+
+.oneup-qr__preview--frame-polaroid.is-generated::before,
+.oneup-qr__preview--frame-polaroid.is-generated::after {
+	display: none !important;
+	content: none !important;
+}
+
+/* Button and comment: text element same width as QR and with clear spacing. */
+.oneup-qr__preview--frame-button-bottom.is-generated,
+.oneup-qr__preview--frame-comment-box.is-generated {
+	align-items: center !important;
+	display: flex !important;
+	flex-direction: column !important;
+	gap: 18px !important;
+	width: 190px !important;
+}
+
+.oneup-qr__preview--frame-button-bottom.is-generated::after,
+.oneup-qr__preview--frame-comment-box.is-generated::after {
+	align-items: center !important;
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	border-radius: 999px !important;
+	color: var(--oneup-qr-frame-text-color, #001f3d) !important;
+	content: var(--oneup-qr-frame-text, "SCAN ME") !important;
+	display: flex !important;
+	font-size: 0.68rem !important;
+	font-weight: 950 !important;
+	height: 38px !important;
+	justify-content: center !important;
+	letter-spacing: .08em !important;
+	line-height: 1.1 !important;
+	margin: 0 auto !important;
+	padding: 0 0.8rem !important;
+	position: static !important;
+	text-align: center !important;
+	width: 166px !important;
+	z-index: 20 !important;
+}
+
+.oneup-qr__preview--frame-comment-box.is-generated::after {
+	border-radius: 12px !important;
+	height: 42px !important;
+}
+
+.oneup-qr__preview--frame-comment-box.is-generated::before {
+	border-bottom: 10px solid var(--oneup-qr-frame-color, #fff) !important;
+	border-left: 10px solid transparent !important;
+	border-right: 10px solid transparent !important;
+	content: "" !important;
+	display: block !important;
+	height: 0 !important;
+	margin: -2px auto -18px !important;
+	position: static !important;
+	width: 0 !important;
+	z-index: 20 !important;
+}
+
+/* Phone and double border refinements. */
+.oneup-qr__preview--frame-phone.is-generated {
+	background: #061426 !important;
+	border-color: #061426 !important;
+	border-radius: 28px !important;
+}
+
+.oneup-qr__preview--frame-double-border.is-generated {
+	box-shadow: inset 0 0 0 4px var(--oneup-qr-frame-text-color, #001f3d), 0 24px 55px rgba(0,0,0,.22) !important;
+}
+
+/* Frame text color field spacing. */
+.oneup-qr__mini-grid label:has([name="oneup_qr_frame_text_color"]) {
+	align-items: start;
+}
+
+
+/* v0.3.1 comment frame preview fix */
+.oneup-qr__preview--frame-comment-box.is-generated {
+	align-items: center !important;
+	display: flex !important;
+	flex-direction: column !important;
+	gap: 18px !important;
+	overflow: visible !important;
+	position: relative !important;
+	width: 190px !important;
+}
+
+.oneup-qr__preview--frame-comment-box.is-generated canvas,
+.oneup-qr__preview--frame-comment-box.is-generated svg {
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	border: 12px solid var(--oneup-qr-frame-color, #fff) !important;
+	border-radius: var(--oneup-tool-control-radius) !important;
+	box-shadow: 0 18px 40px rgba(0,0,0,.18) !important;
+	display: block !important;
+	height: 166px !important;
+	margin: 0 auto !important;
+	max-height: 166px !important;
+	max-width: 166px !important;
+	order: 1 !important;
+	width: 166px !important;
+}
+
+.oneup-qr__preview--frame-comment-box.is-generated::after {
+	align-items: center !important;
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	border-radius: 14px !important;
+	color: var(--oneup-qr-frame-text-color, #001f3d) !important;
+	content: var(--oneup-qr-frame-text, "SCAN ME") !important;
+	display: flex !important;
+	font-size: 0.66rem !important;
+	font-weight: 950 !important;
+	height: 42px !important;
+	justify-content: center !important;
+	letter-spacing: .06em !important;
+	line-height: 1.1 !important;
+	margin: 0 auto !important;
+	order: 2 !important;
+	padding: 0 0.65rem !important;
+	position: relative !important;
+	text-align: center !important;
+	width: 166px !important;
+	z-index: 2 !important;
+}
+
+.oneup-qr__preview--frame-comment-box.is-generated::before {
+	background: var(--oneup-qr-frame-color, #fff) !important;
+	border: 0 !important;
+	clip-path: polygon(50% 0, 0 100%, 100% 100%);
+	content: "" !important;
+	display: block !important;
+	height: 14px !important;
+	left: 50% !important;
+	margin: 0 !important;
+	position: absolute !important;
+	top: 174px !important;
+	transform: translateX(-50%) !important;
+	width: 24px !important;
+	z-index: 3 !important;
+}
+
+/* Prevent old static triangle rules from affecting the layout. */
+.oneup-qr__preview--frame-comment-box.is-generated > span {
+	display: none !important;
+}
+
+
+/* v0.3.2 reduce QR quiet-zone and frame padding */
+.oneup-qr__preview.is-generated canvas,
+.oneup-qr__preview.is-generated svg {
+	border-width: 6px !important;
+}
+
+.oneup-qr__preview--frame-rounded-card.is-generated,
+.oneup-qr__preview--frame-ticket.is-generated,
+.oneup-qr__preview--frame-phone.is-generated,
+.oneup-qr__preview--frame-double-border.is-generated,
+.oneup-qr__preview--frame-label.is-generated,
+.oneup-qr__preview--frame-label-top.is-generated,
+.oneup-qr__preview--frame-polaroid.is-generated {
+	border-width: 6px !important;
+}
+
+.oneup-qr__preview--frame-label.is-generated canvas,
+.oneup-qr__preview--frame-label-top.is-generated canvas,
+.oneup-qr__preview--frame-polaroid.is-generated canvas,
+.oneup-qr__preview--frame-label.is-generated svg,
+.oneup-qr__preview--frame-label-top.is-generated svg,
+.oneup-qr__preview--frame-polaroid.is-generated svg {
+	border-width: 0 !important;
+}
+
+.oneup-qr__preview--frame-button-bottom.is-generated canvas,
+.oneup-qr__preview--frame-button-bottom.is-generated svg,
+.oneup-qr__preview--frame-comment-box.is-generated canvas,
+.oneup-qr__preview--frame-comment-box.is-generated svg {
+	border-width: 6px !important;
+}
+
+
+/* v0.3.3 remove QR section panel padding and tool border */
+.oum-section-qr__tool.has-panel,
+.oum-section-qr__tool,
+.oum-section-qr.has-panel,
+.oum-section-qr {
+	padding: 0 !important;
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+.oneup-tool.oneup-qr,
+.oneup-tool.oneup-qr.has-panel {
+	border: 0 !important;
+	box-shadow: none !important;
+	margin: 0 !important;
+}
+
+.oum-section-qr__tool.has-panel .oneup-tool.oneup-qr,
+.oum-section-qr__tool .oneup-tool.oneup-qr {
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+
+/* v0.4.0 UTM Builder */
+.oneup-tool.oneup-utm {
+	grid-template-columns: minmax(0, 1fr) minmax(260px, 0.8fr) !important;
+}
+
+.oneup-utm__form {
+	display: grid;
+	gap: 0.75rem;
+}
+
+.oneup-utm__step,
+.oneup-utm__result {
+	background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025)), var(--oneup-tool-panel-bg);
+	border: 1px solid var(--oneup-tool-border);
+	border-radius: var(--oneup-tool-radius);
+	padding: 0.9rem;
+}
+
+.oneup-utm__step h3,
+.oneup-utm__result h3 {
+	align-items: center;
+	color: var(--oneup-tool-text);
+	display: flex;
+	font-size: 1rem;
+	gap: 0.55rem;
+	margin: 0 0 0.75rem;
+}
+
+.oneup-utm__step h3 span,
+.oneup-utm__result h3 span {
+	align-items: center;
+	background: var(--oneup-tool-accent);
+	border-radius: 0.45rem;
+	color: var(--oneup-tool-button-text);
+	display: inline-flex;
+	font-size: 0.85rem;
+	height: 1.65rem;
+	justify-content: center;
+	width: 1.65rem;
+}
+
+.oneup-utm__grid {
+	display: grid;
+	gap: 0.75rem;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.oneup-utm__field {
+	display: grid;
+	gap: 0.42rem;
+}
+
+.oneup-utm__field--full {
+	grid-column: 1 / -1;
+}
+
+.oneup-utm__field span {
+	color: var(--oneup-tool-text);
+	font-weight: 850;
+}
+
+.oneup-utm__field input,
+.oneup-utm__field select,
+.oneup-utm__result textarea {
+	background: var(--oneup-tool-input-bg);
+	border: 1px solid var(--oneup-tool-input-border);
+	border-radius: var(--oneup-tool-control-radius);
+	color: var(--oneup-tool-input-text);
+	font: inherit;
+	min-height: 40px;
+	padding: 0.62rem 0.78rem;
+	width: 100%;
+}
+
+.oneup-utm__field select {
+	background-color: var(--oneup-tool-dropdown-bg);
+	color: var(--oneup-tool-dropdown-text);
+}
+
+.oneup-utm__field--checkbox {
+	align-items: center;
+	background: rgba(255,255,255,.035);
+	border: 1px solid var(--oneup-tool-border);
+	border-radius: var(--oneup-tool-control-radius);
+	display: flex;
+	gap: 0.6rem;
+	padding: 0.7rem;
+}
+
+.oneup-utm__field--checkbox input {
+	min-height: auto;
+	width: auto;
+}
+
+.oneup-utm__result {
+	align-self: start;
+	display: grid;
+	gap: 0.75rem;
+	position: sticky;
+	top: 1rem;
+}
+
+.oneup-utm__result textarea {
+	min-height: 180px;
+	resize: vertical;
+}
+
+.oneup-utm__message {
+	color: var(--oneup-tool-muted);
+	font-size: 0.9rem;
+	margin: 0;
+}
+
+.oneup-utm__message.is-error {
+	color: #ff9f9f;
+}
+
+.oneup-utm__actions {
+	display: grid;
+	gap: 0.55rem;
+}
+
+.oneup-tool__button--ghost {
+	background: transparent;
+	border: 1px solid var(--oneup-tool-border);
+	color: var(--oneup-tool-text);
+}
+
+@media (max-width: 920px) {
+	.oneup-tool.oneup-utm {
+		grid-template-columns: 1fr !important;
+	}
+
+	.oneup-utm__result {
+		position: static;
+	}
+}
+
+@media (max-width: 640px) {
+	.oneup-utm__grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+
+/* v0.5.0 Open Graph Preview Generator */
+.oneup-tool.oneup-og {
+	grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr) !important;
+}
+
+.oneup-og__form {
+	display: grid;
+	gap: 0.75rem;
+}
+
+.oneup-og__step,
+.oneup-og__result {
+	background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.025)), var(--oneup-tool-panel-bg);
+	border: 1px solid var(--oneup-tool-border);
+	border-radius: var(--oneup-tool-radius);
+	padding: 0.9rem;
+}
+
+.oneup-og__step h3,
+.oneup-og__result h3 {
+	align-items: center;
+	color: var(--oneup-tool-text);
+	display: flex;
+	font-size: 1rem;
+	gap: 0.55rem;
+	margin: 0 0 0.75rem;
+}
+
+.oneup-og__step h3 span,
+.oneup-og__result h3 span {
+	align-items: center;
+	background: var(--oneup-tool-accent);
+	border-radius: 0.45rem;
+	color: var(--oneup-tool-button-text);
+	display: inline-flex;
+	font-size: 0.85rem;
+	height: 1.65rem;
+	justify-content: center;
+	width: 1.65rem;
+}
+
+.oneup-og__step {
+	display: grid;
+	gap: 0.75rem;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.oneup-og__step h3,
+.oneup-og__field--full,
+.oneup-og__image-grid,
+.oneup-og__tips,
+.oneup-og__platforms {
+	grid-column: 1 / -1;
+}
+
+.oneup-og__field {
+	display: grid;
+	gap: 0.42rem;
+}
+
+.oneup-og__field span,
+.oneup-og__meta h4 {
+	color: var(--oneup-tool-text);
+	font-weight: 850;
+}
+
+.oneup-og__field input,
+.oneup-og__field textarea,
+.oneup-og__meta textarea {
+	background: var(--oneup-tool-input-bg);
+	border: 1px solid var(--oneup-tool-input-border);
+	border-radius: var(--oneup-tool-control-radius);
+	color: var(--oneup-tool-input-text);
+	font: inherit;
+	min-height: 40px;
+	padding: 0.62rem 0.78rem;
+	width: 100%;
+}
+
+.oneup-og__field input[type="file"] {
+	padding: 0.52rem;
+}
+
+.oneup-og__field small,
+.oneup-og__tips,
+.oneup-og__message,
+.oneup-og-card__body p,
+.oneup-og-card__body small,
+.oneup-og-card__domain {
+	color: var(--oneup-tool-muted);
+}
+
+.oneup-og__field small.is-warning {
+	color: #ffd15c;
+}
+
+.oneup-og__image-grid {
+	display: grid;
+	gap: 0.75rem;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.oneup-og__tips {
+	background: rgba(255,255,255,.035);
+	border: 1px solid var(--oneup-tool-border);
+	border-radius: var(--oneup-tool-control-radius);
+	padding: 0.75rem;
+}
+
+.oneup-og__tips strong {
+	color: var(--oneup-tool-text);
+}
+
+.oneup-og__platforms {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.45rem;
+}
+
+.oneup-og__platforms button {
+	background: rgba(255,255,255,.045);
+	border: 1px solid var(--oneup-tool-border);
+	border-radius: 999px;
+	color: var(--oneup-tool-text);
+	cursor: pointer;
+	font: inherit;
+	font-weight: 850;
+	padding: 0.58rem 0.85rem;
+}
+
+.oneup-og__platforms button.is-active,
+.oneup-og__platforms button:hover {
+	background: rgba(32,240,192,.14);
+	border-color: rgba(32,240,192,.46);
+	color: var(--oneup-tool-accent);
+}
+
+.oneup-og__result {
+	align-self: start;
+	display: grid;
+	gap: 0.85rem;
+	position: sticky;
+	top: 1rem;
+}
+
+.oneup-og-card {
+	background: #ffffff;
+	border-radius: 16px;
+	box-shadow: 0 20px 56px rgba(0,0,0,.25);
+	color: #111827;
+	overflow: hidden;
+}
+
+.oneup-og-card__image {
+	align-items: center;
+	aspect-ratio: 1.91 / 1;
+	background:
+		radial-gradient(circle at 70% 30%, rgba(32,240,192,.35), transparent 8rem),
+		linear-gradient(145deg, #0a2037, #061426);
+	background-position: center;
+	background-size: cover;
+	color: rgba(255,255,255,.72);
+	display: flex;
+	font-weight: 850;
+	justify-content: center;
+	min-height: 170px;
+	padding: 1rem;
+	text-align: center;
+}
+
+.oneup-og-card__image.has-image {
+	color: transparent;
+}
+
+.oneup-og-card__body {
+	display: grid;
+	gap: 0.35rem;
+	padding: 0.9rem 1rem 1rem;
+}
+
+.oneup-og-card__body strong {
+	color: #111827;
+	font-size: 1rem;
+	line-height: 1.25;
+}
+
+.oneup-og-card__body p {
+	font-size: 0.88rem;
+	line-height: 1.45;
+	margin: 0;
+}
+
+.oneup-og-card__domain {
+	font-size: 0.76rem;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.oneup-og-card--x {
+	background: #000;
+	border: 1px solid #2f3336;
+	color: #e7e9ea;
+}
+
+.oneup-og-card--x .oneup-og-card__body strong,
+.oneup-og-card--x .oneup-og-card__body p,
+.oneup-og-card--x .oneup-og-card__domain,
+.oneup-og-card--x .oneup-og-card__body small {
+	color: #e7e9ea;
+}
+
+.oneup-og-card--discord {
+	background: #2b2d31;
+	border-left: 4px solid #5865f2;
+	color: #f2f3f5;
+}
+
+.oneup-og-card--discord .oneup-og-card__body strong {
+	color: #00a8fc;
+}
+
+.oneup-og-card--discord .oneup-og-card__body p,
+.oneup-og-card--discord .oneup-og-card__domain,
+.oneup-og-card--discord .oneup-og-card__body small {
+	color: #dbdee1;
+}
+
+.oneup-og-card--facebook {
+	border: 1px solid #dadde1;
+	border-radius: 8px;
+}
+
+.oneup-og-card--generic {
+	border-radius: 12px;
+}
+
+.oneup-og__meta {
+	display: grid;
+	gap: 0.45rem;
+}
+
+.oneup-og__meta h4 {
+	margin: 0;
+}
+
+.oneup-og__meta textarea {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	font-size: 0.78rem;
+	min-height: 150px;
+	resize: vertical;
+}
+
+.oneup-og__actions {
+	display: grid;
+	gap: 0.55rem;
+	grid-template-columns: 1fr;
+}
+
+.oneup-og__message {
+	font-size: 0.9rem;
+	margin: 0;
+}
+
+.oneup-og__message.is-error {
+	color: #ff9f9f;
+}
+
+@media (max-width: 920px) {
+	.oneup-tool.oneup-og {
+		grid-template-columns: 1fr !important;
+	}
+
+	.oneup-og__result {
+		position: static;
+	}
+}
+
+@media (max-width: 640px) {
+	.oneup-og__step,
+	.oneup-og__image-grid {
+		grid-template-columns: 1fr;
+	}
+}
