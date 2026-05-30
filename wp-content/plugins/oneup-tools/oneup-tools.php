@@ -24,6 +24,7 @@ define( 'ONEUP_TOOLS_URL', plugin_dir_url( __FILE__ ) );
 
 $oneup_tools_files = array(
 	'includes/Assets.php',
+	'includes/Settings.php',
 	'includes/Shortcodes.php',
 	'includes/Plugin.php',
 );
