@@ -1,6 +1,6 @@
 <?php
 /**
- * QR generator tool placeholder.
+ * QR generator tool bootstrap.
  *
  * @package OneUpTools
  */
@@ -9,5 +9,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// TODO: Integrate a real QR rendering library here in a future version.
-// TODO: Add server-side sanitization and validation when generated QR payloads are persisted or downloaded.
+// The first real QR renderer lives in assets/js/qr-generator.js so it can render and download client-side SVGs without external services.
+// TODO: Add optional server-side rendering later if generated QR payloads need to be stored.
