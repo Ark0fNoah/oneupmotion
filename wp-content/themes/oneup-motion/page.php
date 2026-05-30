@@ -22,7 +22,13 @@ while ( have_posts() ) :
 			<header class="entry-header">
 				<h1><?php the_title(); ?></h1>
 			</header>
-			<?php the_content(); ?>
+			<?php if ( '' !== trim( get_the_content() ) ) : ?>
+				<?php the_content(); ?>
+			<?php elseif ( current_user_can( 'edit_post', get_the_ID() ) ) : ?>
+				<div class="oum-empty-page">
+					<p><?php echo esc_html__( 'This page has no sections yet.', 'oneup-motion' ); ?></p>
+				</div>
+			<?php endif; ?>
 		</article>
 		</main>
 	<?php endif; ?>
