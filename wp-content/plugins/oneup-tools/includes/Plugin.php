@@ -12,18 +12,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class Plugin {
-	/** @var Assets|null */
+	/**
+	 * Asset manager.
+	 *
+	 * @var Assets|null
+	 */
 	private $assets;
 
-	/** @var Shortcodes|null */
+	/**
+	 * Shortcode manager.
+	 *
+	 * @var Shortcodes|null
+	 */
 	private $shortcodes;
+
+	/**
+	 * Settings manager.
+	 *
+	 * @var Settings|null
+	 */
+	private $settings;
 
 	//───────────────────────────────────────
 	// Boot services
 	//───────────────────────────────────────
 	public function __construct() {
 		$this->assets     = class_exists( __NAMESPACE__ . '\Assets' ) ? new Assets() : null;
-		$this->shortcodes = class_exists( __NAMESPACE__ . '\Shortcodes' ) ? new Shortcodes( $this->assets ) : null;
+		$this->settings   = class_exists( __NAMESPACE__ . '\Settings' ) ? new Settings() : null;
+		$this->shortcodes = class_exists( __NAMESPACE__ . '\Shortcodes' ) ? new Shortcodes( $this->assets, $this->settings ) : null;
 
 		add_action( 'init', array( $this, 'load_tool_files' ) );
 	}
