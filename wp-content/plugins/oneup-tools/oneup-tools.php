@@ -2,7 +2,7 @@
 /**
  * Plugin Name: OneUp Tools
  * Plugin URI: https://oneupmotion.com
- * Description: Future-ready digital tools for OneUp Motion, starting with a QR Generator shortcode placeholder.
+ * Description: Future-ready digital tools for OneUp Motion, starting with a configurable QR Generator shortcode.
  * Version: 0.1.0
  * Author: OneUp Motion
  * Author URI: https://oneupmotion.com
@@ -49,5 +49,4 @@ function oneup_tools() {
 
 	return $instance;
 }
-
 oneup_tools();
