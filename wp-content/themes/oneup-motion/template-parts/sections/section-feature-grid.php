@@ -20,7 +20,11 @@ $items   = isset( $section['items'] ) && is_array( $section['items'] ) ? $sectio
 		<div class="service-grid oum-card-grid--<?php echo esc_attr( oum_section_field( $section, 'columns', '4' ) ); ?>">
 			<?php foreach ( $items as $item ) : ?>
 				<article class="service-card">
-					<?php if ( ! empty( $item['icon_text'] ) ) : ?><span class="service-card__icon" aria-hidden="true"><?php echo esc_html( $item['icon_text'] ); ?></span><?php endif; ?>
+					<?php if ( ! empty( $item['icon_image_id'] ) ) : ?>
+						<span class="service-card__icon service-card__icon--image"><?php echo wp_get_attachment_image( absint( $item['icon_image_id'] ), 'thumbnail' ); ?></span>
+					<?php elseif ( ! empty( $item['icon_text'] ) ) : ?>
+						<span class="service-card__icon" aria-hidden="true"><?php echo esc_html( $item['icon_text'] ); ?></span>
+					<?php endif; ?>
 					<h3><?php echo esc_html( $item['title'] ?? '' ); ?></h3>
 					<p><?php echo esc_html( $item['text'] ?? '' ); ?></p>
 					<?php if ( ! empty( $item['url'] ) && ! empty( $item['button_label'] ) ) : ?><a class="tool-card__button" href="<?php echo esc_url( $item['url'] ); ?>"><?php echo esc_html( $item['button_label'] ); ?></a><?php endif; ?>
