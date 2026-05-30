@@ -91,7 +91,7 @@
 
 	function repeaterItemHtml(sectionIndex, repeaterKey, itemIndex, fields) {
 		return '<div class="oum-repeater__item" data-oum-repeater-item>' +
-			'<button type="button" class="button-link-delete" data-oum-repeater-remove>Remove item</button>' +
+			'<div class="oum-repeater__controls"><button type="button" class="button" data-oum-repeater-up>Up</button> <button type="button" class="button" data-oum-repeater-down>Down</button> <button type="button" class="button-link-delete" data-oum-repeater-remove>Remove item</button></div>' +
 			Object.keys(fields).map(function (key) {
 				return '<label><span>' + escapeHtml(fields[key]) + '</span>' +
 					'<textarea name="oum_sections[' + sectionIndex + '][' + repeaterKey + '][' + itemIndex + '][' + key + ']" rows="2"></textarea></label>';
@@ -140,6 +140,7 @@
 				'<button type="button" class="button" data-oum-move-up>Move Up</button> ' +
 				'<button type="button" class="button" data-oum-move-down>Move Down</button> ' +
 				'<button type="button" class="button" data-oum-toggle>Collapse</button> ' +
+				'<button type="button" class="button" data-oum-duplicate>Duplicate</button> ' +
 				'<button type="button" class="button-link-delete" data-oum-remove>Remove</button>' +
 				'</div></div><div class="oum-section-panel__body">' +
 				'<input type="hidden" name="oum_sections[' + sectionIndex + '][type]" value="' + escapeHtml(type) + '">' +
@@ -170,8 +171,39 @@
 				section.parentNode.insertBefore(section.nextElementSibling, section);
 			}
 
+			if (event.target.matches('[data-oum-duplicate]') && section) {
+				const clone = section.cloneNode(true);
+				const stamp = Date.now();
+				clone.querySelectorAll('[name]').forEach(function (field) {
+					field.name = field.name.replace(/oum_sections\[([^\]]+)\]/, 'oum_sections[' + stamp + ']');
+					if (field.name.match(/\[id\]$/)) {
+						field.value = 'oum_' + stamp;
+					}
+				});
+				clone.querySelectorAll('[data-oum-bound]').forEach(function (node) {
+					delete node.dataset.oumBound;
+				});
+				section.parentNode.insertBefore(clone, section.nextElementSibling);
+				bindMedia(clone);
+				updateEmptyState();
+			}
+
 			if (event.target.matches('[data-oum-repeater-remove]')) {
 				event.target.closest('[data-oum-repeater-item]').remove();
+			}
+
+			if (event.target.matches('[data-oum-repeater-up]')) {
+				const item = event.target.closest('[data-oum-repeater-item]');
+				if (item && item.previousElementSibling) {
+					item.parentNode.insertBefore(item, item.previousElementSibling);
+				}
+			}
+
+			if (event.target.matches('[data-oum-repeater-down]')) {
+				const item = event.target.closest('[data-oum-repeater-item]');
+				if (item && item.nextElementSibling) {
+					item.parentNode.insertBefore(item.nextElementSibling, item);
+				}
 			}
 
 			if (event.target.matches('[data-oum-repeater-add]')) {
