@@ -14,65 +14,76 @@ if ( ! defined( 'ABSPATH' ) ) {
 //───────────────────────────────────────
 function oum_theme_option_defaults() {
 	return array(
-		'main_logo_id'           => 0,
-		'alt_logo_id'            => 0,
-		'footer_logo_id'         => 0,
-		'brand_name'             => 'OneUp Motion',
-		'footer_brand_text'      => 'OneUp Motion',
-		'bg'                     => '#03101f',
-		'bg_soft'                => '#071a2e',
-		'navy'                   => '#001f3d',
-		'card'                   => 'rgba(255, 255, 255, 0.055)',
-		'card_border'            => 'rgba(255, 255, 255, 0.12)',
-		'text'                   => '#ffffff',
-		'muted'                  => 'rgba(255, 255, 255, 0.72)',
-		'soft_muted'             => 'rgba(255, 255, 255, 0.52)',
-		'mint'                   => '#20f0c0',
-		'mint_dark'              => '#08caa0',
-		'button_bg'              => '#20f0c0',
-		'button_text'            => '#02131f',
-		'header_bg'              => 'rgba(3, 16, 31, 0.74)',
-		'footer_bg'              => '#020a14',
-		'heading_font'           => 'rounded',
-		'body_font'              => 'rounded',
-		'button_font'            => 'rounded',
-		'heading_weight'         => '900',
-		'body_weight'            => '400',
-		'button_weight'          => '900',
-		'heading_spacing'        => '0',
-		'body_spacing'           => '0',
-		'button_spacing'         => '0',
-		'base_font_size'         => '16',
-		'heading_style'          => 'rounded',
-		'button_transform'       => 'none',
-		'button_font_size'       => '16',
-		'button_radius'          => '999',
-		'button_padding'         => 'medium',
-		'button_style'           => 'filled',
-		'button_shadow'          => '1',
-		'button_hover_lift'      => '1',
-		'button_arrow'           => '0',
-		'container_width'        => 'default',
-		'section_spacing'        => 'default',
-		'card_radius'            => 'rounded',
-		'card_style'             => 'glass',
-		'sticky_header'          => '1',
-		'transparent_header'     => '1',
-		'show_header_cta'        => '1',
-		'header_cta_label'       => 'Start Creating',
-		'header_cta_url'         => '#contact',
-		'footer_description'     => 'Digital tools. Modern design. Real results.',
-		'footer_email'           => 'hello@oneupmotion.com',
-		'footer_instagram'       => '',
-		'footer_x'               => '',
-		'footer_youtube'         => '',
-		'footer_linkedin'        => '',
-		'footer_copyright'       => 'OneUp Motion. All rights reserved.',
-		'footer_nav_title'       => 'Navigation',
-		'footer_tools_title'     => 'Tools',
-		'footer_resources_title' => 'Resources',
-		'footer_legal_title'     => 'Legal',
-		'enable_post_sections'   => '0',
+		'main_logo_id'          => 0,
+		'alt_logo_id'           => 0,
+		'footer_logo_id'        => 0,
+		'brand_name'            => 'OneUp Motion',
+		'footer_brand_text'     => 'OneUp Motion',
+		'header_logo_max_width' => '180',
+		'header_logo_max_height'=> '52',
+		'footer_logo_max_width' => '180',
+		'footer_logo_max_height'=> '60',
+		'bg'                    => '#03101f',
+		'bg_soft'               => '#071a2e',
+		'navy'                  => '#001f3d',
+		'card'                  => 'rgba(255, 255, 255, 0.055)',
+		'card_border'           => 'rgba(255, 255, 255, 0.12)',
+		'text'                  => '#ffffff',
+		'muted'                 => 'rgba(255, 255, 255, 0.72)',
+		'soft_muted'            => 'rgba(255, 255, 255, 0.52)',
+		'mint'                  => '#20f0c0',
+		'mint_dark'             => '#08caa0',
+		'button_bg'             => '#20f0c0',
+		'button_text'           => '#02131f',
+		'header_bg'             => 'rgba(3, 16, 31, 0.74)',
+		'footer_bg'             => '#020a14',
+		'heading_font'          => 'rounded',
+		'body_font'             => 'rounded',
+		'button_font'           => 'rounded',
+		'heading_weight'        => '900',
+		'body_weight'           => '400',
+		'button_weight'         => '900',
+		'heading_spacing'       => '0',
+		'body_spacing'          => '0',
+		'button_spacing'        => '0',
+		'base_font_size'        => '16',
+		'heading_style'         => 'rounded',
+		'button_transform'      => 'none',
+		'button_font_size'      => '16',
+		'button_radius'         => '999',
+		'button_padding'        => 'medium',
+		'button_style'          => 'filled',
+		'button_shadow'         => '1',
+		'button_hover_lift'     => '1',
+		'button_arrow'          => '0',
+		'container_width'       => 'default',
+		'section_spacing'       => 'default',
+		'card_radius'           => 'rounded',
+		'card_style'            => 'glass',
+		'sticky_header'         => '1',
+		'transparent_header'    => '1',
+		'show_header_cta'       => '1',
+		'header_cta_label'      => 'Start Creating',
+		'header_cta_url'        => '#contact',
+		'footer_description'    => 'Digital tools. Modern design. Real results.',
+		'footer_email'          => 'hello@oneupmotion.com',
+		'footer_instagram'      => '',
+		'footer_x'              => '',
+		'footer_youtube'        => '',
+		'footer_linkedin'       => '',
+		'footer_copyright'      => 'OneUp Motion. All rights reserved.',
+		'footer_nav_title'      => 'Navigation',
+		'footer_tools_title'    => 'Tools',
+		'footer_resources_title'=> 'Resources',
+		'footer_legal_title'    => 'Legal',
+		'show_footer_nav'       => '1',
+		'show_footer_tools'     => '1',
+		'show_footer_resources' => '1',
+		'show_footer_legal'     => '1',
+		'use_sections_for_pages'=> '1',
+		'hide_page_content_editor' => '1',
+		'enable_post_sections'  => '0',
+		'replace_post_editor_with_sections' => '0',
 	);
 }
 
@@ -117,6 +128,17 @@ function oum_sanitize_theme_options( $input ) {
 		$output[ $key ] = isset( $input[ $key ] ) ? sanitize_text_field( $input[ $key ] ) : $defaults[ $key ];
 	}
 
+	$logo_sizes = array(
+		'header_logo_max_width'  => array( 60, 320 ),
+		'header_logo_max_height' => array( 24, 120 ),
+		'footer_logo_max_width'  => array( 60, 320 ),
+		'footer_logo_max_height' => array( 24, 120 ),
+	);
+	foreach ( $logo_sizes as $key => $range ) {
+		$value          = isset( $input[ $key ] ) ? absint( $input[ $key ] ) : absint( $defaults[ $key ] );
+		$output[ $key ] = (string) min( max( $value, $range[0] ), $range[1] );
+	}
+
 	foreach ( array( 'header_cta_url', 'footer_instagram', 'footer_x', 'footer_youtube', 'footer_linkedin' ) as $key ) {
 		$output[ $key ] = isset( $input[ $key ] ) ? esc_url_raw( $input[ $key ] ) : '';
 	}
@@ -143,7 +165,7 @@ function oum_sanitize_theme_options( $input ) {
 		$output[ $key ] = in_array( $value, $allowed, true ) ? $value : $defaults[ $key ];
 	}
 
-	foreach ( array( 'button_shadow', 'button_hover_lift', 'button_arrow', 'sticky_header', 'transparent_header', 'show_header_cta', 'enable_post_sections' ) as $key ) {
+	foreach ( array( 'button_shadow', 'button_hover_lift', 'button_arrow', 'sticky_header', 'transparent_header', 'show_header_cta', 'show_footer_nav', 'show_footer_tools', 'show_footer_resources', 'show_footer_legal', 'use_sections_for_pages', 'hide_page_content_editor', 'enable_post_sections', 'replace_post_editor_with_sections' ) as $key ) {
 		$output[ $key ] = ! empty( $input[ $key ] ) ? '1' : '0';
 	}
 
@@ -202,23 +224,58 @@ function oum_render_theme_options_page() {
 	}
 
 	$options = wp_parse_args( get_option( 'oum_theme_options', array() ), oum_theme_option_defaults() );
+	$tabs    = oum_theme_options_tabs();
+	$active  = isset( $_GET['tab'] ) ? sanitize_key( wp_unslash( $_GET['tab'] ) ) : 'branding';
+	$active  = isset( $tabs[ $active ] ) ? $active : 'branding';
 	?>
 	<div class="wrap oum-admin-page">
 		<h1><?php echo esc_html__( 'OneUp Motion Theme Settings', 'oneup-motion' ); ?></h1>
 		<p><?php echo esc_html__( 'Manage brand, colors, typography, layout, header, footer and section-builder settings.', 'oneup-motion' ); ?></p>
-		<form method="post" action="options.php">
+		<nav class="nav-tab-wrapper" aria-label="<?php echo esc_attr__( 'OneUp Motion settings tabs', 'oneup-motion' ); ?>">
+			<?php foreach ( $tabs as $tab => $label ) : ?>
+				<a class="nav-tab <?php echo $active === $tab ? 'nav-tab-active' : ''; ?>" href="<?php echo esc_url( add_query_arg( array( 'page' => 'oum-theme-options', 'tab' => $tab ), admin_url( 'themes.php' ) ) ); ?>"><?php echo esc_html( $label ); ?></a>
+			<?php endforeach; ?>
+		</nav>
+		<form method="post" action="<?php echo esc_url( add_query_arg( 'tab', $active, admin_url( 'options.php' ) ) ); ?>">
 			<?php settings_fields( 'oum_theme_options_group' ); ?>
-			<div class="oum-admin-grid">
-				<?php oum_render_options_panel_branding( $options ); ?>
-				<?php oum_render_options_panel_colors( $options ); ?>
-				<?php oum_render_options_panel_typography( $options ); ?>
-				<?php oum_render_options_panel_buttons_layout( $options ); ?>
-				<?php oum_render_options_panel_header_footer( $options ); ?>
+			<div class="oum-admin-grid oum-admin-grid--single">
+				<?php oum_render_theme_options_tab( $active, $options ); ?>
 			</div>
 			<?php submit_button(); ?>
 		</form>
 	</div>
 	<?php
+}
+
+//───────────────────────────────────────
+// Settings tabs
+//───────────────────────────────────────
+function oum_theme_options_tabs() {
+	return array(
+		'branding'   => __( 'Branding', 'oneup-motion' ),
+		'colors'     => __( 'Colors', 'oneup-motion' ),
+		'typography' => __( 'Typography', 'oneup-motion' ),
+		'buttons'    => __( 'Buttons', 'oneup-motion' ),
+		'layout'     => __( 'Layout', 'oneup-motion' ),
+		'header'     => __( 'Header', 'oneup-motion' ),
+		'footer'     => __( 'Footer', 'oneup-motion' ),
+		'sections'   => __( 'Sections', 'oneup-motion' ),
+		'advanced'   => __( 'Advanced', 'oneup-motion' ),
+	);
+}
+
+//───────────────────────────────────────
+// Render active settings tab
+//───────────────────────────────────────
+function oum_render_theme_options_tab( $active, $options ) {
+	$callback = 'oum_render_options_panel_' . str_replace( '-', '_', $active );
+
+	if ( function_exists( $callback ) ) {
+		call_user_func( $callback, $options );
+		return;
+	}
+
+	oum_render_options_panel_branding( $options );
 }
 
 //───────────────────────────────────────
@@ -285,11 +342,16 @@ function oum_panel_close() {
 //───────────────────────────────────────
 function oum_render_options_panel_branding( $options ) {
 	oum_panel_open( __( 'Logo / Branding', 'oneup-motion' ) );
+	echo '<p>' . esc_html__( 'Set the editable brand fallbacks and constrain uploaded logos so large image files never break the header or footer layout.', 'oneup-motion' ) . '</p>';
 	oum_media_field( $options, 'main_logo_id', __( 'Main logo upload', 'oneup-motion' ) );
 	oum_media_field( $options, 'alt_logo_id', __( 'Alternative dark/light logo', 'oneup-motion' ) );
 	oum_media_field( $options, 'footer_logo_id', __( 'Footer logo option', 'oneup-motion' ) );
 	oum_text_field( $options, 'brand_name', __( 'Brand name fallback', 'oneup-motion' ) );
 	oum_text_field( $options, 'footer_brand_text', __( 'Footer brand text', 'oneup-motion' ) );
+	oum_text_field( $options, 'header_logo_max_width', __( 'Header logo max width', 'oneup-motion' ), 'number' );
+	oum_text_field( $options, 'header_logo_max_height', __( 'Header logo max height', 'oneup-motion' ), 'number' );
+	oum_text_field( $options, 'footer_logo_max_width', __( 'Footer logo max width', 'oneup-motion' ), 'number' );
+	oum_text_field( $options, 'footer_logo_max_height', __( 'Footer logo max height', 'oneup-motion' ), 'number' );
 	echo '<p><a href="' . esc_url( admin_url( 'customize.php?autofocus[section]=title_tagline' ) ) . '">' . esc_html__( 'Set the favicon/site icon in the WordPress Site Identity settings.', 'oneup-motion' ) . '</a></p>';
 	oum_panel_close();
 }
@@ -299,6 +361,7 @@ function oum_render_options_panel_branding( $options ) {
 //───────────────────────────────────────
 function oum_render_options_panel_colors( $options ) {
 	oum_panel_open( __( 'Colors', 'oneup-motion' ) );
+	echo '<p>' . esc_html__( 'These values output as CSS variables and control the dark OneUp Motion visual system.', 'oneup-motion' ) . '</p>';
 	$labels = array(
 		'bg'          => __( 'Background color', 'oneup-motion' ),
 		'bg_soft'     => __( 'Soft background color', 'oneup-motion' ),
@@ -326,6 +389,7 @@ function oum_render_options_panel_colors( $options ) {
 //───────────────────────────────────────
 function oum_render_options_panel_typography( $options ) {
 	oum_panel_open( __( 'Typography', 'oneup-motion' ) );
+	echo '<p>' . esc_html__( 'Choose safe system font stacks only. No external fonts are loaded.', 'oneup-motion' ) . '</p>';
 	$fonts = array_map( static function( $choice ) { return $choice['label']; }, oum_font_choices() );
 	oum_select_field( $options, 'heading_font', __( 'Heading font family', 'oneup-motion' ), $fonts );
 	oum_select_field( $options, 'body_font', __( 'Body font family', 'oneup-motion' ), $fonts );
@@ -344,40 +408,61 @@ function oum_render_options_panel_typography( $options ) {
 }
 
 //───────────────────────────────────────
-// Button and layout panel
+// Buttons panel
 //───────────────────────────────────────
-function oum_render_options_panel_buttons_layout( $options ) {
-	oum_panel_open( __( 'Buttons & Layout', 'oneup-motion' ) );
+function oum_render_options_panel_buttons( $options ) {
+	oum_panel_open( __( 'Buttons', 'oneup-motion' ) );
+	echo '<p>' . esc_html__( 'Control global button styling without changing template markup.', 'oneup-motion' ) . '</p>';
 	oum_text_field( $options, 'button_radius', __( 'Button border radius', 'oneup-motion' ), 'number' );
 	oum_select_field( $options, 'button_padding', __( 'Button padding size', 'oneup-motion' ), array( 'small' => __( 'Small', 'oneup-motion' ), 'medium' => __( 'Medium', 'oneup-motion' ), 'large' => __( 'Large', 'oneup-motion' ) ) );
 	oum_select_field( $options, 'button_style', __( 'Button style', 'oneup-motion' ), array( 'filled' => __( 'Filled', 'oneup-motion' ), 'outline' => __( 'Outline', 'oneup-motion' ), 'ghost' => __( 'Ghost', 'oneup-motion' ), 'gradient' => __( 'Gradient', 'oneup-motion' ) ) );
 	oum_checkbox_field( $options, 'button_shadow', __( 'Button shadow', 'oneup-motion' ) );
 	oum_checkbox_field( $options, 'button_hover_lift', __( 'Button hover lift', 'oneup-motion' ) );
 	oum_checkbox_field( $options, 'button_arrow', __( 'Button icon arrow', 'oneup-motion' ) );
-	oum_select_field( $options, 'container_width', __( 'Container width', 'oneup-motion' ), array( 'narrow' => __( 'Narrow', 'oneup-motion' ), 'default' => __( 'Default', 'oneup-motion' ), 'wide' => __( 'Wide', 'oneup-motion' ) ) );
-	oum_select_field( $options, 'section_spacing', __( 'Section spacing', 'oneup-motion' ), array( 'compact' => __( 'Compact', 'oneup-motion' ), 'default' => __( 'Default', 'oneup-motion' ), 'spacious' => __( 'Spacious', 'oneup-motion' ) ) );
-	oum_select_field( $options, 'card_radius', __( 'Card border radius', 'oneup-motion' ), array( 'sharp' => __( 'Sharp', 'oneup-motion' ), 'soft' => __( 'Soft', 'oneup-motion' ), 'rounded' => __( 'Rounded', 'oneup-motion' ) ) );
-	oum_select_field( $options, 'card_style', __( 'Card style', 'oneup-motion' ), array( 'flat' => __( 'Flat', 'oneup-motion' ), 'glass' => __( 'Glass', 'oneup-motion' ), 'outlined' => __( 'Outlined', 'oneup-motion' ), 'glow' => __( 'Glow', 'oneup-motion' ) ) );
-	oum_checkbox_field( $options, 'enable_post_sections', __( 'Enable OneUp Sections on posts', 'oneup-motion' ) );
 	oum_panel_close();
 }
 
 //───────────────────────────────────────
-// Header and footer panel
+// Layout panel
 //───────────────────────────────────────
-function oum_render_options_panel_header_footer( $options ) {
-	oum_panel_open( __( 'Header & Footer', 'oneup-motion' ) );
+function oum_render_options_panel_layout( $options ) {
+	oum_panel_open( __( 'Layout', 'oneup-motion' ) );
+	echo '<p>' . esc_html__( 'Adjust global spacing and card treatments while preserving the current homepage design defaults.', 'oneup-motion' ) . '</p>';
+	oum_select_field( $options, 'container_width', __( 'Container width', 'oneup-motion' ), array( 'narrow' => __( 'Narrow', 'oneup-motion' ), 'default' => __( 'Default', 'oneup-motion' ), 'wide' => __( 'Wide', 'oneup-motion' ) ) );
+	oum_select_field( $options, 'section_spacing', __( 'Section spacing', 'oneup-motion' ), array( 'compact' => __( 'Compact', 'oneup-motion' ), 'default' => __( 'Default', 'oneup-motion' ), 'spacious' => __( 'Spacious', 'oneup-motion' ) ) );
+	oum_select_field( $options, 'card_radius', __( 'Card border radius', 'oneup-motion' ), array( 'sharp' => __( 'Sharp', 'oneup-motion' ), 'soft' => __( 'Soft', 'oneup-motion' ), 'rounded' => __( 'Rounded', 'oneup-motion' ) ) );
+	oum_select_field( $options, 'card_style', __( 'Card style', 'oneup-motion' ), array( 'flat' => __( 'Flat', 'oneup-motion' ), 'glass' => __( 'Glass', 'oneup-motion' ), 'outlined' => __( 'Outlined', 'oneup-motion' ), 'glow' => __( 'Glow', 'oneup-motion' ) ) );
+	oum_panel_close();
+}
+
+//───────────────────────────────────────
+// Header panel
+//───────────────────────────────────────
+function oum_render_options_panel_header( $options ) {
+	oum_panel_open( __( 'Header', 'oneup-motion' ) );
 	oum_checkbox_field( $options, 'sticky_header', __( 'Sticky header', 'oneup-motion' ) );
 	oum_checkbox_field( $options, 'transparent_header', __( 'Transparent header', 'oneup-motion' ) );
 	oum_checkbox_field( $options, 'show_header_cta', __( 'Show header CTA button', 'oneup-motion' ) );
 	oum_text_field( $options, 'header_cta_label', __( 'CTA button label', 'oneup-motion' ) );
 	oum_text_field( $options, 'header_cta_url', __( 'CTA button URL', 'oneup-motion' ), 'url' );
+	oum_panel_close();
+}
+
+//───────────────────────────────────────
+// Footer panel
+//───────────────────────────────────────
+function oum_render_options_panel_footer( $options ) {
+	oum_panel_open( __( 'Footer', 'oneup-motion' ) );
 	oum_text_field( $options, 'footer_description', __( 'Footer description text', 'oneup-motion' ) );
 	oum_text_field( $options, 'footer_email', __( 'Footer email', 'oneup-motion' ), 'email' );
 	oum_text_field( $options, 'footer_instagram', __( 'Instagram URL', 'oneup-motion' ), 'url' );
 	oum_text_field( $options, 'footer_x', __( 'X/Twitter URL', 'oneup-motion' ), 'url' );
 	oum_text_field( $options, 'footer_youtube', __( 'YouTube URL', 'oneup-motion' ), 'url' );
 	oum_text_field( $options, 'footer_linkedin', __( 'LinkedIn URL', 'oneup-motion' ), 'url' );
+	oum_checkbox_field( $options, 'show_footer_nav', __( 'Show Footer Navigation section', 'oneup-motion' ) );
+	oum_checkbox_field( $options, 'show_footer_tools', __( 'Show Footer Tools section', 'oneup-motion' ) );
+	oum_checkbox_field( $options, 'show_footer_resources', __( 'Show Footer Resources section', 'oneup-motion' ) );
+	oum_checkbox_field( $options, 'show_footer_legal', __( 'Show Footer Legal section', 'oneup-motion' ) );
 	oum_text_field( $options, 'footer_nav_title', __( 'Footer Navigation Title', 'oneup-motion' ) );
 	oum_text_field( $options, 'footer_tools_title', __( 'Footer Tools Title', 'oneup-motion' ) );
 	oum_text_field( $options, 'footer_resources_title', __( 'Footer Resources Title', 'oneup-motion' ) );
@@ -387,39 +472,66 @@ function oum_render_options_panel_header_footer( $options ) {
 }
 
 //───────────────────────────────────────
+// Sections panel
+//───────────────────────────────────────
+function oum_render_options_panel_sections( $options ) {
+	oum_panel_open( __( 'Sections', 'oneup-motion' ) );
+	echo '<p>' . esc_html__( 'Use OneUp Sections as the managed page-building experience for predefined layouts.', 'oneup-motion' ) . '</p>';
+	oum_checkbox_field( $options, 'use_sections_for_pages', __( 'Use OneUp Sections as the page editor', 'oneup-motion' ) );
+	oum_checkbox_field( $options, 'hide_page_content_editor', __( 'Hide default page content editor', 'oneup-motion' ) );
+	oum_checkbox_field( $options, 'enable_post_sections', __( 'Enable OneUp Sections on posts', 'oneup-motion' ) );
+	oum_checkbox_field( $options, 'replace_post_editor_with_sections', __( 'Replace post editor with sections', 'oneup-motion' ) );
+	oum_panel_close();
+}
+
+//───────────────────────────────────────
+// Advanced panel
+//───────────────────────────────────────
+function oum_render_options_panel_advanced( $options ) {
+	oum_panel_open( __( 'Advanced', 'oneup-motion' ) );
+	echo '<p>' . esc_html__( 'Developer and fallback settings will live here as the theme grows. No destructive reset is implemented.', 'oneup-motion' ) . '</p>';
+	oum_panel_close();
+}
+
+//───────────────────────────────────────
 // Frontend CSS variables
 //───────────────────────────────────────
 function oum_output_theme_css_variables() {
 	$options = wp_parse_args( get_option( 'oum_theme_options', array() ), oum_theme_option_defaults() );
 	$fonts   = oum_font_choices();
-	$vars    = array(
-		'--oum-bg'               => $options['bg'],
-		'--oum-bg-soft'          => $options['bg_soft'],
-		'--oum-navy'             => $options['navy'],
-		'--oum-card'             => $options['card'],
-		'--oum-card-border'      => $options['card_border'],
-		'--oum-text'             => $options['text'],
-		'--oum-muted'            => $options['muted'],
-		'--oum-soft-muted'       => $options['soft_muted'],
-		'--oum-mint'             => $options['mint'],
-		'--oum-mint-dark'        => $options['mint_dark'],
-		'--oum-button-bg'        => $options['button_bg'],
-		'--oum-button-text'      => $options['button_text'],
-		'--oum-header-bg'        => $options['header_bg'],
-		'--oum-footer-bg'        => $options['footer_bg'],
-		'--oum-heading-font'     => $fonts[ $options['heading_font'] ]['stack'] ?? $fonts['rounded']['stack'],
-		'--oum-body-font'        => $fonts[ $options['body_font'] ]['stack'] ?? $fonts['rounded']['stack'],
-		'--oum-button-font'      => $fonts[ $options['button_font'] ]['stack'] ?? $fonts['rounded']['stack'],
-		'--oum-heading-weight'   => $options['heading_weight'],
-		'--oum-body-weight'      => $options['body_weight'],
-		'--oum-button-weight'    => $options['button_weight'],
-		'--oum-heading-spacing'  => $options['heading_spacing'],
-		'--oum-body-spacing'     => $options['body_spacing'],
-		'--oum-button-spacing'   => $options['button_spacing'],
-		'--oum-base-font-size'   => absint( $options['base_font_size'] ) . 'px',
-		'--oum-button-font-size' => absint( $options['button_font_size'] ) . 'px',
-		'--oum-button-radius'    => absint( $options['button_radius'] ) . 'px',
-		'--oum-button-transform' => $options['button_transform'],
+
+	$vars = array(
+		'--oum-bg'             => $options['bg'],
+		'--oum-bg-soft'        => $options['bg_soft'],
+		'--oum-navy'           => $options['navy'],
+		'--oum-card'           => $options['card'],
+		'--oum-card-border'    => $options['card_border'],
+		'--oum-text'           => $options['text'],
+		'--oum-muted'          => $options['muted'],
+		'--oum-soft-muted'     => $options['soft_muted'],
+		'--oum-mint'           => $options['mint'],
+		'--oum-mint-dark'      => $options['mint_dark'],
+		'--oum-button-bg'      => $options['button_bg'],
+		'--oum-button-text'    => $options['button_text'],
+		'--oum-header-bg'      => $options['header_bg'],
+		'--oum-footer-bg'      => $options['footer_bg'],
+		'--oum-heading-font'   => $fonts[ $options['heading_font'] ]['stack'] ?? $fonts['rounded']['stack'],
+		'--oum-body-font'      => $fonts[ $options['body_font'] ]['stack'] ?? $fonts['rounded']['stack'],
+		'--oum-button-font'    => $fonts[ $options['button_font'] ]['stack'] ?? $fonts['rounded']['stack'],
+		'--oum-heading-weight' => $options['heading_weight'],
+		'--oum-body-weight'    => $options['body_weight'],
+		'--oum-button-weight'  => $options['button_weight'],
+		'--oum-heading-spacing'=> $options['heading_spacing'],
+		'--oum-body-spacing'   => $options['body_spacing'],
+		'--oum-button-spacing' => $options['button_spacing'],
+		'--oum-base-font-size' => absint( $options['base_font_size'] ) . 'px',
+		'--oum-button-font-size'=> absint( $options['button_font_size'] ) . 'px',
+		'--oum-button-radius'  => absint( $options['button_radius'] ) . 'px',
+		'--oum-button-transform'=> $options['button_transform'],
+		'--oum-header-logo-max-width' => absint( $options['header_logo_max_width'] ) . 'px',
+		'--oum-header-logo-max-height'=> absint( $options['header_logo_max_height'] ) . 'px',
+		'--oum-footer-logo-max-width' => absint( $options['footer_logo_max_width'] ) . 'px',
+		'--oum-footer-logo-max-height'=> absint( $options['footer_logo_max_height'] ) . 'px',
 	);
 
 	$css = ':root{';
@@ -450,10 +562,20 @@ function oum_theme_option_body_classes( $classes ) {
 		$classes[] = 'oum-' . str_replace( '_', '-', $key ) . '-' . sanitize_html_class( $options[ $key ] );
 	}
 
-	foreach ( array( 'button_shadow', 'button_hover_lift', 'button_arrow', 'sticky_header', 'transparent_header' ) as $key ) {
-		if ( '1' === $options[ $key ] ) {
-			$classes[] = 'oum-' . str_replace( '_', '-', $key );
-		}
+	if ( '1' === $options['button_shadow'] ) {
+		$classes[] = 'oum-button-shadow';
+	}
+	if ( '1' === $options['button_hover_lift'] ) {
+		$classes[] = 'oum-button-hover-lift';
+	}
+	if ( '1' === $options['button_arrow'] ) {
+		$classes[] = 'oum-button-arrow';
+	}
+	if ( '1' === $options['sticky_header'] ) {
+		$classes[] = 'oum-sticky-header';
+	}
+	if ( '1' === $options['transparent_header'] ) {
+		$classes[] = 'oum-transparent-header';
 	}
 
 	return $classes;
