@@ -84,14 +84,77 @@ function oum_section_field_definitions() {
 			'button_label' => array( 'label' => __( 'Button label', 'oneup-motion' ), 'type' => 'text' ),
 			'button_url'   => array( 'label' => __( 'Button URL', 'oneup-motion' ), 'type' => 'url' ),
 		),
+		'qr_generator'  => array(
+			'eyebrow'               => array( 'label' => __( 'Eyebrow / label', 'oneup-motion' ), 'type' => 'text' ),
+			'heading'               => array( 'label' => __( 'Heading', 'oneup-motion' ), 'type' => 'text' ),
+			'text'                  => array( 'label' => __( 'Text', 'oneup-motion' ), 'type' => 'textarea' ),
+			'tool_intro_text'       => array( 'label' => __( 'Tool intro text', 'oneup-motion' ), 'type' => 'textarea' ),
+			'show_surrounding_card' => array( 'label' => __( 'Show surrounding card/panel', 'oneup-motion' ), 'type' => 'checkbox', 'default' => '1' ),
+			'layout'                => array( 'label' => __( 'Layout', 'oneup-motion' ), 'type' => 'select', 'choices' => array( 'centered' => __( 'Centered', 'oneup-motion' ), 'two-column' => __( 'Two-column', 'oneup-motion' ), 'full-width' => __( 'Full-width', 'oneup-motion' ) ) ),
+			'background_style'      => array( 'label' => __( 'Background style', 'oneup-motion' ), 'type' => 'select', 'choices' => array( 'default' => __( 'Default', 'oneup-motion' ), 'glass' => __( 'Glass', 'oneup-motion' ), 'highlighted' => __( 'Highlighted', 'oneup-motion' ), 'minimal' => __( 'Minimal', 'oneup-motion' ) ) ),
+		),
 	);
 }
+
+//───────────────────────────────────────
+// Use OneUp Sections editor
+//───────────────────────────────────────
+function oum_uses_sections_editor_for_type( $post_type ) {
+	if ( 'page' === $post_type ) {
+		return '1' === oum_get_theme_option( 'use_sections_for_pages', '1' );
+	}
+
+	if ( 'post' === $post_type ) {
+		return '1' === oum_get_theme_option( 'enable_post_sections', '0' ) && '1' === oum_get_theme_option( 'replace_post_editor_with_sections', '0' );
+	}
+
+	return false;
+}
+
+//───────────────────────────────────────
+// Disable block editor when sections replace content
+//───────────────────────────────────────
+function oum_filter_block_editor_for_sections( $use_block_editor, $post_type ) {
+	return oum_uses_sections_editor_for_type( $post_type ) ? false : $use_block_editor;
+}
+add_filter( 'use_block_editor_for_post_type', 'oum_filter_block_editor_for_sections', 10, 2 );
+
+//───────────────────────────────────────
+// Hide default content editor
+//───────────────────────────────────────
+function oum_maybe_remove_default_editor_support() {
+	if ( '1' === oum_get_theme_option( 'use_sections_for_pages', '1' ) && '1' === oum_get_theme_option( 'hide_page_content_editor', '1' ) ) {
+		remove_post_type_support( 'page', 'editor' );
+	}
+
+	if ( oum_uses_sections_editor_for_type( 'post' ) ) {
+		remove_post_type_support( 'post', 'editor' );
+	}
+}
+add_action( 'init', 'oum_maybe_remove_default_editor_support', 20 );
+add_action( 'admin_init', 'oum_maybe_remove_default_editor_support', 20 );
+
+//───────────────────────────────────────
+// Editor notice
+//───────────────────────────────────────
+function oum_sections_editor_admin_notice() {
+	$screen = get_current_screen();
+
+	if ( ! $screen || 'page' !== $screen->post_type || ! oum_uses_sections_editor_for_type( 'page' ) ) {
+		return;
+	}
+
+	echo '<div class="notice notice-info oum-sections-mode-notice"><p>' . esc_html__( 'OneUp Sections is active for pages. The normal block editor is disabled so this page can be managed with predefined sections.', 'oneup-motion' ) . '</p></div>';
+}
+add_action( 'admin_notices', 'oum_sections_editor_admin_notice' );
 
 //───────────────────────────────────────
 // Register meta boxes
 //───────────────────────────────────────
 function oum_register_section_metaboxes() {
-	add_meta_box( 'oum_page_sections', __( 'OneUp Page Sections', 'oneup-motion' ), 'oum_render_sections_metabox', 'page', 'normal', 'high' );
+	if ( '1' === oum_get_theme_option( 'use_sections_for_pages', '1' ) ) {
+		add_meta_box( 'oum_page_sections', __( 'OneUp Page Sections', 'oneup-motion' ), 'oum_render_sections_metabox', 'page', 'normal', 'high' );
+	}
 
 	if ( '1' === oum_get_theme_option( 'enable_post_sections', '0' ) ) {
 		add_meta_box( 'oum_page_sections', __( 'OneUp Post Sections', 'oneup-motion' ), 'oum_render_sections_metabox', 'post', 'normal', 'high' );
@@ -118,6 +181,7 @@ function oum_enqueue_section_builder_assets( $hook ) {
 			'addItem'    => __( 'Add item', 'oneup-motion' ),
 			'remove'     => __( 'Remove', 'oneup-motion' ),
 			'chooseImage'=> __( 'Choose image', 'oneup-motion' ),
+			'empty'      => __( 'No sections yet. Add your first section to start building this page.', 'oneup-motion' ),
 		),
 	) );
 }
@@ -131,14 +195,19 @@ function oum_render_sections_metabox( $post ) {
 	$sections = oum_get_sections( $post->ID );
 	?>
 	<div class="oum-sections-builder" data-oum-sections-builder>
+		<div class="oum-sections-builder__intro">
+			<h2><?php echo esc_html__( 'Build with OneUp Sections', 'oneup-motion' ); ?></h2>
+			<p><?php echo esc_html__( 'Build this page by adding, reordering and editing predefined sections.', 'oneup-motion' ); ?></p>
+		</div>
 		<div class="oum-sections-toolbar">
 			<select data-oum-section-type>
 				<?php foreach ( oum_section_types() as $type => $label ) : ?>
 					<option value="<?php echo esc_attr( $type ); ?>"><?php echo esc_html( $label ); ?></option>
 				<?php endforeach; ?>
 			</select>
-			<button type="button" class="button button-primary" data-oum-add-section><?php echo esc_html__( 'Add section', 'oneup-motion' ); ?></button>
+			<button type="button" class="button button-primary button-hero" data-oum-add-section><?php echo esc_html__( 'Add Section', 'oneup-motion' ); ?></button>
 		</div>
+		<p class="oum-sections-empty" data-oum-empty-state <?php echo empty( $sections ) ? '' : 'hidden'; ?>><?php echo esc_html__( 'No sections yet. Add your first section to start building this page.', 'oneup-motion' ); ?></p>
 		<div class="oum-sections-list" data-oum-sections-list>
 			<?php foreach ( $sections as $index => $section ) : ?>
 				<?php oum_render_admin_section_panel( $index, $section ); ?>
@@ -152,18 +221,29 @@ function oum_render_sections_metabox( $post ) {
 // Render admin section
 //───────────────────────────────────────
 function oum_render_admin_section_panel( $index, $section ) {
-	$type   = $section['type'] ?? 'text';
-	$fields = oum_section_field_definitions()[ $type ] ?? array();
-	$title  = oum_section_types()[ $type ] ?? __( 'Section', 'oneup-motion' );
-	$id     = $section['id'] ?? uniqid( 'oum_', true );
+	$type    = $section['type'] ?? 'text';
+	$fields  = oum_section_field_definitions()[ $type ] ?? array();
+	$title   = oum_section_types()[ $type ] ?? __( 'Section', 'oneup-motion' );
+	$id      = $section['id'] ?? uniqid( 'oum_', true );
+	$summary = '';
+
+	foreach ( array( 'heading', 'title', 'eyebrow' ) as $summary_key ) {
+		if ( ! empty( $section[ $summary_key ] ) ) {
+			$summary = wp_trim_words( wp_strip_all_tags( $section[ $summary_key ] ), 12 );
+			break;
+		}
+	}
 	?>
 	<div class="oum-section-panel" data-oum-section>
 		<div class="oum-section-panel__header">
-			<strong><?php echo esc_html( $title ); ?></strong>
-			<div>
-				<button type="button" class="button-link" data-oum-move-up><?php echo esc_html__( 'Up', 'oneup-motion' ); ?></button>
-				<button type="button" class="button-link" data-oum-move-down><?php echo esc_html__( 'Down', 'oneup-motion' ); ?></button>
-				<button type="button" class="button-link" data-oum-toggle><?php echo esc_html__( 'Collapse', 'oneup-motion' ); ?></button>
+			<div class="oum-section-panel__title">
+				<strong><?php echo esc_html( $title ); ?></strong>
+				<span data-oum-section-summary><?php echo $summary ? esc_html( $summary ) : esc_html__( 'No heading yet', 'oneup-motion' ); ?></span>
+			</div>
+			<div class="oum-section-panel__controls">
+				<button type="button" class="button" data-oum-move-up><?php echo esc_html__( 'Move Up', 'oneup-motion' ); ?></button>
+				<button type="button" class="button" data-oum-move-down><?php echo esc_html__( 'Move Down', 'oneup-motion' ); ?></button>
+				<button type="button" class="button" data-oum-toggle><?php echo esc_html__( 'Collapse', 'oneup-motion' ); ?></button>
 				<button type="button" class="button-link-delete" data-oum-remove><?php echo esc_html__( 'Remove', 'oneup-motion' ); ?></button>
 			</div>
 		</div>
@@ -197,7 +277,8 @@ function oum_render_admin_section_field( $index, $key, $field, $value ) {
 					<?php endforeach; ?>
 				</select>
 			<?php elseif ( 'checkbox' === $type ) : ?>
-				<input type="checkbox" name="<?php echo esc_attr( $name ); ?>" value="1" <?php checked( $value, '1' ); ?>>
+				<?php $checked_value = '' === $value && isset( $field['default'] ) ? $field['default'] : $value; ?>
+				<input type="checkbox" name="<?php echo esc_attr( $name ); ?>" value="1" <?php checked( $checked_value, '1' ); ?>>
 			<?php elseif ( 'media' === $type ) : ?>
 				<input type="hidden" name="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( absint( $value ) ); ?>" data-oum-media-input>
 				<button type="button" class="button" data-oum-media-button><?php echo esc_html__( 'Choose image', 'oneup-motion' ); ?></button>
