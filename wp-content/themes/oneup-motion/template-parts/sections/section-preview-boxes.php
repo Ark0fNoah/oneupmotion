@@ -24,7 +24,11 @@ $layout  = oum_section_field( $section, 'layout', 'auto' );
 				<?php $status = sanitize_html_class( $box['status'] ?? 'normal' ); ?>
 				<article class="tool-card tool-card--<?php echo esc_attr( $status ); ?> <?php echo 0 === $index && '1' === oum_section_field( $section, 'highlight_first_card', '0' ) ? 'tool-card--available' : ''; ?>">
 					<?php if ( ! empty( $box['badge'] ) && '1' === oum_section_field( $section, 'show_badges', '1' ) ) : ?><div class="tool-card__status"><?php echo esc_html( $box['badge'] ); ?></div><?php endif; ?>
-					<?php if ( ! empty( $box['icon_text'] ) ) : ?><div class="tool-card__icon"><?php echo esc_html( $box['icon_text'] ); ?></div><?php endif; ?>
+					<?php if ( ! empty( $box['icon_image_id'] ) ) : ?>
+						<div class="tool-card__icon tool-card__icon--image"><?php echo wp_get_attachment_image( absint( $box['icon_image_id'] ), 'thumbnail' ); ?></div>
+					<?php elseif ( ! empty( $box['icon_text'] ) ) : ?>
+						<div class="tool-card__icon"><?php echo esc_html( $box['icon_text'] ); ?></div>
+					<?php endif; ?>
 					<h3><?php echo esc_html( $box['title'] ?? '' ); ?></h3>
 					<p><?php echo esc_html( $box['text'] ?? '' ); ?></p>
 					<?php if ( '1' === oum_section_field( $section, 'show_card_buttons', '1' ) && ! empty( $box['button_label'] ) && ! empty( $box['button_url'] ) ) : ?>
