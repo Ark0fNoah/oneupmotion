@@ -15,7 +15,8 @@ $items   = isset( $section['items'] ) && is_array( $section['items'] ) ? $sectio
 		<div class="trust-strip__logos">
 			<?php foreach ( $items as $item ) : ?>
 				<?php $name = $item['name'] ?? ''; ?>
-				<?php if ( ! empty( $item['url'] ) ) : ?><a href="<?php echo esc_url( $item['url'] ); ?>"><?php echo esc_html( $name ); ?></a><?php else : ?><span><?php echo esc_html( $name ); ?></span><?php endif; ?>
+				<?php $logo = ! empty( $item['logo_image_id'] ) ? wp_get_attachment_image( absint( $item['logo_image_id'] ), 'medium', false, array( 'alt' => esc_attr( $name ) ) ) : esc_html( $name ); ?>
+				<?php if ( ! empty( $item['url'] ) ) : ?><a href="<?php echo esc_url( $item['url'] ); ?>"><?php echo $logo; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></a><?php else : ?><span><?php echo $logo; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span><?php endif; ?>
 			<?php endforeach; ?>
 		</div>
 	</div>
