@@ -23,7 +23,21 @@ function oum_section_types() {
 		'cta'           => __( 'CTA Section', 'oneup-motion' ),
 		'faq'           => __( 'FAQ Section', 'oneup-motion' ),
 		'contact'       => __( 'Contact Section', 'oneup-motion' ),
+		'qr_generator'  => __( 'QR Generator', 'oneup-motion' ),
 	);
+}
+
+//───────────────────────────────────────
+// Repeater field map
+//───────────────────────────────────────
+function oum_section_repeater_fields( $type ) {
+	$fields = array(
+		'cards'    => array( 'icon', 'title', 'text', 'button_label', 'button_url' ),
+		'services' => array( 'title', 'text', 'icon', 'url' ),
+		'faq'      => array( 'question', 'answer' ),
+	);
+
+	return $fields[ $type ] ?? array();
 }
 
 //───────────────────────────────────────
