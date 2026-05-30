@@ -34,10 +34,18 @@
 
 		<div class="site-footer__columns">
 			<?php
-			oum_footer_menu( 'footer_nav', oum_get_theme_option( 'footer_nav_title', __( 'Navigation', 'oneup-motion' ) ), __( 'Assign a Footer Navigation menu in Appearance > Menus.', 'oneup-motion' ) );
-			oum_footer_menu( 'footer_tools', oum_get_theme_option( 'footer_tools_title', __( 'Tools', 'oneup-motion' ) ), __( 'Assign a Footer Tools menu in Appearance > Menus.', 'oneup-motion' ) );
-			oum_footer_menu( 'footer_resources', oum_get_theme_option( 'footer_resources_title', __( 'Resources', 'oneup-motion' ) ), __( 'Assign a Footer Resources menu in Appearance > Menus.', 'oneup-motion' ) );
-			oum_footer_menu( 'footer_legal', oum_get_theme_option( 'footer_legal_title', __( 'Legal', 'oneup-motion' ) ), __( 'Assign a Footer Legal menu in Appearance > Menus.', 'oneup-motion' ) );
+			if ( '1' === oum_get_theme_option( 'show_footer_nav', '1' ) ) {
+				oum_footer_menu( 'footer_nav', oum_get_theme_option( 'footer_nav_title', __( 'Navigation', 'oneup-motion' ) ), __( 'Assign a Footer Navigation menu in Appearance > Menus.', 'oneup-motion' ) );
+			}
+			if ( '1' === oum_get_theme_option( 'show_footer_tools', '1' ) ) {
+				oum_footer_menu( 'footer_tools', oum_get_theme_option( 'footer_tools_title', __( 'Tools', 'oneup-motion' ) ), __( 'Assign a Footer Tools menu in Appearance > Menus.', 'oneup-motion' ) );
+			}
+			if ( '1' === oum_get_theme_option( 'show_footer_resources', '1' ) ) {
+				oum_footer_menu( 'footer_resources', oum_get_theme_option( 'footer_resources_title', __( 'Resources', 'oneup-motion' ) ), __( 'Assign a Footer Resources menu in Appearance > Menus.', 'oneup-motion' ) );
+			}
+			if ( '1' === oum_get_theme_option( 'show_footer_legal', '1' ) ) {
+				oum_footer_menu( 'footer_legal', oum_get_theme_option( 'footer_legal_title', __( 'Legal', 'oneup-motion' ) ), __( 'Assign a Footer Legal menu in Appearance > Menus.', 'oneup-motion' ) );
+			}
 			?>
 		</div>
 
